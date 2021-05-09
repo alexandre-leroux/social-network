@@ -26,6 +26,7 @@ function chekxUserConnecte(){
                 else if(dataType[i]["connecte"] == 1)
                 {
                     $('#div1').append("<p class='p_liste_user_connecte'>"+dataType[i][1]+"</p>")
+                }
        
 
                   i++

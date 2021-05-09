@@ -18,13 +18,14 @@ function deconnexion(){
         },
     
         complete : function(resultat, statut){
-            // console.log(resultat);
-            // console.log(statut);
+            console.log(resultat);
+            console.log(statut);
         }
 
 
     })
 }
+
 
 // continue la fonction avec 1s d'interval
 setInterval( deconnexion, 60000)

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('../pages/database.php');
+require_once('../model/database.php');
 
 
 $mail = $_SESSION['mail'];
