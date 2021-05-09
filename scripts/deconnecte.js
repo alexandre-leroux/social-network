@@ -1,3 +1,13 @@
+
+
+
+// continue la fonction avec 1s d'interval
+// setInterval( deconnexion, 60000)
+
+
+window.onbeforeunload = deconnexion;
+		
+//Fonction appelé au moment de fermer la page
 function deconnexion(){
     console.log('script deco tourne')
 
@@ -25,7 +35,3 @@ function deconnexion(){
 
     })
 }
-
-
-// continue la fonction avec 1s d'interval
-setInterval( deconnexion, 60000)
