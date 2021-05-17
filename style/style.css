@@ -1,5 +1,13 @@
 @import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
-header, header nav, #section_centrale, .p_liste_user, .p_liste_user_connecte {
+@import url("https://fonts.googleapis.com/css2?family=Hind:wght@300;500;700&family=Roboto:ital,wght@0,300;0,400;0,700;0,900;1,700&display=swap");
+* {
+  font-family: 'Roboto', sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: none;
+}
+
+header, header nav, #section_centrale #div1 #users {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9,10 +17,6 @@ header, header nav, #section_centrale, .p_liste_user, .p_liste_user_connecte {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-
-Body {
-  height: 100vh;
 }
 
 header {
@@ -27,36 +31,261 @@ header nav {
 }
 
 #section_centrale {
-  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-#section_centrale div {
-  height: 100%;
-  width: 30%;
+#section_centrale > div {
+  border-radius: 2em;
+  background-color: #f8f2f2;
+  padding: 20px;
+  margin: 0px 10px;
 }
 
 #section_centrale #div1 {
-  background-color: aqua;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 20%;
+}
+
+#section_centrale #div1 #users {
+  width: 100%;
+  background-color: #ece8e8;
+  margin: 10px 0px;
+  border-radius: 1em;
+}
+
+#section_centrale #div1 #users img {
+  display: block;
+  width: 50%;
+  padding: 30px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#section_centrale #div1 #users p {
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #section_centrale #div2 {
-  background-color: #ff00f2;
+  background-color: #f5f3f3;
+  width: 40%;
+}
+
+#section_centrale #div2 .post {
+  margin: 15px 0px;
+  padding: 20px;
+  border-radius: 2em;
+  background-color: white;
+}
+
+#section_centrale #div2 .post .post_image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#section_centrale #div2 .post .post_image > div {
+  padding: 20px;
+}
+
+#section_centrale #div2 .post .post_image .photo_profil {
+  width: 30%;
+}
+
+#section_centrale #div2 .post .post_image .pseudo_user {
+  width: 70%;
+}
+
+#section_centrale #div2 .post .post_image .pseudo_user + p {
+  font-weight: 800;
+}
+
+#section_centrale #div2 .post .like_post {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+}
+
+#section_centrale #div2 .post .like_post i {
+  cursor: pointer;
+  -webkit-transition: .2s;
+  transition: .2s;
+  display: inline-block;
+  color: #fa5f5a;
+}
+
+#section_centrale #div2 .post .like_post i:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+#section_centrale #div2 .post .like_post > * {
+  padding: 10px;
+}
+
+#section_centrale #div2 .post .comment_post .comment {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#section_centrale #div2 .post .comment_post .comment #img_comment {
+  width: 10%;
+  margin: 20px;
+}
+
+#section_centrale #div2 .post .comment_post .comment #img_comment img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#section_centrale #div2 .post .comment_post .comment #description_comment {
+  width: 80%;
+  padding: 15px;
+  font-size: 0.8em;
+  background-color: #e6e6e6;
+}
+
+#section_centrale #div2 .post #link_autres_comment {
+  text-align: center;
+  color: #fa5f5a;
+  text-decoration: underline;
+  font-size: 0.8em;
+  cursor: pointer;
+  padding: 10px;
+}
+
+#section_centrale #div2 .post #form_comment {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#section_centrale #div2 .post #form_comment .img_form_comment {
+  width: 10%;
+  margin: 20px;
+}
+
+#section_centrale #div2 .post #form_comment .img_form_comment img {
+  width: 100%;
+}
+
+#section_centrale #div2 .post #form_comment .input_form_comment {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#section_centrale #div2 .post #form_comment .input_form_comment textarea {
+  width: 70%;
+  border-radius: 2em;
+  background-color: #e4e4e4;
+  border: none;
+  padding: 10px;
+}
+
+#section_centrale #div2 .post #form_comment .input_form_comment textarea::-webkit-input-placeholder {
+  color: black;
+  padding: 5px;
+}
+
+#section_centrale #div2 .post #form_comment .input_form_comment textarea:-ms-input-placeholder {
+  color: black;
+  padding: 5px;
+}
+
+#section_centrale #div2 .post #form_comment .input_form_comment textarea::-ms-input-placeholder {
+  color: black;
+  padding: 5px;
+}
+
+#section_centrale #div2 .post #form_comment .input_form_comment textarea::placeholder {
+  color: black;
+  padding: 5px;
+}
+
+#section_centrale #div2 .post #form_comment .input_form_comment input {
+  width: 30%;
+  margin: 10px;
+  background-color: #fa5f5a;
+  padding: 10px;
+  text-transform: uppercase;
+  color: white;
+  font-size: 0.7em;
+  border: none;
+  border-radius: 2em;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+#section_centrale #div2 .post #form_comment .input_form_comment input:hover {
+  color: #fa5f5a;
+  background-color: transparent;
+  border: 1px solid #fa5f5a;
 }
 
 #section_centrale #div3 {
   background-color: #ffc400;
+  width: 20%;
 }
 
 .p_liste_user {
-  height: 50px;
-  background-color: #c2c2c2;
-  border: solid 1px grey;
+  text-transform: capitalize;
+  padding: 5px;
+  font-weight: 700;
 }
 
-.p_liste_user_connecte {
-  height: 50px;
-  background-color: #32ff4d;
-  border: solid 1px grey;
-  color: white;
+.p_liste_user::before {
+  content: "";
+  background-color: #646665;
+  border-radius: 2em;
+  width: 13px;
+  height: 13px;
+  display: block;
+  -webkit-transform: translateX(-43px) translateY(20px);
+          transform: translateX(-43px) translateY(20px);
+}
+
+.connecte::before {
+  background-color: #4eee8b;
+}
+
+.bold {
+  font-weight: 700;
+  padding: 5px 0px;
 }
 /*# sourceMappingURL=style.css.map */

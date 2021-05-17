@@ -1,14 +1,20 @@
 @import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;500;700&family=Roboto:ital,wght@0,300;0,400;0,700;0,900;1,700&display=swap');
 
+*{
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    outline: none;
+}
 %displayflex  {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-Body{
-    height: 100vh;
-}
+// Body{
+//     height: 100vh;
+// }
 
 header{
     @extend %displayflex;
@@ -26,22 +32,174 @@ header{
 
 #section_centrale{
 
-    height: 100%;
+    // height: 100%;
 
-    @extend %displayflex;
-    & div{
-        height: 100%;
-        width: 30%;
+    display: flex;
+    justify-content: center;
+    & > div{
+        // height: 100%;
+        
+        border-radius: 2em;
+        background-color: rgb(248, 242, 242);
+        padding: 20px; 
+        margin: 0px 10px; 
 
     }
     & #div1{
-        background-color: aqua;
+        position: sticky;
+        top: 0;
+        width: 20%; 
+
+        & #users {
+            @extend %displayflex; 
+            width: 100%;
+            background-color: rgb(236, 232, 232);
+            margin: 10px 0px;
+            border-radius: 1em;
+            & img {
+                display: block;
+                width: 50%;
+                padding: 30px;
+                object-fit: cover;
+               
+            }
+            & p {
+                width: 70%;
+                display: flex;
+                align-items: center;
+            }
+        }
     }
     & #div2{
-        background-color: rgb(255, 0, 242);
+        background-color: rgb(245, 243, 243);
+        width: 40% ; 
+        .post{
+            margin : 15px 0px; 
+            padding: 20px;
+            border-radius: 2em;
+            background-color: white;
+            .post_image{
+                display: flex;
+                align-items: center;
+                & > div {
+                    padding: 20px;
+                }
+                .photo_profil{
+                    width: 30% ; 
+                }
+                .pseudo_user{
+                    width: 70% ; 
+                    & + p {
+                        font-weight: 800;
+                    }
+                }
+            }
+            .like_post{
+                display: flex;
+                align-items: center;
+                padding: 10px;
+
+                & i {
+                    cursor: pointer;
+                    transition: .2s;
+                    display: inline-block;
+                    color: rgb(250, 95, 90);
+                    &:hover{
+                        transform: scale(1.2);
+                    }
+                }
+
+                & > * {
+                    padding: 10px;
+                }
+
+            }
+            .comment_post{
+                .comment {
+                    display: flex;
+                    align-items: center;
+
+                    & #img_comment
+                    {
+                        width: 10%;
+                        margin: 20px;
+                        img {
+                            width: 100%;
+                            object-fit: cover;
+                        }
+                    } 
+                    & #description_comment {
+                        width: 80%; 
+                        padding: 15px;
+                        font-size: 0.8em;
+                        background-color: rgb(230, 230, 230);
+                    
+                    }
+
+                }
+            }
+            #link_autres_comment {
+                text-align: center;
+                color: rgb(250, 95, 90);
+                text-decoration: underline;
+                font-size: 0.8em;
+                cursor: pointer; 
+                padding: 10px;
+            }
+            #form_comment {
+                display: flex;
+                align-items: center;
+                .img_form_comment {
+                    width: 10%; 
+                    margin: 20px;
+                    img{
+                        width: 100% ; 
+                    }
+                }
+              
+                .input_form_comment {
+                    width : 80%; 
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    textarea {
+                        width: 70% ; 
+                        border-radius: 2em;
+                        background-color: rgb(228, 228, 228);
+                        border: none;
+                        padding: 10px;
+                        &::placeholder{
+                            color: black; 
+                            padding: 5px;
+                        }
+                    }
+                    input{
+                        width : 30%;
+                        margin: 10px;
+                        background-color: rgb(250, 95, 90); 
+                        padding: 10px;
+                        text-transform: uppercase;
+                        color: white;
+                        font-size: 0.7em;
+                        border: none;
+                        border-radius: 2em;
+                        cursor: pointer;
+                        transition: .3s;
+                        &:hover {
+                            color :rgb(250, 95, 90);
+                            background-color: transparent;
+                            border : 1px solid rgb(250, 95, 90) ;
+                        }
+                    }
+                }
+                
+
+            }
+        }
     }
     & #div3{
         background-color: rgb(255, 196, 0);
+        width: 20% ;
     }
 
 
@@ -49,15 +207,31 @@ header{
 }
 
 .p_liste_user{
-    height: 50px;
-    @extend %displayflex;
-    background-color: rgb(194, 194, 194);
-    border: solid 1px grey;
+    text-transform: capitalize;
+    padding: 5px;
+    font-weight: 700;
+    &::before{
+        content: "";
+        background-color: rgb(100, 102, 101);
+        border-radius: 2em;
+        // color: green;
+        width: 13px;
+        height: 13px;
+        display: block;
+        transform: translateX(-43px) translateY(20px);
+
+
+    }
 }
-.p_liste_user_connecte{
-    height: 50px;
-    @extend %displayflex;
-    background-color: rgb(50, 255, 77);
-    border: solid 1px grey;
-    color: white;
+.connecte{
+    &::before{
+        background-color: rgb(78, 238, 139);
+    }
+}
+
+.bold{
+
+    font-weight: 700;
+    padding: 5px 0px;
+    
 }

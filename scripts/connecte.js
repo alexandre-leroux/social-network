@@ -36,4 +36,4 @@ function connexion(){
 
 
 // continue la fonction avec 1s d'interval
-setInterval( connexion, 1000)
+// setInterval( connexion, 1000)

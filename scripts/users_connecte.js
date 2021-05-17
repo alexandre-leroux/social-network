@@ -13,7 +13,7 @@ function chekxUserConnecte(){
             var count = Object.keys(dataType).length;
             console.log(count);
 
-            $('#div1').empty();
+            $('#users_list').empty();
 
             let i = 0;
             while ( i < count)
@@ -21,11 +21,11 @@ function chekxUserConnecte(){
 
                 if(dataType[i]["connecte"] == 0)
                 {
-                    $('#div1').append("<p class='p_liste_user'>"+dataType[i][1]+"</p>")
+                    $('#users_list').append("<div id=\"users\"><img src=\"img/pp.jpg\"><p class='p_liste_user'>"+dataType[i][1]+"</p></div>")
                 }
                 else if(dataType[i]["connecte"] == 1)
                 {
-                    $('#div1').append("<p class='p_liste_user_connecte'>"+dataType[i][1]+"</p>")
+                    $('#users_list').append("<div id=\"users\"><img src=\"img/pp.jpg\"><p class='p_liste_user connecte'>"+dataType[i][1]+"</p></div>")
                 }
        
 
@@ -51,4 +51,4 @@ function chekxUserConnecte(){
 
 chekxUserConnecte()
 
-setInterval( chekxUserConnecte, 1000)
+// setInterval( chekxUserConnecte, 1000)
