@@ -2,10 +2,10 @@
 -- version 4.9.5
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: May 09, 2021 at 11:45 PM
--- Server version: 5.7.24
--- PHP Version: 7.4.1
+-- Hôte : localhost:3306
+-- Généré le : mar. 18 mai 2021 à 12:48
+-- Version du serveur :  5.7.24
+-- Version de PHP : 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,27 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `social-network`
+-- Base de données : `social-network`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Structure de la table `conversations_privees`
+--
+
+CREATE TABLE `conversations_privees` (
+  `id_conv_prv` int(11) NOT NULL,
+  `fk_user_1` int(11) NOT NULL,
+  `fk_user_2` int(11) NOT NULL,
+  `fk_user_message` int(11) NOT NULL,
+  `message` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users`
 --
 
 CREATE TABLE `users` (
@@ -36,7 +50,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `users`
+-- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id`, `prenom`, `mail`, `connecte`) VALUES
@@ -48,21 +62,33 @@ INSERT INTO `users` (`id`, `prenom`, `mail`, `connecte`) VALUES
 (7, 'uri', 'f@f.f', 0);
 
 --
--- Indexes for dumped tables
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `users`
+-- Index pour la table `conversations_privees`
+--
+ALTER TABLE `conversations_privees`
+  ADD PRIMARY KEY (`id_conv_prv`);
+
+--
+-- Index pour la table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT pour la table `conversations_privees`
+--
+ALTER TABLE `conversations_privees`
+  MODIFY `id_conv_prv` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;

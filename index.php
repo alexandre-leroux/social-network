@@ -194,5 +194,6 @@ if(isset($_SESSION['mail']))
 }
 ?>
 <script src="scripts/deconnecte.js"></script>
+<script src="scripts/chat_prive.js"></script>
 <script src="scripts/users_connecte.js"></script>
 </html>

@@ -7,7 +7,7 @@
   outline: none;
 }
 
-header, header nav, #section_centrale #div1 #users {
+header, header nav, #section_centrale #div1 .users a{
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -53,14 +53,14 @@ header nav {
   width: 20%;
 }
 
-#section_centrale #div1 #users {
+#section_centrale #div1 .users a{
   width: 100%;
   background-color: #ece8e8;
   margin: 10px 0px;
   border-radius: 1em;
 }
 
-#section_centrale #div1 #users img {
+#section_centrale #div1 .users a img {
   display: block;
   width: 50%;
   padding: 30px;
@@ -68,7 +68,7 @@ header nav {
      object-fit: cover;
 }
 
-#section_centrale #div1 #users p {
+#section_centrale #div1 .users a p {
   width: 70%;
   display: -webkit-box;
   display: -ms-flexbox;
