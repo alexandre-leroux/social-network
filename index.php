@@ -22,7 +22,7 @@ if(!isset($_SESSION['mail']))
 {
 ?>
 
-<header >
+<header>
     <nav>
         <div class="logo_text_header">
             <div class="logo_network">
@@ -59,19 +59,64 @@ else
 
 <section id="section_centrale">
 
-<div id="div1">
+    <div id="div3">
+        <article id="contenu_div3">
 
-    <div id="bloc_search_bar">
-        <input type="search" name="barre_de_recherche" id="search_bar_users">
-        <i class="fa fa-search"></i>
+            <div id="pres_user_connect">
+                <div class="img_user_connect">
+                    <img src="img/pp.jpg" alt="#">
+                </div>
+                <div class="infos_user_connecte">
+                    <p> Baptiste </p>
+                    <p>@baptistegauthier</p>
+                </div>
+            </div>
+            
+            <nav id="menu">
+                <ul>
+                    <li><a href="#"><i class="fa fa-home"></i> Accueil </a></li>
+                    <li><a href="#"><i class="fa fa-user-circle"></i> Profil </a></li>
+                </ul>
+            </nav>
+            
+            <h2> Conversations </h2>
+            
+            <div id="conv">
+                <div>
+                    <div>
+                        <img src="img/group.svg" alt="#">
+                    </div>
+                    <div>
+                        <p> Groupe 1 </p>
+                    </div>
+                </div>
+                
+                <div>
+                    <div>
+                        <img src="img/group.svg" alt="#">
+                    </div>
+                    <div>
+                        <p> Groupe 2 </p>
+                    </div>
+                </div>
+                
+                <div>
+                    <div>
+                        <img src="img/group.svg" alt="#">
+                    </div>
+                    <div>
+                        <p> Groupe 3 </p>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </article>
+
     </div>
-    <div id="users_list">
-
-    </div>
-
-</div>
-
-<div id="div2">
+    
+    
+    <div id="div2">
     <article class="post">
         <div class="post_image">
             <div class="photo_profil">
@@ -311,57 +356,20 @@ else
     </article>
 </div>
 
-<div id="div3">
-    <div id="pres_user_connect">
-        <div class="img_user_connect">
-            <img src="img/pp.jpg" alt="#">
+<div id="div1">
+    <article id="contenu_div1">
+
+        <div id="bloc_search_bar">
+            <input type="search" name="barre_de_recherche" id="search_bar_users">
+            <i class="fa fa-search"></i>
         </div>
-        <div class="infos_user_connecte">
-            <p> Baptiste </p>
-            <p>@baptistegauthier</p>
+        <div id="users_list">
+            
         </div>
-    </div>
-
-    <nav id="menu">
-        <ul>
-            <li><a href="#"><i class="fa fa-home"></i> Accueil </a></li>
-            <li><a href="#"><i class="fa fa-user-circle"></i> Profil </a></li>
-        </ul>
-    </nav>
-
-    <h2> Conversations </h2>
-
-    <div id="conv">
-        <div>
-            <div>
-                <img src="img/group.svg" alt="#">
-            </div>
-            <div>
-                <p> Groupe 1 </p>
-            </div>
-        </div>
-
-        <div>
-            <div>
-                <img src="img/group.svg" alt="#">
-            </div>
-            <div>
-                <p> Groupe 2 </p>
-            </div>
-        </div>
-
-        <div>
-            <div>
-                <img src="img/group.svg" alt="#">
-            </div>
-            <div>
-                <p> Groupe 3 </p>
-            </div>
-        </div>
-
-    </div>
-
+    </article>
 </div>
+
+
 
 
 

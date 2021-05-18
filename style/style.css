@@ -100,6 +100,13 @@ header nav ul li a {
   width: 20%;
 }
 
+#section_centrale #div1 #contenu_div1 {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 20px 0px;
+}
+
 #section_centrale #div1 #users {
   width: 100%;
   background-color: #ece8e8;
@@ -342,6 +349,13 @@ header nav ul li a {
 #section_centrale #div3 {
   background-color: #f5f3f3;
   width: 20%;
+}
+
+#section_centrale #div3 #contenu_div3 {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 20px 0px;
 }
 
 #section_centrale #div3 #pres_user_connect .img_user_connect img {

@@ -84,7 +84,11 @@ header{
         position: sticky;
         top: 0;
         width: 20%; 
-
+        & #contenu_div1{
+            position: sticky; 
+            top: 0 ; 
+            padding: 20px 0px ; 
+        }
         & #users {
             @extend %displayflex; 
             width: 100%;
@@ -258,6 +262,11 @@ header{
     & #div3{
         background-color: rgb(245, 243, 243);
         width: 20% ;
+        #contenu_div3 {
+            position: sticky; 
+            top: 0; 
+            padding: 20px 0px ; 
+        }
         #pres_user_connect{
             @extend %displayflex; 
             .img_user_connect{
