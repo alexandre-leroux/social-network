@@ -7,7 +7,7 @@
   outline: none;
 }
 
-header, header nav, #section_centrale #div1 #users {
+header nav .logo_text_header, header nav ul, #section_centrale #div1 #users, #section_centrale #div3 #pres_user_connect {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -20,14 +20,61 @@ header, header nav, #section_centrale #div1 #users {
 }
 
 header {
-  height: 100px;
-  background-color: #dfdfdf;
+  background-color: #f1efef;
+  margin-bottom: 20px;
 }
 
 header nav {
-  width: 80%;
-  -ms-flex-pack: distribute !important;
-      justify-content: space-around !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+header nav .logo_text_header {
+  width: 50%;
+}
+
+header nav .logo_text_header .logo_network {
+  width: 30%;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+header nav .logo_text_header .logo_network img {
+  width: 50%;
+}
+
+header nav .logo_text_header .nom_header {
+  width: 70%;
+}
+
+header nav .logo_text_header .nom_header h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: capitalize;
+}
+
+header nav ul {
+  width: 50%;
+}
+
+header nav ul li {
+  padding: 10px;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: black;
 }
 
 #section_centrale {
@@ -80,7 +127,7 @@ header nav {
 
 #section_centrale #div2 {
   background-color: #f5f3f3;
-  width: 40%;
+  width: 45%;
 }
 
 #section_centrale #div2 .post {
@@ -113,6 +160,40 @@ header nav {
 
 #section_centrale #div2 .post .post_image .pseudo_user + p {
   font-weight: 800;
+}
+
+#section_centrale #div2 .post .description_post {
+  padding: 20px;
+}
+
+#section_centrale #div2 .post .image_post {
+  padding: 20px;
+}
+
+#section_centrale #div2 .post .image_post img {
+  border-radius: 1em;
+}
+
+#section_centrale #div2 .post .image_post .galerie {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#section_centrale #div2 .post .image_post .galerie div {
+  width: 50%;
+  margin-top: 10px;
+}
+
+#section_centrale #div2 .post .image_post .galerie :nth-child(1) {
+  margin-right: 5px;
+}
+
+#section_centrale #div2 .post .image_post .galerie :nth-child(2) {
+  margin-left: 5px;
 }
 
 #section_centrale #div2 .post .like_post {
@@ -259,8 +340,67 @@ header nav {
 }
 
 #section_centrale #div3 {
-  background-color: #ffc400;
+  background-color: #f5f3f3;
   width: 20%;
+}
+
+#section_centrale #div3 #pres_user_connect .img_user_connect img {
+  width: 100%;
+}
+
+#section_centrale #div3 #pres_user_connect .infos_user_connecte {
+  padding: 20px 10px;
+}
+
+#section_centrale #div3 #pres_user_connect .infos_user_connecte p {
+  padding: 2px;
+}
+
+#section_centrale #div3 #pres_user_connect .infos_user_connecte :nth-child(1) {
+  font-weight: 700;
+}
+
+#section_centrale #div3 #pres_user_connect .infos_user_connecte :nth-child(2) {
+  font-size: small;
+  color: rgba(0, 0, 0, 0.527);
+}
+
+#section_centrale #div3 h2 {
+  padding: 10px 0px;
+  font-weight: 800;
+}
+
+#section_centrale #div3 #menu li {
+  padding: 10px;
+  background-color: white;
+  margin: 10px 0px;
+}
+
+#section_centrale #div3 #menu li i {
+  margin-right: 10px;
+}
+
+#section_centrale #div3 #menu li a {
+  color: #fa5f5a;
+  text-decoration: none;
+}
+
+#section_centrale #div3 #conv > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.096);
+  margin: 10px 0px;
+}
+
+#section_centrale #div3 #conv > div div {
+  width: 50%;
+  margin: auto;
+}
+
+#section_centrale #div3 #conv > div div img {
+  width: 100%;
+  padding: 30px;
 }
 
 .p_liste_user {

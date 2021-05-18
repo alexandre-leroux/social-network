@@ -1,6 +1,6 @@
 <?php 
 session_start();
-var_dump($_SESSION);
+// var_dump($_SESSION);
 
 ?>
 
@@ -24,8 +24,18 @@ if(!isset($_SESSION['mail']))
 
 <header >
     <nav>
-        <a href="pages/inscription.php">inscription</a>
-        <a href="pages/connexion.php">connexion</a>
+        <div class="logo_text_header">
+            <div class="logo_network">
+                <img src="img/logo.svg" alt="#">
+            </div>
+            <div class="nom_header">
+                <h1> la plateforme_ network </h1>
+            </div>
+        </div>
+        <ul>
+            <li><a href="pages/inscription.php">S'inscrire</a></li>
+            <li><a href="pages/connexion.php">Se connecter</a></li>
+        </ul>
     </nav>
 </header>
 <?php
@@ -46,7 +56,7 @@ else
 }
 ?>
 
-<h1>BIENVENUR SUR SOCIAL NETWORK</h1>
+
 <section id="section_centrale">
 
 <div id="div1">
@@ -171,9 +181,187 @@ else
                 
         </div>
     </article>
+
+    <article class="post">
+        <div class="post_image">
+            <div class="photo_profil">
+                <img src="img/pp.jpg" alt="#">
+            </div>
+            <div class="pseudo_user">
+                <p class="bold"> Pseudo de l'utilisateur </p>
+                <p> 2m </p>
+            </div>
+        </div>
+
+        <div class="description_post">
+            <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio sit dolorem aliquid nesciunt laudantium? </p>
+        </div>
+
+        <div class="image_post">
+            <img src="img/landscape.jpg" alt="#">
+        </div>
+
+        <div class="like_post">
+            <div>
+                <i class="fa fa-thumbs-up"></i>
+            </div>
+            <p> 128 </p>
+            <div>
+                <i class="fa fa-comments button_comment"></i>
+            </div>
+            <p> 40 </p>
+            
+        </div>
+
+        <div class="comment_post" style="display: none;">
+            <div class="comment">
+                <div id="img_comment">
+                    <img src="img/pp.jpg" alt="#">
+                </div>
+                <div id="description_comment">
+                    <p class="bold"> Nom de la personne </p>
+                    <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum, excepturi? Expedita, doloremque.</p>
+                </div>
+            </div>    
+                
+            <div id="link_autres_comment">
+                <p> Voir tous les commentaires </p>
+            </div>
+
+            <div id="form_comment">
+                <div class="img_form_comment">
+                    <img src="img/pp.jpg" alt="#">
+                </div>
+                <div class="input_form_comment">
+                    <textarea placeholder="Ecrire un commentaire...."></textarea>
+                    <input type="button" value="Envoyer">
+                </div>
+            </div>
+                
+        </div>
+    </article>
+
+    <article class="post">
+        <div class="post_image">
+            <div class="photo_profil">
+                <img src="img/pp.jpg" alt="#">
+            </div>
+            <div class="pseudo_user">
+                <p class="bold"> Pseudo de l'utilisateur </p>
+                <p> 2m </p>
+            </div>
+        </div>
+
+        <div class="description_post">
+            <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio sit dolorem aliquid nesciunt laudantium? </p>
+        </div>
+
+        <div class="image_post">
+            <div>
+                <img src="img/landscape.jpg" alt="#">
+            </div>
+            <div class="galerie">
+                <div>
+                    <img src="img/landscape2.jpg" alt="">
+                </div>
+                <div>
+                    <img src="img/landscape3.jpg" alt="">
+                </div> 
+            </div>
+        </div>
+
+        <div class="like_post">
+            <div>
+                <i class="fa fa-thumbs-up"></i>
+            </div>
+            <p> 128 </p>
+            <div>
+                <i class="fa fa-comments button_comment"></i>
+            </div>
+            <p> 40 </p>
+            
+        </div>
+
+        <div class="comment_post" style="display: none;">
+            <div class="comment">
+                <div id="img_comment">
+                    <img src="img/pp.jpg" alt="#">
+                </div>
+                <div id="description_comment">
+                    <p class="bold"> Nom de la personne </p>
+                    <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum, excepturi? Expedita, doloremque.</p>
+                </div>
+            </div>    
+                
+            <div id="link_autres_comment">
+                <p> Voir tous les commentaires </p>
+            </div>
+
+            <div id="form_comment">
+                <div class="img_form_comment">
+                    <img src="img/pp.jpg" alt="#">
+                </div>
+                <div class="input_form_comment">
+                    <textarea placeholder="Ecrire un commentaire...."></textarea>
+                    <input type="button" value="Envoyer">
+                </div>
+            </div>
+                
+        </div>
+    </article>
 </div>
 
-<div id="div3"></div>
+<div id="div3">
+    <div id="pres_user_connect">
+        <div class="img_user_connect">
+            <img src="img/pp.jpg" alt="#">
+        </div>
+        <div class="infos_user_connecte">
+            <p> Baptiste </p>
+            <p>@baptistegauthier</p>
+        </div>
+    </div>
+
+    <nav id="menu">
+        <ul>
+            <li><a href="#"><i class="fa fa-home"></i> Accueil </a></li>
+            <li><a href="#"><i class="fa fa-user-circle"></i> Profil </a></li>
+        </ul>
+    </nav>
+
+    <h2> Conversations </h2>
+
+    <div id="conv">
+        <div>
+            <div>
+                <img src="img/group.svg" alt="#">
+            </div>
+            <div>
+                <p> Groupe 1 </p>
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <img src="img/group.svg" alt="#">
+            </div>
+            <div>
+                <p> Groupe 2 </p>
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <img src="img/group.svg" alt="#">
+            </div>
+            <div>
+                <p> Groupe 3 </p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
 
 
 

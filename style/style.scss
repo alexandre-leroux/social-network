@@ -17,15 +17,50 @@
 // }
 
 header{
-    @extend %displayflex;
-    height: 100px;
-    background-color: rgb(223, 223, 223);
-    & nav{
-        width: 80%;
-    @extend %displayflex;
-    justify-content: space-around !important;
+    background-color: rgb(241, 239, 239);
+    margin-bottom: 20px;
+    nav{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 20px;
+        .logo_text_header{
+            @extend %displayflex ; 
+            width: 50% ; 
+            .logo_network {
+                width: 30% ; 
+                padding: 10px;
+                display: flex;
+                justify-content: center;
+                img {
+                    width: 50% ;
+                }
+            }
+            .nom_header{
+                width: 70%;
+                h1{
+                    font-size : 1.5rem; 
+                    font-weight: 800 ; 
+                    text-transform: capitalize; 
+                }
+            }
+        }
+        & ul {
+            @extend %displayflex; 
+            width: 50% ; 
+            li {
+                padding: 10px;
+                a{
+                    text-decoration: none;
+                    color: black;
+                }
+            }
+        }
 
     }
+   
+
+    
 }
 
 
@@ -72,7 +107,7 @@ header{
     }
     & #div2{
         background-color: rgb(245, 243, 243);
-        width: 40% ; 
+        width: 45% ; 
         .post{
             margin : 15px 0px; 
             padding: 20px;
@@ -91,6 +126,29 @@ header{
                     width: 70% ; 
                     & + p {
                         font-weight: 800;
+                    }
+                }
+            }
+            .description_post{
+                padding: 20px;
+            }
+            .image_post{
+                padding: 20px;
+                img{
+                    border-radius: 1em;
+                }
+                .galerie{
+                    display: flex;
+                    align-items: center;
+                    div {
+                        width: 50%;
+                        margin-top: 10px; 
+                    }
+                    & :nth-child(1) {
+                        margin-right: 5px;
+                    }
+                    & :nth-child(2){
+                        margin-left: 5px; 
                     }
                 }
             }
@@ -198,8 +256,65 @@ header{
         }
     }
     & #div3{
-        background-color: rgb(255, 196, 0);
+        background-color: rgb(245, 243, 243);
         width: 20% ;
+        #pres_user_connect{
+            @extend %displayflex; 
+            .img_user_connect{
+                img{
+                    width: 100%;
+                }
+
+            }
+            .infos_user_connecte{
+                padding: 20px 10px;
+                & p{
+                    padding: 2px;
+                }
+                & :nth-child(1) {
+                    font-weight: 700;
+                }
+                & :nth-child(2){
+                    font-size: small;
+                    color: rgba(0, 0, 0, 0.527);
+                }
+
+            }
+
+        }
+        h2 {
+            padding: 10px 0px;
+            font-weight: 800;
+        }
+        #menu {
+            li{
+                padding: 10px;
+                background-color: rgb(255, 255, 255);
+                margin: 10px 0px ; 
+                i{
+                    margin-right: 10px;
+                }
+                a{
+                    color: rgb(250, 95, 90);
+                    text-decoration: none;
+                }
+            }
+        }
+        #conv{
+            & > div {
+                display: flex; 
+                background-color: rgba(0, 0, 0, 0.096);
+                margin : 10px 0px ; 
+                div {
+                    width:  50% ;
+                    margin: auto; 
+                    img{
+                        width: 100% ; 
+                        padding: 30px;
+                    }
+                }
+            }
+        }
     }
 
 
@@ -219,7 +334,6 @@ header{
         height: 13px;
         display: block;
         transform: translateX(-43px) translateY(20px);
-
 
     }
 }
