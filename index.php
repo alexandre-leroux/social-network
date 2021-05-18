@@ -59,8 +59,8 @@ else
 
     </div>
 
-
 </div>
+
 <div id="div2">
     <article class="post">
         <div class="post_image">
@@ -83,7 +83,7 @@ else
             </div>
             <p> 128 </p>
             <div>
-                <i class="fa fa-comments" id="button_comment"></i>
+                <i class="fa fa-comments button_comment"></i>
             </div>
             <p> 40 </p>
             
@@ -138,7 +138,7 @@ else
             </div>
             <p> 128 </p>
             <div>
-                <i class="fa fa-comments"></i>
+                <i class="fa fa-comments button_comment"></i>
             </div>
             <p> 40 </p>
             
@@ -172,6 +172,7 @@ else
         </div>
     </article>
 </div>
+
 <div id="div3"></div>
 
 
