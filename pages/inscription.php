@@ -52,6 +52,12 @@ var_dump($_SESSION);
             <label for="mdp"> Mot de passe : </label>
             <input  type="password"  id="mdp" name="mdp" >
         </div>
+        <div id="condition_mpd" style="display: none;">
+            <p> Le mot de passe doit faire minimum 8 caractères </p>
+            <p> Le mot de passe doit contenir une majuscule </p>
+            <p> Le mot de passe doit contenir au moins un caractère special </p>
+            <p> Le mot de passe doit contenir un chiffre </p>
+        </div>
 
         <div class="form-group">
             <label for="confirm_mdp"> Confirmer le mot de passe : </label>
@@ -61,6 +67,7 @@ var_dump($_SESSION);
         <div class="form_group">
             <label for="hobbies"> Hobbies : </label>
             <input type="text" name="hobbies" id="input_hobbies">
+            <button id="btn_hobbies"> Ajouter </button>
             <ul id="list_hobbies"></ul>
         </div>
 
@@ -73,6 +80,7 @@ var_dump($_SESSION);
 </section>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../scripts/verif_inscription.js"></script>
 </body>
 
 </html>
