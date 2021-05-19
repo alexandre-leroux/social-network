@@ -89,7 +89,7 @@ header{
             top: 0 ; 
             padding: 20px 0px ; 
         }
-        & #users {
+        & .users {
             @extend %displayflex; 
             width: 100%;
             background-color: rgb(236, 232, 232);

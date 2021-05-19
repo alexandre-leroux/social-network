@@ -1,5 +1,10 @@
 
+
+
+
 function chekxUserConnecte(){
+
+
 
     $.ajax({
         url: "model/search_all_user.php",
@@ -45,10 +50,46 @@ function chekxUserConnecte(){
     
     })
 
-
+  
 
 }
 
 chekxUserConnecte()
 
-setInterval( chekxUserConnecte, 1000)
+setInterval( chekxUserConnecte, 10000)
+
+
+function eventsurclick(){
+
+
+        utilisateurs = document.getElementsByClassName("users");
+
+        for(i = 0; i<utilisateurs.length; i++)
+        {
+            console.log(utilisateurs[i].lastChild)
+            let node = utilisateurs[i].lastChild.innerHTML
+            console.log(node)
+
+
+
+            utilisateurs[i].addEventListener('click', function(){
+
+                console.log( node)
+
+                parent = document.getElementById('div2')
+                console.log(parent)
+                var p = document.createElement("p");
+                p.innerHTML =  node
+                parent.innerHTML = ""
+                parent.appendChild(p);
+
+            })
+        }
+
+
+
+}
+
+
+setInterval( eventsurclick, 10100)
+
