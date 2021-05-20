@@ -74,14 +74,16 @@ function eventsurclick(){
             let pseudo =  utilisateurs[i].lastChild.innerHTML
 
             utilisateurs[i].addEventListener('click', function(){
+
                 console.log(pseudo)
+                parent2 = document.getElementById('conteneur_des_messages')
+                parent2.innerHTML = "" 
+
                 $.ajax({
                     url: "scripts_ajax_php/chat_prive.php",
                     type: "POST",
                     data: {  "pseudo":pseudo,  },
-
                     dataType: "JSON",
-
                   
                     success : function(dataType){
             
@@ -93,6 +95,20 @@ function eventsurclick(){
                         p.innerHTML =  dataType.data1[1]
                         parent.innerHTML = ""
                         parent.appendChild(p);
+
+                        var mess = document.createElement("p");
+                        console.log(dataType.data2.length)
+
+                        for (i=0; i<dataType.data2.length; i++)
+                        {
+                            console.log('dans foir')
+                            parent2 = document.getElementById('conteneur_des_messages')
+                            var mess = document.createElement("p");
+                             contenur_mess = dataType.data2[i][4]
+                             mess.innerHTML = contenur_mess
+                             parent2.appendChild(mess);
+                        }
+                    
                     
                     },
                 
