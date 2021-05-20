@@ -7,9 +7,10 @@ var_dump($_SESSION);
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-
     <link rel="stylesheet" href="../style/style.css" />
     <title>social network</title>
+    <link rel="stylesheet" href="../style/style_inscription.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 
@@ -53,10 +54,10 @@ var_dump($_SESSION);
             <input  type="password"  id="mdp" name="mdp" >
         </div>
         <div id="condition_mpd" style="display: none;">
-            <p> Le mot de passe doit faire minimum 8 caractères </p>
-            <p> Le mot de passe doit contenir une majuscule </p>
-            <p> Le mot de passe doit contenir au moins un caractère special </p>
-            <p> Le mot de passe doit contenir un chiffre </p>
+            <p id="nb_char"> Le mot de passe doit faire minimum 8 caractères </p>
+            <p id="maj"> Le mot de passe doit contenir une majuscule </p>
+            <p id="char_spe"> Le mot de passe doit contenir au moins un caractère special </p>
+            <p id ="number"> Le mot de passe doit contenir un chiffre </p>
         </div>
 
         <div class="form-group">
@@ -64,14 +65,14 @@ var_dump($_SESSION);
             <input  type="password"  id="confirm_mdp" name="confirm_mdp" >
         </div>
 
-        <div class="form_group">
+        <div class="form-group">
             <label for="hobbies"> Hobbies : </label>
             <input type="text" name="hobbies" id="input_hobbies">
             <button id="btn_hobbies"> Ajouter </button>
             <ul id="list_hobbies"></ul>
         </div>
 
-        <div id="validation_inscription">
+        <div id="validation_inscription" class="form-group">
             <input  type="submit" value="VALIDER L'INSCRIPTION" name="valider">
         </div>    
 

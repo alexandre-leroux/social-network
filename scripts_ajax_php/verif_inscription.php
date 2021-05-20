@@ -6,7 +6,7 @@ if(isset($_POST['mail']))
     
     $result = array() ; 
     
-    if(preg_match('#@laplateforme.io$#', $mail)){
+    if(preg_match('#[a-z,A-Z,0-9]@laplateforme.io$#', $mail)){
         $result['message'] = 'c\'est good' ; 
     }
     else {
