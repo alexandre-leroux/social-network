@@ -1,6 +1,14 @@
 <?php 
 session_start();
-// var_dump($_SESSION);
+require_once('model/database.php');
+
+var_dump($_SESSION);
+$mail = $_SESSION['mail'];
+var_dump($mail);
+var_dump($bdd);
+$deco = $bdd->prepare('UPDATE users SET connecte = 1 WHERE mail = :mail');
+$deco->execute(array('mail' => $mail));
+
 
 ?>
 
@@ -118,6 +126,14 @@ else
 <!-- zone pour les messages -->
 <div id="div2">
     <div id="user_selection_chat">
+    </div>
+
+    <div id="conteneur_des_messages">
+    </div>
+
+    <div id="intput_chat_et_button">
+        <input id="input_messages" type="text">
+        <button>ENVOYER</button>
     </div>
 
 

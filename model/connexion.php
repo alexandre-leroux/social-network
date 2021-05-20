@@ -12,6 +12,7 @@ $resultat_users= $connexion->fetch();
 
 var_dump($resultat_users);
 
+$_SESSION['id'] = $resultat_users['id'];
 $_SESSION['prenom'] = $resultat_users['prenom'];
 $_SESSION['mail'] = $resultat_users['mail'];
 

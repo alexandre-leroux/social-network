@@ -64,24 +64,50 @@ function eventsurclick(){
 
         utilisateurs = document.getElementsByClassName("users");
 
+       
         for(i = 0; i<utilisateurs.length; i++)
         {
             // console.log(utilisateurs[i].lastChild)
             let node = utilisateurs[i].lastChild.innerHTML
             // console.log(node)
 
-
+            let pseudo =  utilisateurs[i].lastChild.innerHTML
 
             utilisateurs[i].addEventListener('click', function(){
+                console.log(pseudo)
+                $.ajax({
+                    url: "scripts_ajax_php/chat_prive.php",
+                    type: "POST",
+                    data: {  "pseudo":pseudo,  },
 
-           // console.log( node)
+                    dataType: "JSON",
 
-           parent = document.getElementById('div2')
-           // console.log(parent)
-           var p = document.createElement("p");
-           p.innerHTML =  node
-           parent.innerHTML = ""
-           parent.appendChild(p);
+                  
+                    success : function(dataType){
+            
+                        console.log(dataType.data1)
+                        console.log(dataType.data2)
+                        parent = document.getElementById('user_selection_chat')
+                        // console.log(parent)
+                        var p = document.createElement("p");
+                        p.innerHTML =  dataType.data1[1]
+                        parent.innerHTML = ""
+                        parent.appendChild(p);
+                    
+                    },
+                
+                    error: function (request, status, error) {
+                        // console.log(request.responseText);
+                    },
+                
+                    complete : function(resultat, statut){
+                        // console.log(resultat);
+                        // console.log(statut);
+                    }
+            
+            
+                })
+
 
             })
         }

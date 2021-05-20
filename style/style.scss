@@ -358,3 +358,21 @@ header{
     padding: 5px 0px;
     
 }
+
+
+// -----------------------------------page chat prive
+
+#user_selection_chat{
+    height: 50px;
+    background-color: aquamarine;
+}
+#conteneur_des_messages{
+    height: 90%;
+    background-color: bisque;
+}
+#intput_chat_et_button{
+    width: 100%;
+    & input{
+        width: 80%;
+    }
+}
