@@ -56,7 +56,7 @@ function chekxUserConnecte(){
 
 chekxUserConnecte()
 
-setInterval( chekxUserConnecte, 10000)
+setInterval( chekxUserConnecte, 5000)
 
 
 function eventsurclick(){
@@ -66,22 +66,22 @@ function eventsurclick(){
 
         for(i = 0; i<utilisateurs.length; i++)
         {
-            console.log(utilisateurs[i].lastChild)
+            // console.log(utilisateurs[i].lastChild)
             let node = utilisateurs[i].lastChild.innerHTML
-            console.log(node)
+            // console.log(node)
 
 
 
             utilisateurs[i].addEventListener('click', function(){
 
-                console.log( node)
+           // console.log( node)
 
-                parent = document.getElementById('div2')
-                console.log(parent)
-                var p = document.createElement("p");
-                p.innerHTML =  node
-                parent.innerHTML = ""
-                parent.appendChild(p);
+           parent = document.getElementById('div2')
+           // console.log(parent)
+           var p = document.createElement("p");
+           p.innerHTML =  node
+           parent.innerHTML = ""
+           parent.appendChild(p);
 
             })
         }
@@ -90,6 +90,7 @@ function eventsurclick(){
 
 }
 
+setTimeout(eventsurclick, 20)
 
-setInterval( eventsurclick, 10100)
+setInterval( eventsurclick, 5020)
 
