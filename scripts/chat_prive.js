@@ -4,7 +4,7 @@ setInterval(checkUsersConnect, 10000)
 setTimeout(eventsurclick, 20)
 
 checkNewMessage()
-setInterval(checkNewMessage, 1000)
+setInterval(checkNewMessage, 4000)
 
 
 function displayUser(){
@@ -156,9 +156,9 @@ function eventsurclick(){
                     var mess = document.createElement("p");
                     // console.log(dataType.data2.length)
 
-                    for (z=0; i<dataType.data2.length; z++)
+                    for (z=0; z<dataType.data2.length; z++)
                     {
-                        // console.log('dans foir')
+                        console.log('dans foir')
                         parent2 = document.getElementById('conteneur_des_messages')
                         var mess = document.createElement("p");
                          contenur_mess = dataType.data2[z][4]
@@ -242,11 +242,21 @@ function checkNewMessage(){
 
                 for(x=0;  x<dataType.length; x++)
                 {
-                    if( dataType[x][0] == attribut)
+                    // console.log(dataType[x]['fk_id_auteur_message'])
+                    // console.log(dataType[x]['non_lu'])
+
+                    if( dataType[x]['fk_id_auteur_message'] == attribut && dataType[x]['non_lu'] == 1)
                     {
-                        // console.log('jai trouve un user')
+                        console.log('jai trouve un user dans if')
                         // console.log(utilisateurs[i])
                         utilisateurs[i].classList.add("new_message");
+                        break
+                    }
+                    else
+                    {
+                        console.log('dans else')
+
+                        utilisateurs[i].setAttribute('class', 'users');
                     }
                 }
 
