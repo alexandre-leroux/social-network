@@ -2,7 +2,9 @@ displayUser()
 checkUsersConnect()
 setInterval(checkUsersConnect, 10000)
 setTimeout(eventsurclick, 20)
+
 checkNewMessage()
+setInterval(checkNewMessage, 1000)
 
 
 function displayUser(){
@@ -19,7 +21,8 @@ function displayUser(){
 
 
             var count = Object.keys(dataType).length;
-            console.log(count);
+            // console.log(count);
+            // console.log(dataType);
 
             $('#users_list').empty();
 
@@ -29,11 +32,11 @@ function displayUser(){
 
                 if(dataType[i]["connecte"] == 0)
                 {
-                    $('#users_list').append("<div class=\"users\"><img src=\"img/pp.jpg\"><p class='p_liste_user'>"+dataType[i][1]+"</p></div>")
+                    $('#users_list').append("<div id=\""+dataType[i][0]+"\" class=\"users\"><img src=\"img/pp.jpg\"><p class='p_liste_user'>"+dataType[i][1]+"</p></div>")
                 }
                 else if(dataType[i]["connecte"] == 1)
                 {
-                    $('#users_list').append("<div class=\"users\"><img src=\"img/pp.jpg\"><p class='p_liste_user connecte'>"+dataType[i][1]+"</p></div>")
+                    $('#users_list').append("<div id=\""+dataType[i][0]+"\" class=\"users\"><img src=\"img/pp.jpg\"><p class='p_liste_user connecte'>"+dataType[i][1]+"</p></div>")
                 }
        
 
@@ -69,7 +72,7 @@ function checkUsersConnect(){
         success : function(dataType){
 
             var count = Object.keys(dataType).length;
-            console.log(count);
+            // console.log(count);
 
             utilisateurs = document.getElementsByClassName("users");
 
@@ -107,38 +110,6 @@ function checkUsersConnect(){
 
 
 
-function checkNewMessage(){
-
-
-
-
-                $.ajax({
-                    url: "scripts_ajax_php/chat_prive_new_message.php",
-                    type: "POST",
-                    // data: {  "pseudo":pseudo,  },
-                    dataType: "text",
-                  
-                    success : function(dataType){
-            
-                        console.log(dataType)
-
-                    
-                    
-                    },
-                
-                    error: function (request, status, error) {
-                        // console.log(request.responseText);
-                    },
-                
-                    complete : function(resultat, statut){
-                        // console.log(resultat);
-                        // console.log(statut);
-                    }
-            
-            
-        })
-
-}
 
 
 
@@ -148,20 +119,20 @@ function checkNewMessage(){
 function eventsurclick(){
 
 
-    utilisateurs = document.getElementsByClassName("users");
+     utilisateurs = document.getElementsByClassName("users");
 
    
     for(i = 0; i<utilisateurs.length; i++)
     {
         // console.log(utilisateurs[i].lastChild)
-        let node = utilisateurs[i].lastChild.innerHTML
+        // let node = utilisateurs[i].lastChild.innerHTML
         // console.log(node)
 
         let pseudo =  utilisateurs[i].lastChild.innerHTML
 
-        utilisateurs[i].addEventListener('click', function(){
+        utilisateurs[i].addEventListener('click', function(e){
 
-            console.log(pseudo)
+            // console.log(pseudo)
             parent2 = document.getElementById('conteneur_des_messages')
             parent2.innerHTML = "" 
 
@@ -173,8 +144,8 @@ function eventsurclick(){
               
                 success : function(dataType){
         
-                    console.log(dataType.data1)
-                    console.log(dataType.data2)
+                    // console.log(dataType.data1)
+                    // console.log(dataType.data2)
                     parent = document.getElementById('user_selection_chat')
                     // console.log(parent)
                     var p = document.createElement("p");
@@ -183,14 +154,14 @@ function eventsurclick(){
                     parent.appendChild(p);
 
                     var mess = document.createElement("p");
-                    console.log(dataType.data2.length)
+                    // console.log(dataType.data2.length)
 
-                    for (i=0; i<dataType.data2.length; i++)
+                    for (z=0; i<dataType.data2.length; z++)
                     {
-                        console.log('dans foir')
+                        // console.log('dans foir')
                         parent2 = document.getElementById('conteneur_des_messages')
                         var mess = document.createElement("p");
-                         contenur_mess = dataType.data2[i][4]
+                         contenur_mess = dataType.data2[z][4]
                          mess.innerHTML = contenur_mess
                          parent2.appendChild(mess);
                     }
@@ -210,10 +181,89 @@ function eventsurclick(){
         
             })
 
-
+            // console.log(e)
+            // console.log(pseudo)
+            // console.log(utilisateurs[i])
+            $.ajax({
+                url: "scripts_ajax_php/update_message_lu.php",
+                type: "POST",
+                data: {  "pseudo":pseudo,  },
+                // dataType: "text",
+              
+                success : function(dataType){
+                    // console.log(dataType) 
+                    // console.log(utilisateurs)
+                 
+                },
+            
+                error: function (request, status, error) {
+                    // console.log(request.responseText);
+                },
+            
+                complete : function(resultat, statut){
+                    // console.log(resultat);
+                    // console.log(statut);
+                }
+        
+        
+            })
         })
     }
 
 
+
+}
+
+
+
+function checkNewMessage(){
+
+
+
+
+    $.ajax({
+        url: "scripts_ajax_php/chat_prive_new_message.php",
+        type: "POST",
+        // data: {  "pseudo":pseudo,  },
+        dataType: "json",
+      
+        success : function(dataType){
+
+            // console.log(dataType.length)
+            // console.log(dataType)
+
+            utilisateurs = document.querySelectorAll(".users")
+            // console.log(utilisateurs)
+
+            for(i=0; i<utilisateurs.length; i++ )
+            {
+                let attribut = utilisateurs[i].getAttribute("id")
+                // console.log(attribut)
+
+                for(x=0;  x<dataType.length; x++)
+                {
+                    if( dataType[x][0] == attribut)
+                    {
+                        // console.log('jai trouve un user')
+                        // console.log(utilisateurs[i])
+                        utilisateurs[i].classList.add("new_message");
+                    }
+                }
+
+            }
+        
+        },
+    
+        error: function (request, status, error) {
+            // console.log(request.responseText);
+        },
+    
+        complete : function(resultat, statut){
+            // console.log(resultat);
+            // console.log(statut);
+        }
+
+
+    })
 
 }

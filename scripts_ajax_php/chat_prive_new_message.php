@@ -23,10 +23,10 @@ $resultat_message_non_lu = $recherche_discussion->fetchAll();
 
 
 
+echo json_encode($resultat_message_non_lu);
 
 
-
-var_dump($resultat_message_non_lu); 
+// var_dump($resultat_message_non_lu); 
 // echo json_encode($resultat_message);                         
 
 
