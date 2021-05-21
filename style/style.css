@@ -443,6 +443,10 @@ header nav ul li a {
   padding: 5px 0px;
 }
 
+.new_message {
+  border: 1px solid red;
+}
+
 #user_selection_chat {
   height: 50px;
   background-color: aquamarine;

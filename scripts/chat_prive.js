@@ -56,7 +56,7 @@ function chekxUserConnecte(){
 
 chekxUserConnecte()
 
-setInterval( chekxUserConnecte, 5000)
+setInterval( chekxUserConnecte, 60000)
 
 
 function eventsurclick(){
@@ -134,5 +134,5 @@ function eventsurclick(){
 
 setTimeout(eventsurclick, 20)
 
-setInterval( eventsurclick, 5020)
+setInterval( eventsurclick, 6020)
 
