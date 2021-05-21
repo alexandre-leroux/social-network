@@ -1,5 +1,11 @@
+displayUser()
+checkUsersConnect()
+setInterval(checkUsersConnect, 20000)
 
-function chekxUserConnecte(){
+
+function displayUser(){
+
+
 
     $.ajax({
         url: "model/search_all_user.php",
@@ -45,10 +51,55 @@ function chekxUserConnecte(){
     
     })
 
-
+  
 
 }
 
-chekxUserConnecte()
 
-setInterval( chekxUserConnecte, 1000)
+
+function checkUsersConnect(){
+    
+    $.ajax({
+        url: "model/search_all_user.php",
+        type: "POST",
+        dataType: "json",
+      
+        success : function(dataType){
+
+            var count = Object.keys(dataType).length;
+            console.log(count);
+
+            utilisateurs = document.getElementsByClassName("users");
+
+            let i = 0;
+            while ( i < count)
+            {
+                console.log(utilisateurs[i].lastChild)
+                // utilisateurs[i].lastChild.classList.add("connecte");
+                if(dataType[i]["connecte"] == 1)
+                {
+                    utilisateurs[i].lastChild.classList.add("connecte");
+                }
+                else if(dataType[i]["connecte"] == 0 )
+                {
+                    utilisateurs[i].lastChild.classList.remove("connecte");
+                }
+       
+
+                  i++
+            }
+        
+        },
+    
+        error: function (request, status, error) {
+            console.log(request.responseText);
+        },
+    
+        complete : function(resultat, statut){
+            // console.log(resultat);
+            // console.log(statut);
+        }
+    
+    })
+}
+
