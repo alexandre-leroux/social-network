@@ -5,7 +5,7 @@ setTimeout(eventsurclick, 20)
 
 checkNewMessage()
 setInterval(checkNewMessage, 4000)
-
+setInterval(refreshAffichegaNewMessages, 500)
 
 function displayUser(){
 
@@ -254,7 +254,7 @@ function checkNewMessage(){
                     }
                     else
                     {
-                        console.log('dans else')
+                        // console.log('dans else')
 
                         utilisateurs[i].setAttribute('class', 'users');
                     }
@@ -277,3 +277,160 @@ function checkNewMessage(){
     })
 
 }
+
+
+envoyer_message = document.getElementById('button_envoyer_message')
+
+envoyer_message.addEventListener('click', function(){
+
+    message = document.getElementById('input_messages').value
+
+    destinataire = document.querySelector('#user_selection_chat p').innerHTML
+
+    
+    $.ajax({
+        url: "scripts_ajax_php/chat_prive_add_message.php",
+        type: "POST",
+        data: {   
+                    "message":message, 
+                    "destinataire":destinataire, },
+
+        dataType: "text",
+      
+        success : function(dataType){
+
+
+            console.log(dataType);
+        
+        },
+    
+        error: function (request, status, error) {
+            console.log(request.responseText);
+        },
+    
+        complete : function(resultat, statut){
+            // console.log(resultat);
+            // console.log(statut);
+        }
+
+
+    })
+
+
+    console.log(message)
+    console.log(destinataire)
+    document.getElementById('input_messages').value = ""
+
+})
+
+
+document.addEventListener('keyup', function(e){
+    console.log(e)
+
+    if (e.code == 'Enter' && document.getElementById('input_messages').value != "")
+    {
+
+        message = document.getElementById('input_messages').value
+
+        destinataire = document.querySelector('#user_selection_chat p').innerHTML
+    
+        
+        $.ajax({
+            url: "scripts_ajax_php/chat_prive_add_message.php",
+            type: "POST",
+            data: {   
+                        "message":message, 
+                        "destinataire":destinataire, },
+    
+            dataType: "text",
+          
+            success : function(dataType){
+    
+    
+                console.log(dataType);
+            
+            },
+        
+            error: function (request, status, error) {
+                console.log(request.responseText);
+            },
+        
+            complete : function(resultat, statut){
+                // console.log(resultat);
+                // console.log(statut);
+            }
+    
+    
+        })
+    
+    
+        console.log(message)
+        console.log(destinataire)
+        document.getElementById('input_messages').value = ""
+    
+    
+    }
+})
+
+
+
+function refreshAffichegaNewMessages(){
+
+    destinataire = document.querySelector('#user_selection_chat p').innerHTML
+
+
+
+    $.ajax({
+        url: "scripts_ajax_php/chat_prive.php",
+        type: "POST",
+        data: {  "pseudo":destinataire,  },
+        dataType: "JSON",
+      
+        success : function(dataType){
+            parent2 = document.getElementById('conteneur_des_messages').innerHTML = ""
+            console.log(dataType)
+            // console.log(dataType.data2)
+            parent = document.getElementById('user_selection_chat')
+            // console.log(parent)
+            var p = document.createElement("p");
+            p.innerHTML =  dataType.data1[1]
+            parent.innerHTML = ""
+            parent.appendChild(p);
+
+            var mess = document.createElement("p");
+            // console.log(dataType.data2.length)
+
+            for (z=0; z<dataType.data2.length; z++)
+            {
+                // console.log('dans foir')
+                parent2 = document.getElementById('conteneur_des_messages')
+                var mess = document.createElement("p");
+                 contenur_mess = dataType.data2[z][4]
+                 mess.innerHTML = contenur_mess
+
+                 
+
+
+                 parent2.appendChild(mess);
+            }
+        
+        
+        },
+    
+        error: function (request, status, error) {
+            // console.log(request.responseText);
+        },
+    
+        complete : function(resultat, statut){
+            // console.log(resultat);
+            // console.log(statut);
+        }
+
+
+    })
+
+
+
+}
+
+

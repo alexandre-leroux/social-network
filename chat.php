@@ -133,7 +133,7 @@ else
 
     <div id="intput_chat_et_button">
         <input id="input_messages" type="text">
-        <button>ENVOYER</button>
+        <button id="button_envoyer_message">ENVOYER</button>
     </div>
 
 
