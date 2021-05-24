@@ -1,27 +1,3 @@
-// var mail = document.getElementById("mail") ; 
-
-// mail.addEventListener("keyup", function (e){
-
-//     var email = mail.value ;
-//     console.log(email); 
-
-//     $.ajax({
-
-//         type: "POST",
-//         url: "../scripts_ajax_php/verif_inscription.php",
-//         data: {mail: email},
-//         dataType: "json",
-//         success: function (response) {
-//             if(response.message === "nope"){
-//                 mail.setAttribute("style", "border: 2px solid red;") ;
-//             } 
-//             else {
-//                 mail.setAttribute("style", "border: 2px solid green;") ;
-//             }
-//         }
-//     });
-// })
-
 function verifInscriptionReg(regex, p, input) {
     if(regex.test(input))
     {
@@ -103,6 +79,8 @@ btn_hobbies.addEventListener("click" , function(e){
     else{
 
         let li = document.createElement("li"); 
+
+        li.classList.add("list_hobbies") ;
     
         li.append(hobbies); 
         
@@ -113,9 +91,39 @@ btn_hobbies.addEventListener("click" , function(e){
         document.getElementById("input_hobbies").value = "" ; 
 
     }
-    
 
+    var list = document.querySelectorAll(".list_hobbies");
+
+    console.log(typeof(list[5])); 
+
+    for(var i = 0 ; typeof(list[i]) != 'undefined' ; i++){
+        console.log("dans le for"); 
+
+        var text_list = text_list + list[i].innerText ;  
+
+        console.log(text_list) ; 
+
+    }
+   
 })
+
+$("#form_inscription").submit(function(e) {
+    e.preventDefault();    
+    var formData = new FormData(this);
+
+    $.ajax({
+        url: '../scripts_ajax_php/verif_inscription.php',
+        type: 'POST',
+        data: formData,
+        datatype: JSON,
+        success: function (data) {
+            alert(data)
+        },
+        cache: false,
+        contentType: false,
+        processData: false
+    });
+});
 
 
 

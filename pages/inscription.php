@@ -26,8 +26,7 @@ var_dump($_SESSION);
 
 <section class="section_formulaire_inscription">
     <div class="conteneur_form_inscription">
-        <form action="../model/inscription.php" method="POST" >
-
+        <form method="POST" id="form_inscription">
 
         <div class="form-group">
             <label for="prenom"> Prenom : </label> 
@@ -69,8 +68,8 @@ var_dump($_SESSION);
             <label for="hobbies"> Hobbies : </label>
             <input type="text" name="hobbies" id="input_hobbies">
             <button id="btn_hobbies"> Ajouter </button>
-            <ul id="list_hobbies"></ul>
         </div>
+        <ul id="list_hobbies"></ul>
 
         <div id="validation_inscription" class="form-group">
             <input  type="submit" value="VALIDER L'INSCRIPTION" name="valider">

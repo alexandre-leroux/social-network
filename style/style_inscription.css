@@ -60,7 +60,7 @@ form .form-group label {
   padding: 5px;
 }
 
-form .form-group li {
+form ul li {
   background-color: #fa5f5a;
   color: white;
   padding: 10px;
@@ -75,7 +75,7 @@ form .form-group li {
   width: 100%;
 }
 
-form .form-group li i {
+form ul li i {
   padding: 2px;
   margin-left: 10px;
 }

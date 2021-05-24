@@ -4,6 +4,7 @@ session_start();
 
 require_once('database.php');
 
+
 $mail = htmlspecialchars($_POST['mail']) ;
 
 $connexion = $bdd->prepare('SELECT * from users WHERE mail = :mail');
