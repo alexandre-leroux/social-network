@@ -72,7 +72,7 @@ var_dump($_SESSION);
         <ul id="list_hobbies"></ul>
 
         <div id="validation_inscription" class="form-group">
-            <input  type="submit" value="VALIDER L'INSCRIPTION" name="valider">
+            <input  type="submit" value="VALIDER L'INSCRIPTION" name="valider" id="btn_validate">
         </div>    
 
         </form>

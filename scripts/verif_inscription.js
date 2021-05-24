@@ -63,6 +63,10 @@ mdp.addEventListener("keyup", function (e){
 
 });
 
+// partie hobbies list + btn delete 
+
+// add hobbies
+
 var list_hobbies = document.getElementById("list_hobbies"); 
 
 var btn_hobbies = document.getElementById("btn_hobbies"); 
@@ -86,44 +90,83 @@ btn_hobbies.addEventListener("click" , function(e){
         
         list_hobbies.append(li); 
     
-        li.insertAdjacentHTML('beforeend', '<i class="fa fa-times-circle"></i>');
+        li.insertAdjacentHTML('beforeend', '<i class="fa fa-times-circle croix"></i>');
         
         document.getElementById("input_hobbies").value = "" ; 
-
     }
 
     var list = document.querySelectorAll(".list_hobbies");
-
-    console.log(typeof(list[5])); 
+    var ul = document.getElementById("list_hobbies") ; 
 
     for(var i = 0 ; typeof(list[i]) != 'undefined' ; i++){
         console.log("dans le for"); 
 
-        var text_list = text_list + list[i].innerText ;  
+        var text_list = ul.innerText ;  
 
         console.log(text_list) ; 
 
     }
+    
+    // btn delete
    
+    var btn_croix = document.getElementsByClassName('croix'); 
+    console.log(btn_croix) ;
+
+    
+    for(let i = 0; i < btn_croix.length; i++) {
+        btn_croix[i].addEventListener("click", function(e) {
+
+            e.target.parentElement.remove();
+
+            for(var i = 0 ; typeof(list[i]) != 'undefined' ; i++){
+                console.log("dans le for"); 
+        
+                var text_list = ul.innerText ;  
+        
+                console.log(text_list) ; 
+        
+            }
+        }); 
+    }
+
 })
+
+// envoie pour l'inscription en bdd
 
 $("#form_inscription").submit(function(e) {
     e.preventDefault();    
     var formData = new FormData(this);
-
+    var text_list = document.getElementById("list_hobbies").innerText.trim() ;
+    formData.append('hobbies', text_list);
+    
+    
     $.ajax({
         url: '../scripts_ajax_php/verif_inscription.php',
         type: 'POST',
-        data: formData,
-        datatype: JSON,
+        data: formData, 
+        datatype: "json",
         success: function (data) {
-            alert(data)
+            var message = JSON.parse(data) ; 
+            $("body").append(message.message) ;
         },
+
         cache: false,
         contentType: false,
         processData: false
     });
 });
+
+// $("#btn_validate").click( function (e){
+//     $.ajax({
+//         type: "POST",
+//         url: "../scripts_ajax_php/verif_inscription.php",
+//         data: {hob: text_list},
+//         dataType: "json",
+//         success: function (response) {
+//             console.log(response); 
+//         }
+//     });
+// })
 
 
 
