@@ -21,46 +21,54 @@ if(!empty($prenom) && !empty($nom) && !empty($mail) && !empty($avatar) && !empty
 {
     if(preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}$#',$mdp))
     {
-        if($mdp === $confirm_mdp)
+        if(preg_match('#[a-z,A-Z,0-9]@laplateforme.io$#',$mail))
         {
-            $tailleMax = 2097152; 
-            $extensionsValides = array('jpg', 'jpeg', 'gif', 'png');
-            if($_FILES['avatar']['size'] <= $tailleMax)
+            if($mdp === $confirm_mdp)
             {
-                 $extensionUpload = strtolower(substr(strrchr($_FILES['avatar']['name'], '.'),1));
-                 if(in_array($extensionUpload, $extensionsValides))
-                 {
-                     $chemin = "../img/".$id_user.".".$extensionUpload;
-                     $mouvement = move_uploaded_file($_FILES['avatar']['tmp_name'], $chemin ); 
-                     if($mouvement)
+                $tailleMax = 2097152; 
+                $extensionsValides = array('jpg', 'jpeg', 'gif', 'png');
+                if($_FILES['avatar']['size'] <= $tailleMax)
+                {
+                     $extensionUpload = strtolower(substr(strrchr($_FILES['avatar']['name'], '.'),1));
+                     if(in_array($extensionUpload, $extensionsValides))
                      {
-                        $requete = $bdd->prepare("INSERT INTO users(prenom,nom,mdp,mail,avatar,hobbies,connecte) 
-                            VALUES (:prenom,:nom,:mdp,:mail,:avatar,:hobbies,:connecte)"); 
-
-                            $requete->bindParam(':prenom', $prenom);
-                            $requete->bindParam(':nom', $nom);
-                            $requete->bindParam(':mdp', $mdp);
-                            $requete->bindParam(':mail', $mail);
-                            $requete->bindParam(':avatar', $chemin);
-                            $requete->bindParam(':hobbies', $hobbies);
-                            $requete->bindParam(':connecte', $connecte);
-
-                            $requete->execute();
+                         $chemin = "../img/".$id_user.".".$extensionUpload;
+                         $mouvement = move_uploaded_file($_FILES['avatar']['tmp_name'], $chemin ); 
+                         if($mouvement)
+                         {
+                            $requete = $bdd->prepare("INSERT INTO users(prenom,nom,mdp,mail,avatar,hobbies,connecte) 
+                                VALUES (:prenom,:nom,:mdp,:mail,:avatar,:hobbies,:connecte)"); 
+    
+                                $requete->bindParam(':prenom', $prenom);
+                                $requete->bindParam(':nom', $nom);
+                                $requete->bindParam(':mdp', $mdp);
+                                $requete->bindParam(':mail', $mail);
+                                $requete->bindParam(':avatar', $chemin);
+                                $requete->bindParam(':hobbies', $hobbies);
+                                $requete->bindParam(':connecte', $connecte);
+    
+                                $requete->execute();
+    
+                                $message['message'] = 'Inscription réussi ! Vous allez etre rediriger vers la page de connexion.' ;
+                         }
+                         else{
+                            $message['message'] = "Erreur durant l'importation du fichier"; 
+                        }
                      }
                      else{
-                        $message['message'] = "Erreur durant l'importation du fichier"; 
-                    }
-                 }
-                 else{
-                    $message['message'] = "Votre image doit etre au format jpg, jpeg, gif ou png" ;
-                 }
+                        $message['message'] = "Votre image doit etre au format jpg, jpeg, gif ou png" ;
+                     }
+                }
+                else{
+                    $message['message'] = "L'image ne dois pas dépasser 2mo" ; 
+                }
             }
             else{
-                $message['message'] = "L'image ne dois pas dépasser 2mo" ; 
+                $message['message'] = 'Les mots de passe sont différents' ; 
             }
         }
         else{
-            $message['message'] = 'Les mots de passe sont différents' ; 
+            $message['message'] = 'Le mail doit se terminer par la @plateforme.io' ; 
         }
     }
     else{

@@ -3,7 +3,7 @@
 }
 
 form {
-  background-color: rgba(194, 194, 194, 0.411);
+  background-color: rgba(221, 218, 218, 0.534);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -14,13 +14,15 @@ form {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 60%;
+  width: 50%;
   margin: auto;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   padding: 20px;
   border-radius: 2em;
+  -webkit-box-shadow: 50px 50px 0px -5px rgba(250, 95, 90, 0.63);
+  box-shadow: 40px 40px 0px -5px rgba(209, 208, 208, 0.294);
 }
 
 form #condition_mpd {
@@ -52,12 +54,32 @@ form .form-group {
 
 form .form-group input {
   width: 70%;
-  padding: 5px;
+  padding: 8px;
+  margin: 10px;
+  border-radius: 2em;
+  border: none;
 }
 
 form .form-group label {
-  width: 30%;
+  width: 50%;
   padding: 5px;
+  font-weight: 800;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+form .form-group label::before {
+  content: "";
+  background-color: #fa5f5a;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin: 0px 8px;
+  border-radius: 2em;
 }
 
 form ul li {
@@ -78,5 +100,47 @@ form ul li {
 form ul li i {
   padding: 2px;
   margin-left: 10px;
+}
+
+form #btn_validate {
+  border: 1px #fa5f5a solid;
+  color: #fa5f5a;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+form #btn_validate:hover {
+  background-color: #fa5f5a;
+  color: white;
+  cursor: pointer;
+}
+
+#register {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#register .section_formulaire_inscription {
+  width: 70%;
+}
+
+#register .section_formulaire_inscription h1 {
+  font-size: 3rem;
+  font-weight: 300;
+  color: #fa5f5a;
+  text-align: center;
+  padding: 20px;
+  margin: 10px 0px;
+}
+
+#register #img {
+  width: 30%;
+  background-image: url("../img/inscription.jpg");
+  background-size: cover;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
 }
 /*# sourceMappingURL=style_inscription.css.map */
