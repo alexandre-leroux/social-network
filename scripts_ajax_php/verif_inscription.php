@@ -49,35 +49,35 @@ if(!empty($prenom) && !empty($nom) && !empty($mail) && !empty($avatar) && !empty
     
                                 $requete->execute();
     
-                                $message['message'] = 'Inscription réussi ! Vous allez etre rediriger vers la page de connexion.' ;
+                                $message['message'] = '<p class="msg_inscription success">Inscription réussi ! Vous allez etre rediriger vers la page de connexion.</p>' ;
                          }
                          else{
-                            $message['message'] = "Erreur durant l'importation du fichier"; 
+                            $message['message'] = '<p class="msg_inscription error">Erreur durant l\'importation du fichier</p>'; 
                         }
                      }
                      else{
-                        $message['message'] = "Votre image doit etre au format jpg, jpeg, gif ou png" ;
+                        $message['message'] = '<p class="msg_inscription error">Votre image doit etre au format jpg, jpeg, gif ou png</p>' ;
                      }
                 }
                 else{
-                    $message['message'] = "L'image ne dois pas dépasser 2mo" ; 
+                    $message['message'] = '<p class="msg_inscription error">L\'image ne dois pas dépasser 2mo</p>' ; 
                 }
             }
             else{
-                $message['message'] = 'Les mots de passe sont différents' ; 
+                $message['message'] = '<p class="msg_inscription error">Les mots de passe sont différents</p>' ; 
             }
         }
         else{
-            $message['message'] = 'Le mail doit se terminer par la @plateforme.io' ; 
+            $message['message'] = '<p class="msg_inscription error">Le mail doit se terminer par la @plateforme.io</p>' ; 
         }
     }
     else{
-        $message['message'] = 'Le mot de passe ne remplie pas toutes les conditions' ;
+        $message['message'] = '<p class="msg_inscription error">Le mot de passe ne remplie pas toutes les conditions</p>' ;
     }
 
 }
 else{
-    $message['message'] = 'Veuillez remplir tous les champs' ; 
+    $message['message'] = '<p class="msg_inscription error">Veuillez remplir tous les champs</p>' ; 
 }
 
 echo json_encode($message) ; 
