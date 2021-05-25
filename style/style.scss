@@ -390,6 +390,8 @@ border: 1px solid red;
     }
 }
 #liste_user_pour_creer_groupe{
+    
+    display: none ;
     @extend %displayflex;
     flex-direction: column;
     padding: 8px;

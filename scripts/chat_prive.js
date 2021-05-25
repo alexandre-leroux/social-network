@@ -5,8 +5,8 @@ setTimeout(eventsurclick, 20)
 
 checkNewMessage()
 setInterval(checkNewMessage, 4000)
-setInterval(refreshAffichegaNewMessages, 500)
-setInterval(messageLuSiFenetreChatEstSurUser, 500)
+// setInterval(refreshAffichegaNewMessages, 500)
+// setInterval(messageLuSiFenetreChatEstSurUser, 500)
 
 
 function displayUser(){
@@ -378,18 +378,67 @@ function messageLuSiFenetreChatEstSurUser(){
 
 
 
+// ------------------------fonction sur faux boutton creer un groupe
+
+$("#div_like_button_creer_groupe").click(function(){
+    $("#liste_user_pour_creer_groupe").toggle();
+    
+    $.ajax({
+        url: "model/search_all_user.php",
+        type: "POST",
+        dataType: "json",
+      
+        success : function(dataType){
+
+            var count = Object.keys(dataType).length;
+
+            $('#liste_user_pour_creer_groupe').empty();
+
+            let i = 0;
+            while ( i < count)
+            {
+                $('#liste_user_pour_creer_groupe').append("<p id=\""+dataType[i][0]+"\" class=\"liste_pseudo_groupe\">"+dataType[i][1]+"</p>")
+                  i++
+            }
+                $('#liste_user_pour_creer_groupe').append("<button>créer</button>")
+        },
+    
+        error: function (request, status, error) {
+            console.log(request.responseText);
+        },
+    
+        complete : function(resultat, statut){
+ 
+        }
+    
+    })
+        setTimeout(listeUserGroupe, 50)
+    
+  });
+
+/*  lancement de la fonction à l'ouverture de la page car le toogle est
+ display par defaut, cause héritage css d'une autre div*/
+  function toogleGrope(){
+    $("#liste_user_pour_creer_groupe").toggle();
+  }
+  toogleGrope()
+
+
 // --------------------------------------fonction sur click - selection des users pour créer groupe
 
-user_pour_groupe = document.getElementsByClassName('liste_pseudo_groupe')
-console.log(user_pour_groupe)
-for(i = 0; i<user_pour_groupe.length; i++)
-{
-    user_pour_groupe[i].addEventListener('click', function(){
-        console.log("ok")
-   
-            $(this).toggleClass("creer_groupe_green");
-        
-    })
+function listeUserGroupe(){
 
+    user_pour_groupe = document.getElementsByClassName('liste_pseudo_groupe')
+    console.log(user_pour_groupe)
+    for(i = 0; i<user_pour_groupe.length; i++)
+    {
+        user_pour_groupe[i].addEventListener('click', function(){
+            console.log("ok")
+       
+                $(this).toggleClass("creer_groupe_green");
+            
+        })
+    
+    }
 
 }

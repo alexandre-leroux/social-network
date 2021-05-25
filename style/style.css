@@ -475,6 +475,7 @@ header nav ul li a {
 }
 
 #liste_user_pour_creer_groupe {
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;

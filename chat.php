@@ -95,7 +95,6 @@ else
                 <div id="liste_user_pour_creer_groupe">
                     <p class='liste_pseudo_groupe'>pseudo</p>
                     <button>créer</button>
-                
                 </div>
 
                 <div>
