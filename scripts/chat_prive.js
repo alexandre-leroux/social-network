@@ -102,7 +102,7 @@ function checkUsersConnect(){
 
 function eventsurclick(){
 
-
+console.log('ok')
      utilisateurs = document.getElementsByClassName("users");
 
    
@@ -112,6 +112,7 @@ function eventsurclick(){
         let pseudo =  utilisateurs[i].lastChild.innerHTML
 
         utilisateurs[i].addEventListener('click', function(e){
+            console.log('ok')
 
             parent2 = document.getElementById('conteneur_des_messages')
             parent2.innerHTML = "" 
@@ -146,9 +147,13 @@ function eventsurclick(){
                 },
             
                 error: function (request, status, error) {
+                    console.log(request)
+                    console.log(status)
+                    console.log(error)
                 },
             
                 complete : function(resultat, statut){
+                    console.log('ok')
                 }
         
         
@@ -263,7 +268,6 @@ envoyer_message.addEventListener('click', function(){
 
 // -------------------------------------------------envoye le message quand on appuye sur la touche entrée
 document.addEventListener('keyup', function(e){
-    console.log(e)
 
     if (e.code == 'Enter' && document.getElementById('input_messages').value != "")
     {

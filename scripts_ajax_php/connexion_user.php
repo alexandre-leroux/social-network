@@ -24,6 +24,7 @@ if(!empty($mail) && !empty($mdp))
     {
         $_SESSION['mail'] = $resultat_users['mail'] ;
         $_SESSION['prenom'] = $resultat_users['prenom'] ; 
+        $_SESSION['id'] = $resultat_users['id'] ; 
 
         $deco = $bdd->prepare('UPDATE users SET connecte = 1 WHERE mail = :mail');
         $deco->execute(array('mail' => $mail));
