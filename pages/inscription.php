@@ -74,7 +74,9 @@ session_start();
 
             <div id="validation_inscription" class="form-group">
                 <input  type="submit" value="VALIDER L'INSCRIPTION" name="valider" id="btn_validate">
-            </div>    
+            </div>   
+            
+            <p class="message_statut"></p>
 
             </form>
         </div>

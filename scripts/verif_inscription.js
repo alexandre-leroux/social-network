@@ -135,6 +135,9 @@ btn_hobbies.addEventListener("click" , function(e){
 
 $("#form_inscription").submit(function(e) {
     e.preventDefault();    
+
+    $(".message_statut").empty() ;
+    
     var formData = new FormData(this);
     var text_list = document.getElementById("list_hobbies").innerText.trim() ;
     formData.append('hobbies', text_list);
@@ -147,7 +150,7 @@ $("#form_inscription").submit(function(e) {
         datatype: "json",
         success: function (data) {
             var message = JSON.parse(data) ; 
-            $("body").append(message.message) ;
+            $(".message_statut").append(message.message) ;
         },
 
         cache: false,

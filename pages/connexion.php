@@ -9,6 +9,7 @@ var_dump($_SESSION);
     <meta charset="UTF-8">
 
     <link rel="stylesheet" href="../style/style.css" />
+    <link rel="stylesheet" href="../style/style_inscription.css">
     <title>social network</title>
 </head>
 
@@ -25,22 +26,25 @@ var_dump($_SESSION);
 
 
 <section class="section_formulaire_inscription">
+    <h1> Connexion </h1>
     <div class="conteneur_form_inscription">
-        <form action="../model/connexion.php" method="POST" >
+        <form method="POST" id="form_connexion">
 
             <div class="form-group">
-                <label for="mail">mail : </label>
-                <input class="input_form_inscription" type="email"  id="mail" name="mail" >
+                <label for="mail">Mail : </label>
+                <input class="input_form_connexion" type="email"  id="mail" name="mail" >
             </div>
 
-            <!-- <div class="form-group">
+            <div class="form-group">
                 <label for="mdp"> Mot de passe : </label>
-                <input class="input_form_inscription" type="password"  id="mdp" name="mdp" >
-            </div> -->
+                <input class="mdp_form_connexion" type="password"  id="mdp" name="mdp" >
+            </div>
 
             <div id="validation_inscription">
-                <input  type="submit" value="se connecter" name="valider">
+                <input  type="submit" value="Se connecter" name="valider">
             </div>    
+
+            <p class="message_statut"></p>
 
         </form>
     </div>
@@ -52,6 +56,7 @@ var_dump($_SESSION);
 
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../scripts/verif_connexion.js"></script>
 <?php
 if(isset($_SESSION['mail']))
 {?>

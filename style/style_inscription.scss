@@ -13,13 +13,22 @@
 #condition_mpd {
     color: red ; 
 }
+h1{
+    font-size : 3rem ; 
+    font-weight: 300;
+    // font-style: italic;
+    color: rgb(250, 95, 90);
+    text-align: center;
+    padding: 20px;
+    margin: 10px 0px; 
+}
 
 form{
     background-color: rgba(221, 218, 218, 0.534);
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50%;
+    width: 80%;
     margin: auto;
     justify-content: center;
     padding: 20px;
@@ -40,7 +49,7 @@ form{
     }
     .form-group{
         padding: 10px ; 
-        width: 70%;
+        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -101,15 +110,6 @@ form{
 #register {
     display: flex;
     .section_formulaire_inscription{
-        h1{
-            font-size : 3rem ; 
-            font-weight: 300;
-            // font-style: italic;
-            color: rgb(250, 95, 90);
-            text-align: center;
-            padding: 20px;
-            margin: 10px 0px; 
-        }
         width: 70% ;
     }
     #img{
