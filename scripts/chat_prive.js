@@ -6,10 +6,10 @@ setTimeout(eventsurclick, 20)
 checkNewMessage()
 setInterval(checkNewMessage, 4000)
 setInterval(refreshAffichegaNewMessages, 500)
+setInterval(messageLuSiFenetreChatEstSurUser, 500)
+
 
 function displayUser(){
-
-
 
     $.ajax({
         url: "model/search_all_user.php",
@@ -434,3 +434,38 @@ function refreshAffichegaNewMessages(){
 }
 
 
+
+// ---------------------- message lu sur click input
+
+
+function messageLuSiFenetreChatEstSurUser(){
+
+    pseudo = document.querySelector('#user_selection_chat p').innerHTML
+
+    console.log(pseudo)
+
+    $.ajax({
+        url: "scripts_ajax_php/update_message_lu.php",
+        type: "POST",
+        data: {  "pseudo":pseudo,  },
+        // dataType: "text",
+      
+        success : function(dataType){
+            // console.log(dataType) 
+            // console.log(utilisateurs)
+         
+        },
+    
+        error: function (request, status, error) {
+            // console.log(request.responseText);
+        },
+    
+        complete : function(resultat, statut){
+            // console.log(resultat);
+            // console.log(statut);
+        }
+
+
+    })
+
+}
