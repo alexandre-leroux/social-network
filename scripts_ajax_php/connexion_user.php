@@ -22,9 +22,11 @@ if(!empty($mail) && !empty($mdp))
     
     if($resultat_users)
     {
-        // $mail = $_SESSION['mail'];
-        // $deco = $bdd->prepare('UPDATE users SET connecte = 1 WHERE mail = :mail');
-        // $deco->execute(array('mail' => $mail));
+        $_SESSION['mail'] = $resultat_users['mail'] ;
+        $_SESSION['prenom'] = $resultat_users['prenom'] ; 
+
+        $deco = $bdd->prepare('UPDATE users SET connecte = 1 WHERE mail = :mail');
+        $deco->execute(array('mail' => $mail));
 
         $message['message'] = '<p class="msg_inscription success">Connexion réussi ! Vous allez etre redirigé vers la page d\'accueil</p>' ; 
     }
