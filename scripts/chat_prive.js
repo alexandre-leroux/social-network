@@ -21,8 +21,6 @@ function displayUser(){
 
 
             var count = Object.keys(dataType).length;
-            // console.log(count);
-            // console.log(dataType);
 
             $('#users_list').empty();
 
@@ -38,7 +36,6 @@ function displayUser(){
                 {
                     $('#users_list').append("<div id=\""+dataType[i][0]+"\" class=\"users\"><img src=\"img/pp.jpg\"><p class='p_liste_user connecte'>"+dataType[i][1]+"</p></div>")
                 }
-       
 
                   i++
             }
@@ -50,13 +47,10 @@ function displayUser(){
         },
     
         complete : function(resultat, statut){
-            // console.log(resultat);
-            // console.log(statut);
+ 
         }
     
     })
-
-  
 
 }
 
@@ -72,15 +66,13 @@ function checkUsersConnect(){
         success : function(dataType){
 
             var count = Object.keys(dataType).length;
-            // console.log(count);
 
             utilisateurs = document.getElementsByClassName("users");
 
             let i = 0;
             while ( i < count)
             {
-                // console.log(utilisateurs[i].lastChild)
-                // utilisateurs[i].lastChild.classList.add("connecte");
+
                 if(dataType[i]["connecte"] == 1)
                 {
                     utilisateurs[i].lastChild.classList.add("connecte");
@@ -89,7 +81,6 @@ function checkUsersConnect(){
                 {
                     utilisateurs[i].lastChild.classList.remove("connecte");
                 }
-       
 
                   i++
             }
@@ -97,22 +88,15 @@ function checkUsersConnect(){
         },
     
         error: function (request, status, error) {
-            console.log(request.responseText);
+
         },
     
         complete : function(resultat, statut){
-            // console.log(resultat);
-            // console.log(statut);
+
         }
     
     })
 }
-
-
-
-
-
-
 
 
 
@@ -124,15 +108,11 @@ function eventsurclick(){
    
     for(i = 0; i<utilisateurs.length; i++)
     {
-        // console.log(utilisateurs[i].lastChild)
-        // let node = utilisateurs[i].lastChild.innerHTML
-        // console.log(node)
 
         let pseudo =  utilisateurs[i].lastChild.innerHTML
 
         utilisateurs[i].addEventListener('click', function(e){
 
-            // console.log(pseudo)
             parent2 = document.getElementById('conteneur_des_messages')
             parent2.innerHTML = "" 
 
@@ -144,17 +124,13 @@ function eventsurclick(){
               
                 success : function(dataType){
         
-                    // console.log(dataType.data1)
-                    // console.log(dataType.data2)
                     parent = document.getElementById('user_selection_chat')
-                    // console.log(parent)
                     var p = document.createElement("p");
                     p.innerHTML =  dataType.data1[1]
                     parent.innerHTML = ""
                     parent.appendChild(p);
 
                     var mess = document.createElement("p");
-                    // console.log(dataType.data2.length)
 
                     for (z=0; z<dataType.data2.length; z++)
                     {
@@ -170,39 +146,27 @@ function eventsurclick(){
                 },
             
                 error: function (request, status, error) {
-                    // console.log(request.responseText);
                 },
             
                 complete : function(resultat, statut){
-                    // console.log(resultat);
-                    // console.log(statut);
                 }
         
         
             })
 
-            // console.log(e)
-            // console.log(pseudo)
-            // console.log(utilisateurs[i])
             $.ajax({
                 url: "scripts_ajax_php/update_message_lu.php",
                 type: "POST",
                 data: {  "pseudo":pseudo,  },
-                // dataType: "text",
               
                 success : function(dataType){
-                    // console.log(dataType) 
-                    // console.log(utilisateurs)
                  
                 },
             
                 error: function (request, status, error) {
-                    // console.log(request.responseText);
                 },
             
                 complete : function(resultat, statut){
-                    // console.log(resultat);
-                    // console.log(statut);
                 }
         
         
@@ -210,52 +174,35 @@ function eventsurclick(){
         })
     }
 
-
-
 }
-
 
 
 function checkNewMessage(){
 
-
-
-
     $.ajax({
         url: "scripts_ajax_php/chat_prive_new_message.php",
         type: "POST",
-        // data: {  "pseudo":pseudo,  },
         dataType: "json",
       
         success : function(dataType){
 
-            // console.log(dataType.length)
-            // console.log(dataType)
-
             utilisateurs = document.querySelectorAll(".users")
-            // console.log(utilisateurs)
 
             for(i=0; i<utilisateurs.length; i++ )
             {
                 let attribut = utilisateurs[i].getAttribute("id")
-                // console.log(attribut)
 
                 for(x=0;  x<dataType.length; x++)
                 {
-                    // console.log(dataType[x]['fk_id_auteur_message'])
-                    // console.log(dataType[x]['non_lu'])
 
                     if( dataType[x]['fk_id_auteur_message'] == attribut && dataType[x]['non_lu'] == 1)
                     {
                         console.log('jai trouve un user dans if')
-                        // console.log(utilisateurs[i])
                         utilisateurs[i].classList.add("new_message");
                         break
                     }
                     else
                     {
-                        // console.log('dans else')
-
                         utilisateurs[i].setAttribute('class', 'users');
                     }
                 }
@@ -265,20 +212,16 @@ function checkNewMessage(){
         },
     
         error: function (request, status, error) {
-            // console.log(request.responseText);
         },
     
         complete : function(resultat, statut){
-            // console.log(resultat);
-            // console.log(statut);
         }
-
 
     })
 
 }
 
-
+// -----------------------------------------------envoye le message quand on click sur le bouton envoyer
 envoyer_message = document.getElementById('button_envoyer_message')
 
 envoyer_message.addEventListener('click', function(){
@@ -291,14 +234,12 @@ envoyer_message.addEventListener('click', function(){
     $.ajax({
         url: "scripts_ajax_php/chat_prive_add_message.php",
         type: "POST",
-        data: {   
-                    "message":message, 
+        data: {     "message":message, 
                     "destinataire":destinataire, },
 
         dataType: "text",
       
         success : function(dataType){
-
 
             console.log(dataType);
         
@@ -309,13 +250,10 @@ envoyer_message.addEventListener('click', function(){
         },
     
         complete : function(resultat, statut){
-            // console.log(resultat);
-            // console.log(statut);
         }
 
 
     })
-
 
     console.log(message)
     console.log(destinataire)
@@ -323,7 +261,7 @@ envoyer_message.addEventListener('click', function(){
 
 })
 
-
+// -------------------------------------------------envoye le message quand on appuye sur la touche entrée
 document.addEventListener('keyup', function(e){
     console.log(e)
 
@@ -338,14 +276,12 @@ document.addEventListener('keyup', function(e){
         $.ajax({
             url: "scripts_ajax_php/chat_prive_add_message.php",
             type: "POST",
-            data: {   
-                        "message":message, 
+            data: {     "message":message, 
                         "destinataire":destinataire, },
     
             dataType: "text",
           
             success : function(dataType){
-    
     
                 console.log(dataType);
             
@@ -356,18 +292,11 @@ document.addEventListener('keyup', function(e){
             },
         
             complete : function(resultat, statut){
-                // console.log(resultat);
-                // console.log(statut);
             }
-    
     
         })
     
-    
-        console.log(message)
-        console.log(destinataire)
         document.getElementById('input_messages').value = ""
-    
     
     }
 })
@@ -378,8 +307,6 @@ function refreshAffichegaNewMessages(){
 
     destinataire = document.querySelector('#user_selection_chat p').innerHTML
 
-
-
     $.ajax({
         url: "scripts_ajax_php/chat_prive.php",
         type: "POST",
@@ -387,56 +314,39 @@ function refreshAffichegaNewMessages(){
         dataType: "JSON",
       
         success : function(dataType){
+
             parent2 = document.getElementById('conteneur_des_messages').innerHTML = ""
-            console.log(dataType)
-            // console.log(dataType.data2)
             parent = document.getElementById('user_selection_chat')
-            // console.log(parent)
             var p = document.createElement("p");
             p.innerHTML =  dataType.data1[1]
             parent.innerHTML = ""
             parent.appendChild(p);
 
             var mess = document.createElement("p");
-            // console.log(dataType.data2.length)
 
             for (z=0; z<dataType.data2.length; z++)
             {
-                // console.log('dans foir')
                 parent2 = document.getElementById('conteneur_des_messages')
                 var mess = document.createElement("p");
-                 contenur_mess = dataType.data2[z][4]
-                 mess.innerHTML = contenur_mess
-
-                 
-
-
-                 parent2.appendChild(mess);
+                contenur_mess = dataType.data2[z][4]
+                mess.innerHTML = contenur_mess
+                parent2.appendChild(mess);
             }
-        
         
         },
     
         error: function (request, status, error) {
-            // console.log(request.responseText);
         },
     
         complete : function(resultat, statut){
-            // console.log(resultat);
-            // console.log(statut);
         }
 
-
     })
-
-
 
 }
 
 
-
-// ---------------------- message lu sur click input
-
+// ---------------------- message lu quand on est sur l'utilisateur en cours dansle chat, pour pas avoir son pseudo rouge tout le temps
 
 function messageLuSiFenetreChatEstSurUser(){
 
@@ -448,21 +358,14 @@ function messageLuSiFenetreChatEstSurUser(){
         url: "scripts_ajax_php/update_message_lu.php",
         type: "POST",
         data: {  "pseudo":pseudo,  },
-        // dataType: "text",
       
         success : function(dataType){
-            // console.log(dataType) 
-            // console.log(utilisateurs)
-         
         },
     
         error: function (request, status, error) {
-            // console.log(request.responseText);
         },
     
         complete : function(resultat, statut){
-            // console.log(resultat);
-            // console.log(statut);
         }
 
 
