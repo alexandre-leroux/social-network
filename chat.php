@@ -90,6 +90,14 @@ else
             <h2> Conversations </h2>
             
             <div id="conv">
+                <div id="div_like_button_creer_groupe">CREER UN GROUPE</div>
+
+                <div id="liste_user_pour_creer_groupe">
+                    <p class='liste_pseudo_groupe'>pseudo</p>
+                    <button>créer</button>
+                
+                </div>
+
                 <div>
                     <div>
                         <img src="img/group.svg" alt="#">

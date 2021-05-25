@@ -102,7 +102,6 @@ function checkUsersConnect(){
 
 function eventsurclick(){
 
-console.log('ok')
      utilisateurs = document.getElementsByClassName("users");
 
    
@@ -374,5 +373,23 @@ function messageLuSiFenetreChatEstSurUser(){
 
 
     })
+
+}
+
+
+
+// --------------------------------------fonction sur click - selection des users pour créer groupe
+
+user_pour_groupe = document.getElementsByClassName('liste_pseudo_groupe')
+console.log(user_pour_groupe)
+for(i = 0; i<user_pour_groupe.length; i++)
+{
+    user_pour_groupe[i].addEventListener('click', function(){
+        console.log("ok")
+   
+            $(this).toggleClass("creer_groupe_green");
+        
+    })
+
 
 }

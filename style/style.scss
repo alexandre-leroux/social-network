@@ -381,3 +381,30 @@ border: 1px solid red;
         width: 80%;
     }
 }
+#div_like_button_creer_groupe{
+    @extend %displayflex;
+    height: 30px;
+    border-radius: 20px;
+    &:hover{
+        cursor: pointer;
+    }
+}
+#liste_user_pour_creer_groupe{
+    @extend %displayflex;
+    flex-direction: column;
+    padding: 8px;
+    & .liste_pseudo_groupe{
+        border: 1px solid grey;
+        border-radius: 15px;
+        margin: 5px;
+        padding: 5px;
+        width: 80%;
+        text-align: center;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+.creer_groupe_green{
+    background-color: #4EEE8B;
+}
