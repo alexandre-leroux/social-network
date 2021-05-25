@@ -7,7 +7,7 @@
   outline: none;
 }
 
-header nav .logo_text_header, header nav ul, #section_centrale #div1 #users, #section_centrale #div3 #pres_user_connect {
+header nav .logo_text_header, header nav ul, #section_centrale #div1 .users, #section_centrale #div3 #pres_user_connect {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -107,14 +107,14 @@ header nav ul li a {
   padding: 20px 0px;
 }
 
-#section_centrale #div1 #users {
+#section_centrale #div1 .users {
   width: 100%;
   background-color: #ece8e8;
   margin: 10px 0px;
   border-radius: 1em;
 }
 
-#section_centrale #div1 #users img {
+#section_centrale #div1 .users img {
   display: block;
   width: 50%;
   padding: 30px;
@@ -122,7 +122,7 @@ header nav ul li a {
      object-fit: cover;
 }
 
-#section_centrale #div1 #users p {
+#section_centrale #div1 .users p {
   width: 70%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -441,5 +441,27 @@ header nav ul li a {
 .bold {
   font-weight: 700;
   padding: 5px 0px;
+}
+
+.new_message {
+  border: 1px solid red;
+}
+
+#user_selection_chat {
+  height: 50px;
+  background-color: aquamarine;
+}
+
+#conteneur_des_messages {
+  height: 90%;
+  background-color: bisque;
+}
+
+#intput_chat_et_button {
+  width: 100%;
+}
+
+#intput_chat_et_button input {
+  width: 80%;
 }
 /*# sourceMappingURL=style.css.map */

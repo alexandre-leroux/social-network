@@ -91,7 +91,7 @@ header{
             top: 0 ; 
             padding: 20px 0px ; 
         }
-        & #users {
+        & .users {
             @extend %displayflex; 
             width: 100%;
             background-color: rgb(236, 232, 232);
@@ -359,4 +359,25 @@ header{
     font-weight: 700;
     padding: 5px 0px;
     
+}
+.new_message{
+border: 1px solid red;
+}
+
+
+// -----------------------------------page chat prive
+
+#user_selection_chat{
+    height: 50px;
+    background-color: aquamarine;
+}
+#conteneur_des_messages{
+    height: 90%;
+    background-color: bisque;
+}
+#intput_chat_et_button{
+    width: 100%;
+    & input{
+        width: 80%;
+    }
 }

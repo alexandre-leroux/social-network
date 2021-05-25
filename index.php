@@ -1,6 +1,13 @@
 <?php 
 session_start();
-// var_dump($_SESSION);
+require_once('model/database.php');
+
+var_dump($_SESSION);
+$mail = $_SESSION['mail'];
+var_dump($mail);
+var_dump($bdd);
+$deco = $bdd->prepare('UPDATE users SET connecte = 1 WHERE mail = :mail');
+$deco->execute(array('mail' => $mail));
 
 ?>
 
@@ -47,6 +54,7 @@ else
     <nav>
         <h1>BIENVENUE <?= $_SESSION['prenom']?></h1>
         <a href="model/deconnexion.php">déconnexion</a>
+        <a href="chat.php">chat</a>
     </nav>
 </header>
 
