@@ -147,10 +147,12 @@ $("#form_inscription").submit(function(e) {
         url: '../scripts_ajax_php/verif_inscription.php',
         type: 'POST',
         data: formData, 
-        datatype: "json",
+        datatype: "text",
         success: function (data) {
-            var message = JSON.parse(data) ; 
-            $(".message_statut").append(message.message) ;
+            // var message = JSON.parse(data) ; 
+            // $(".message_statut").append(message.message) ;
+
+            $("body").append(data) ; 
         },
 
         cache: false,
