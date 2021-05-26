@@ -400,7 +400,9 @@ $("#div_like_button_creer_groupe").click(function(){
                 $('#liste_user_pour_creer_groupe').append("<p id=\""+dataType[i][0]+"\" class=\"liste_pseudo_groupe\">"+dataType[i][1]+"</p>")
                   i++
             }
-                $('#liste_user_pour_creer_groupe').append("<button>créer</button>")
+               
+            $('#liste_user_pour_creer_groupe').append("<input class='animate__animated ' placeholder='nom du groupe' id='nom_du_groupe'>")
+            $('#liste_user_pour_creer_groupe').append("<button id='boutton_creer_groupe'>créer</button>")
         },
     
         error: function (request, status, error) {
@@ -413,15 +415,16 @@ $("#div_like_button_creer_groupe").click(function(){
     
     })
         setTimeout(listeUserGroupe, 50)
+        setTimeout(creerGroupe, 50)
     
   });
 
 /*  lancement de la fonction à l'ouverture de la page car le toogle est
  display par defaut, cause héritage css d'une autre div*/
-  function toogleGrope(){
+  function toogleGroupe(){
     $("#liste_user_pour_creer_groupe").toggle();
   }
-  toogleGrope()
+  toogleGroupe()
 
 
 // --------------------------------------fonction sur click - selection des users pour créer groupe
@@ -440,5 +443,67 @@ function listeUserGroupe(){
         })
     
     }
+
+}
+
+// ----------------------------------fonction creer le groupe
+function creerGroupe(){
+    boutton_creer = document.getElementById('boutton_creer_groupe')
+
+    boutton_creer.addEventListener('click', function(){
+    
+        choix_user_groupe = document.getElementsByClassName('creer_groupe_green')
+        array_users = []
+
+        for(i=0; i<choix_user_groupe.length; i++)
+        {
+            array_users.push(choix_user_groupe[i].innerHTML)
+        }
+        nom_groupe = document.getElementById('nom_du_groupe')
+        console.log(nom_groupe.value.length)
+
+        if(nom_groupe.value.length == 0)
+        {
+            input = document.getElementById('nom_du_groupe')
+            input.classList.add("animate__shakeX");
+
+        }
+        else{
+            nom_groupe = document.getElementById('nom_du_groupe').value
+            console.log(array_users)
+
+
+        $.ajax({
+            url: "scripts_ajax_php/creation_groupe_chat.php",
+            type: "POST",
+            data: {"donnees":array_users,
+                    "nom_groupe":nom_groupe},
+            dataType: "html",
+        
+            success : function(dataType){
+
+                console.log(dataType)
+            },
+        
+            error: function (request, status, error) {
+                console.log(request.responseText);
+            },
+        
+            complete : function(resultat, statut){
+    
+            }
+        
+        })
+
+
+
+
+
+        }
+
+
+
+
+    })
 
 }
