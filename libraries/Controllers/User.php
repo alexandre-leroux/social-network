@@ -11,15 +11,15 @@ class User {
      * @param [type] $user
      * @return void
      */
-    public function verifInscription($id_user, $user){
+    public function verifInscription($id_user, $user, $prenom, $nom,$mail, $mdp, $avatar,$confirm_mdp,$hobbies){
         
         $message = array() ; 
 
         if(!empty($prenom) && !empty($nom) && !empty($mail) && !empty($avatar) && !empty($mdp) && !empty($confirm_mdp))
         {
-            if(preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}$#',$mdp))
+            if(preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}$#',$_POST['mdp']))
             {
-                if(preg_match('#[a-z,A-Z,0-9]@laplateforme.io$#',$mail))
+                if(preg_match('#[a-z,A-Z,0-9]@laplateforme.io$#',$_POST['mail']))
                 {
                     if($mdp === $confirm_mdp)
                     {
@@ -34,7 +34,7 @@ class User {
                                 $mouvement = move_uploaded_file($_FILES['avatar']['tmp_name'], $chemin ); 
                                 if($mouvement)
                                 {
-                                    $user->inscriptionUser(); 
+                                    $user->inscriptionUser($chemin); 
             
                                     $message['message'] = '<p class="msg_inscription success">Inscription réussi ! Vous allez etre rediriger vers la page de connexion.</p>' ;
                                 }

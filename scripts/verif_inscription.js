@@ -147,12 +147,12 @@ $("#form_inscription").submit(function(e) {
         url: '../scripts_ajax_php/verif_inscription.php',
         type: 'POST',
         data: formData, 
-        datatype: "json",
+        datatype: "text",
         success: function (data) {
             var message = JSON.parse(data) ; 
             $(".message_statut").append(message.message) ;
 
-            // setTimeout(function(){ window.location.href = '../pages/connexion.php';}, 1500);
+            setTimeout(function(){ window.location.href = '../pages/connexion.php';}, 1500);
            
         },
 

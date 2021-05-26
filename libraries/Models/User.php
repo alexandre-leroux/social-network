@@ -9,7 +9,7 @@ class User extends Model {
     public function __construct($prenom,$nom,$mdp,$mail,$chemin,$hobbies,$connecte)
     {
         $this->prenom = $prenom; 
-        $this->$nom = $nom; 
+        $this->nom = $nom; 
         $this->mdp = $mdp; 
         $this->mail = $mail;
         $this->chemin = $chemin; 
@@ -17,7 +17,7 @@ class User extends Model {
         $this->connecte = $connecte; 
         parent::__construct();
     }
-    public function inscriptionUser()
+    public function inscriptionUser($chemin)
     {
         $requete = $this->bdd->prepare("INSERT INTO users(prenom,nom,mdp,mail,avatar,hobbies,connecte) 
         VALUES (:prenom,:nom,:mdp,:mail,:avatar,:hobbies,:connecte)"); 
@@ -26,7 +26,7 @@ class User extends Model {
         $requete->bindParam(':nom', $this->nom);
         $requete->bindParam(':mdp', $this->mdp);
         $requete->bindParam(':mail', $this->mail);
-        $requete->bindParam(':avatar', $this->chemin);
+        $requete->bindParam(':avatar', $chemin);
         $requete->bindParam(':hobbies', $this->hobbies);
         $requete->bindParam(':connecte', $this->connecte);
 
@@ -48,7 +48,7 @@ class User extends Model {
 
         return $resultat_users; 
     }
-    
+
         /**
      * Passer à 1 le connecte de l'utilisateur en bdd 
      *
