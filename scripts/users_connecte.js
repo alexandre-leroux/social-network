@@ -8,7 +8,7 @@ function displayUser(){
 
 
     $.ajax({
-        url: "model/search_all_user.php",
+        url: "libraries/Models/search_all_user.php",
         type: "POST",
        
         dataType: "json",
@@ -35,7 +35,7 @@ function displayUser(){
                 }
        
 
-                  i++
+                i++
             }
         
         },
@@ -60,7 +60,7 @@ function displayUser(){
 function checkUsersConnect(){
     
     $.ajax({
-        url: "model/search_all_user.php",
+        url: "libraries/Models/search_all_user.php",
         type: "POST",
         dataType: "json",
       

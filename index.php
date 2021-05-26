@@ -153,14 +153,16 @@ else
         </div>
 
         <div class="comment_post" style="display: none;">
-            <div class="comment">
-                <div id="img_comment">
-                    <img src="img/pp.jpg" alt="#">
-                </div>
-                <div id="description_comment">
-                    <p class="bold"> Nom de la personne </p>
-                    <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum, excepturi? Expedita, doloremque.</p>
-                </div>
+            <div class="contenu_comment">
+                <div class="comment">
+                    <div id="img_comment">
+                        <img src="img/pp.jpg" alt="#">
+                    </div>
+                    <div id="description_comment">
+                        <p class="bold"> Nom de la personne </p>
+                        <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum, excepturi? Expedita, doloremque.</p>
+                    </div>
+                </div>   
             </div>    
                 
             <div id="link_autres_comment">
@@ -173,7 +175,7 @@ else
                 </div>
                 <div class="input_form_comment">
                     <textarea placeholder="Ecrire un commentaire...."></textarea>
-                    <input type="button" value="Envoyer">
+                    <input type="button" value="Envoyer" class="input_ajout_comment">
                 </div>
             </div>
                 
@@ -208,14 +210,16 @@ else
         </div>
 
         <div class="comment_post" style="display: none;">
-            <div class="comment">
-                <div id="img_comment">
-                    <img src="img/pp.jpg" alt="#">
-                </div>
-                <div id="description_comment">
-                    <p class="bold"> Nom de la personne </p>
-                    <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum, excepturi? Expedita, doloremque.</p>
-                </div>
+            <div class="contenu_comment">
+                <div class="comment">
+                    <div id="img_comment">
+                        <img src="img/pp.jpg" alt="#">
+                    </div>
+                    <div id="description_comment">
+                        <p class="bold"> Nom de la personne </p>
+                        <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum, excepturi? Expedita, doloremque.</p>
+                    </div>
+                </div>   
             </div>    
                 
             <div id="link_autres_comment">
@@ -228,7 +232,7 @@ else
                 </div>
                 <div class="input_form_comment">
                     <textarea placeholder="Ecrire un commentaire...."></textarea>
-                    <input type="button" value="Envoyer">
+                    <input type="button" value="Envoyer" class="input_ajout_comment">
                 </div>
             </div>
                 
@@ -267,15 +271,17 @@ else
         </div>
 
         <div class="comment_post" style="display: none;">
-            <div class="comment">
-                <div id="img_comment">
-                    <img src="img/pp.jpg" alt="#">
-                </div>
-                <div id="description_comment">
-                    <p class="bold"> Nom de la personne </p>
-                    <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum, excepturi? Expedita, doloremque.</p>
-                </div>
-            </div>    
+            <div class="contenu_comment">
+                <div class="comment">
+                    <div id="img_comment">
+                        <img src="img/pp.jpg" alt="#">
+                    </div>
+                    <div id="description_comment">
+                        <p class="bold"> Nom de la personne </p>
+                        <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum, excepturi? Expedita, doloremque.</p>
+                    </div>
+                </div>   
+            </div> 
                 
             <div id="link_autres_comment">
                 <p> Voir tous les commentaires </p>
@@ -287,7 +293,7 @@ else
                 </div>
                 <div class="input_form_comment">
                     <textarea placeholder="Ecrire un commentaire...."></textarea>
-                    <input type="button" value="Envoyer">
+                    <input type="button" value="Envoyer" class="input_ajout_comment">
                 </div>
             </div>
                 
@@ -336,15 +342,17 @@ else
         </div>
 
         <div class="comment_post" style="display: none;">
-            <div class="comment">
-                <div id="img_comment">
-                    <img src="img/pp.jpg" alt="#">
-                </div>
-                <div id="description_comment">
-                    <p class="bold"> Nom de la personne </p>
-                    <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum, excepturi? Expedita, doloremque.</p>
-                </div>
-            </div>    
+            <div class="contenu_comment">
+                <div class="comment">
+                    <div id="img_comment">
+                        <img src="img/pp.jpg" alt="#">
+                    </div>
+                    <div id="description_comment">
+                        <p class="bold"> Nom de la personne </p>
+                        <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum, excepturi? Expedita, doloremque.</p>
+                    </div>
+                </div>   
+            </div> 
                 
             <div id="link_autres_comment">
                 <p> Voir tous les commentaires </p>
@@ -356,7 +364,7 @@ else
                 </div>
                 <div class="input_form_comment">
                     <textarea placeholder="Ecrire un commentaire...."></textarea>
-                    <input type="button" value="Envoyer">
+                    <input type="button" value="Envoyer" class="input_ajout_comment">
                 </div>
             </div>
                 
