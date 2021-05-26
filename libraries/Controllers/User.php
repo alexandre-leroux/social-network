@@ -4,6 +4,13 @@ namespace Controllers;
 
 class User {
 
+    /**
+     * Conditions pour l'inscription utilisateur : retourne un fichier json
+     *
+     * @param [type] $id_user
+     * @param [type] $user
+     * @return void
+     */
     public function verifInscription($id_user, $user){
         
         $message = array() ; 
@@ -63,5 +70,44 @@ class User {
         return json_encode($message) ; 
 
     }
+
+
+    /**
+     * Conditions pour la connexion : renvoie le msg en fichier json 
+     *
+     * @param [type] $user
+     * @return void
+     */
+    public function verifConnexion($user, $mail, $mdp){
+
+        
+        $message = array();
+
+        if(!empty($mail) && !empty($mdp))
+        {
+            $resultat_users = $user->connexionUser() ;
+            
+            if($resultat_users)
+            {
+                $_SESSION['mail'] = $resultat_users['mail'] ;
+                $_SESSION['prenom'] = $resultat_users['prenom'] ; 
+                $_SESSION['id'] = $resultat_users['id'] ; 
+
+                $user->updateConnecte($mail); 
+
+                $message['message'] = '<p class="msg_inscription success">Connexion réussi ! Vous allez etre redirigé vers la page d\'accueil</p>' ; 
+            }
+            else {
+                $message['message'] = '<p class="msg_inscription error"> Login ou password incorrect. </p>' ; 
+            }
+            
+        }
+        else{
+            $message['message'] = '<p class="msg_inscription error"> Veuillez remplir tous les champs </p>' ; 
+        }
+
+        return json_encode($message) ; 
+    }
+
     
 }

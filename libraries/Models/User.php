@@ -6,7 +6,7 @@ require_once("Model.php") ;
 
 class User extends Model {
 
-    public function construct__($prenom,$nom,$mdp,$mail,$chemin,$hobbies,$connecte)
+    public function __construct($prenom,$nom,$mdp,$mail,$chemin,$hobbies,$connecte)
     {
         $this->prenom = $prenom; 
         $this->$nom = $nom; 
@@ -15,6 +15,7 @@ class User extends Model {
         $this->chemin = $chemin; 
         $this->hobbies = $hobbies; 
         $this->connecte = $connecte; 
+        parent::__construct();
     }
     public function inscriptionUser()
     {
@@ -30,6 +31,34 @@ class User extends Model {
         $requete->bindParam(':connecte', $this->connecte);
 
         $requete->execute();
+    }
+
+    public function connexionUser(){
+
+        $connexion = $this->bdd->prepare('SELECT * FROM users 
+                                    WHERE mail = :mail
+                                        AND mdp = :mdp');
+        
+        $connexion->bindParam(':mail', $this->mail);
+        $connexion->bindParam(':mdp', $this->mdp);
+        
+        $connexion->execute(); 
+        
+        $resultat_users = $connexion->fetch();
+
+        return $resultat_users; 
+    }
+    
+        /**
+     * Passer à 1 le connecte de l'utilisateur en bdd 
+     *
+     * @param string $mail
+     * @return void
+     */
+    public function updateConnecte($mail)
+    {
+        $deco = $this->bdd->prepare('UPDATE users SET connecte = 1 WHERE mail = :mail');
+        $deco->execute(array('mail' => $mail));
     }
 
 

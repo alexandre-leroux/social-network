@@ -15,7 +15,7 @@ $("#form_connexion").submit(function(e) {
         data: {mail: mail, mdp: mdp},
         dataType: "json",
         success: function (response) {
-            console.log(response)
+   
             $(".message_statut").append(response.message); 
             setTimeout(function(){ window.location.href = '../index.php';}, 1500);
         }

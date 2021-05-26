@@ -1,7 +1,6 @@
 <?php
 
-require_once("../libraries/Models/User.php"); 
-require_once("../libraries/Controller/User.php");
+require_once("../libraries/autoload.php");
 
 $prenom = htmlspecialchars($_POST['prenom']) ;
 $nom = htmlspecialchars($_POST['nom']) ;
