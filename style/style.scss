@@ -381,3 +381,55 @@ border: 1px solid red;
         width: 80%;
     }
 }
+
+// style barre post 
+
+#new_post{
+    background-color: rgba(0, 0, 0, 0);
+    .contenu_new_post{
+        width: 100% ; 
+        .search_bar_post {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            input[type = "text"] {
+                width: 60% ; 
+                padding: 10px;
+                border-radius: 2em;
+                border: none;
+                &::placeholder {
+                    font-size: 1rem;
+                }
+            }
+            button{
+                width : 20% ;
+                margin: 10px; 
+                border-radius: 2em;
+                padding: 10px;
+                background-color: rgb(250, 95, 90);
+                color: white;
+                border: none;
+            }
+        }
+        .choix_image {
+            
+            align-items: center;
+            justify-content: center;
+            i {
+                padding: 10px;
+                display: block;
+                color: rgb(250, 95, 90);
+                cursor: pointer;
+            }
+            input {
+                display: none;
+            }
+            p{
+                color: rgb(250, 95, 90);
+                font-style: italic;
+                font-size: 0.8rem;
+            }
+        }
+    }
+}

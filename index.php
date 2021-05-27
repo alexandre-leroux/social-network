@@ -67,6 +67,7 @@ else
 
 <section id="section_centrale">
 
+
     <div id="div3">
         <article id="contenu_div3">
 
@@ -125,6 +126,21 @@ else
     
     
     <div id="div2">
+
+    <article id="new_post">
+        <div class="contenu_new_post">
+            <div class="search_bar_post">
+                <input type="text" name="input_text" id="input_text" placeholder="Quoi de neuf ?">
+                <button> Poster </button>
+            </div>            
+            <div class="choix_image" style="display: none;">
+                <i class="fa fa-image fa-lg" id="pictures_post"></i>
+                <input type="file" name="choix_image" id="choix_image" multiple>
+                <p> Tous les utilisateurs peuvent voir votre post </p>
+            </div>   
+        </div>
+    </article>
+
     <article class="post">
         <div class="post_image">
             <div class="photo_profil">
