@@ -558,7 +558,7 @@ function clickSurUnGroupe(){
                                 parent2 = document.getElementById('conteneur_des_messages')
                                 var mess = document.createElement("p");
                                 mess.className  = "auteur_message_moi"
-                                 mess.innerHTML =  " "+dataType[z][7]+" - "+dataType[z].message+"   "
+                                 mess.innerHTML =  dataType[z].message
                                  parent2.appendChild(mess);
                             }
                             else{
@@ -566,7 +566,7 @@ function clickSurUnGroupe(){
                                 console.log('dans foir')
                                 parent2 = document.getElementById('conteneur_des_messages')
                                 var mess = document.createElement("p");
-                                 mess.innerHTML =  " "+dataType[z][7]+" - "+dataType[z].message+"   "
+                                 mess.innerHTML =  "<b> "+dataType[z][7]+"</b> - "+dataType[z].message+"   "
                                  parent2.appendChild(mess);
                                 
                             }
