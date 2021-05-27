@@ -1,4 +1,3 @@
-console.log(variableRecuperee)
 displayUser()
 checkUsersConnect()
 setInterval(checkUsersConnect, 10000)
@@ -521,19 +520,16 @@ function clickSurUnGroupe(){
             // console.log(groupes[i])
             var nom_groupes = document.querySelectorAll(" .nom_du_groupe p");
             let first = nom_groupes[i]
-            console.log(first)
+            // console.log(first)
 
-
-   
-  
 
             groupes[i].addEventListener('click', function(e){
                
-                console.log(first.innerHTML)
 
                 nom_du_groupe = first.innerHTML
 
-             
+                parent2 = document.getElementById('conteneur_des_messages')
+                parent2.innerHTML = ""
 
            $.ajax({
                url: "scripts_ajax_php/messages_chat_groupe.php",
@@ -546,20 +542,34 @@ function clickSurUnGroupe(){
                         console.log(dataType)  
                         parent = document.getElementById('user_selection_chat')
                         var p = document.createElement("p");
-                        p.innerHTML =  dataType.data1[3]
+                        p.innerHTML = dataType[0].nom_du_groupe
                         parent.innerHTML = ""
                         parent.appendChild(p);
     
                         var mess = document.createElement("p");
     
-                        for (z=0; z<dataType.data2.length; z++)
+                        for (z=0; z<dataType.length; z++)
                         {
-                            console.log('dans foir')
-                            parent2 = document.getElementById('conteneur_des_messages')
-                            var mess = document.createElement("p");
-                             contenur_mess = dataType.data2[z][4]
-                             mess.innerHTML = contenur_mess
-                             parent2.appendChild(mess);
+
+
+                            if(dataType[z][7] == session_prenom_php)
+                            {
+                                console.log('dans foir')
+                                parent2 = document.getElementById('conteneur_des_messages')
+                                var mess = document.createElement("p");
+                                mess.className  = "auteur_message_moi"
+                                 mess.innerHTML =  " "+dataType[z][7]+" - "+dataType[z].message+"   "
+                                 parent2.appendChild(mess);
+                            }
+                            else{
+
+                                console.log('dans foir')
+                                parent2 = document.getElementById('conteneur_des_messages')
+                                var mess = document.createElement("p");
+                                 mess.innerHTML =  " "+dataType[z][7]+" - "+dataType[z].message+"   "
+                                 parent2.appendChild(mess);
+                                
+                            }
                         }
                                
                
