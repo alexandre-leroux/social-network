@@ -135,12 +135,26 @@ function eventsurclick(){
 
                     for (z=0; z<dataType.data2.length; z++)
                     {
-                        console.log('dans foir')
-                        parent2 = document.getElementById('conteneur_des_messages')
-                        var mess = document.createElement("p");
-                         contenur_mess = dataType.data2[z][4]
-                         mess.innerHTML = contenur_mess
-                         parent2.appendChild(mess);
+                        if(dataType.data2[z].fk_id_auteur_message == session_id_php)
+                        {
+                            console.log(dataType.data2)
+                            parent2 = document.getElementById('conteneur_des_messages')
+                            var mess = document.createElement("p");
+                            mess.className  = "auteur_message_moi"
+                             contenur_mess = dataType.data2[z][4]
+                             mess.innerHTML = contenur_mess
+                             parent2.appendChild(mess);
+                        }
+                        else{
+
+                            console.log(dataType.data2)
+                            parent2 = document.getElementById('conteneur_des_messages')
+                            var mess = document.createElement("p");
+                             contenur_mess = dataType.data2[z][4]
+                             mess.innerHTML = contenur_mess
+                             parent2.appendChild(mess);
+
+                        }
                     }
                 
                 

@@ -11,6 +11,7 @@ $deco = $bdd->prepare('UPDATE users SET connecte = 1 WHERE mail = :mail');
 $deco->execute(array('mail' => $mail));
 $session_id_php = $_SESSION['id'];
 $session_prenom_php = $_SESSION['prenom'];
+$session_prenom_php = $_SESSION['prenom'];
 
 
 ?>
@@ -182,6 +183,7 @@ if(isset($_SESSION['mail']))
 <script src="scripts/deconnecte.js"></script>
 <script>
  var session_id_php = <?php echo json_encode($session_id_php); ?>;
+ var session_prenom_php = <?php echo json_encode($session_prenom_php); ?>;
  var session_prenom_php = <?php echo json_encode($session_prenom_php); ?>;
 </script>
 <script src="scripts/chat_prive.js"></script>
