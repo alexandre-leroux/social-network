@@ -240,57 +240,47 @@ function checkNewMessage(){
 
 }
 
+
+
 // -----------------------------------------------envoye le message quand on click sur le bouton envoyer
-envoyer_message = document.getElementById('button_envoyer_message')
-
-envoyer_message.addEventListener('click', function(){
-
+function envoyerMessage(){
+    
     message = document.getElementById('input_messages').value
 
     destinataire = document.querySelector('#user_selection_chat p').innerHTML
+    destinataire_type = document.querySelector('#user_selection_chat p')
+    type_detinataire = destinataire_type.getAttribute('name');
+    console.log(type_detinataire)
 
+    if(type_detinataire == 'groupe')
+    {
+        $.ajax({
+            url: "scripts_ajax_php/chat_groupe_add_new_message.php",
+            type: "POST",
+            data: {     "message":message, 
+                        "destinataire":destinataire, },
     
-    $.ajax({
-        url: "scripts_ajax_php/chat_prive_add_message.php",
-        type: "POST",
-        data: {     "message":message, 
-                    "destinataire":destinataire, },
-
-        dataType: "text",
-      
-        success : function(dataType){
-
-            console.log(dataType);
+            dataType: "text",
+          
+            success : function(dataType){
+    
+                console.log(dataType);
+            
+            },
         
-        },
+            error: function (request, status, error) {
+                console.log(request.responseText);
+            },
+        
+            complete : function(resultat, statut){
+            }
     
-        error: function (request, status, error) {
-            console.log(request.responseText);
-        },
     
-        complete : function(resultat, statut){
-        }
-
-
-    })
-
-    console.log(message)
-    console.log(destinataire)
-    document.getElementById('input_messages').value = ""
-
-})
-
-// -------------------------------------------------envoye le message quand on appuye sur la touche entrée
-document.addEventListener('keyup', function(e){
-
-    if (e.code == 'Enter' && document.getElementById('input_messages').value != "")
+        })
+    }
+    else
     {
 
-        message = document.getElementById('input_messages').value
-
-        destinataire = document.querySelector('#user_selection_chat p').innerHTML
-    
-        
         $.ajax({
             url: "scripts_ajax_php/chat_prive_add_message.php",
             type: "POST",
@@ -312,14 +302,42 @@ document.addEventListener('keyup', function(e){
             complete : function(resultat, statut){
             }
     
-        })
     
+        })
+
+    }
+    
+
+    console.log(message)
+    console.log(destinataire)
+    document.getElementById('input_messages').value = ""
+}
+
+envoyer_message = document.getElementById('button_envoyer_message')
+
+envoyer_message.addEventListener('click', function(){
+    envoyerMessage()
+    
+
+    console.log(message)
+    console.log(destinataire)
+    document.getElementById('input_messages').value = ""
+
+})
+
+// -------------------------------------------------envoye le message quand on appuye sur la touche entrée
+document.addEventListener('keyup', function(e){
+
+    if (e.code == 'Enter' && document.getElementById('input_messages').value != "")
+    {
+
+        envoyerMessage()
         document.getElementById('input_messages').value = ""
     
     }
 })
 
-
+// ------------------------------------------------------fin de l'envoie des messages
 
 function refreshAffichegaNewMessages(){
 
@@ -566,6 +584,7 @@ function clickSurUnGroupe(){
                         console.log(dataType)  
                         parent = document.getElementById('user_selection_chat')
                         var p = document.createElement("p");
+                        p.setAttribute('name', 'groupe');
                         p.innerHTML = nom_du_groupe
                         parent.innerHTML = ""
                         parent.appendChild(p);
