@@ -543,7 +543,25 @@ function clickSurUnGroupe(){
              
                success : function(dataType){
        
-                        console.log(dataType)             
+                        console.log(dataType)  
+                        parent = document.getElementById('user_selection_chat')
+                        var p = document.createElement("p");
+                        p.innerHTML =  dataType.data1[3]
+                        parent.innerHTML = ""
+                        parent.appendChild(p);
+    
+                        var mess = document.createElement("p");
+    
+                        for (z=0; z<dataType.data2.length; z++)
+                        {
+                            console.log('dans foir')
+                            parent2 = document.getElementById('conteneur_des_messages')
+                            var mess = document.createElement("p");
+                             contenur_mess = dataType.data2[z][4]
+                             mess.innerHTML = contenur_mess
+                             parent2.appendChild(mess);
+                        }
+                               
                
                },
            
