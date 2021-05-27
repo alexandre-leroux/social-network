@@ -2,7 +2,7 @@ displayUser()
 checkUsersConnect()
 setInterval(checkUsersConnect, 10000)
 setTimeout(eventsurclick, 20)
-setTimeout(clickSurUnGroupe, 20)
+setTimeout(clickSurUnGroupe, 40)
 
 checkNewMessage()
 setInterval(checkNewMessage, 4000)
@@ -340,15 +340,28 @@ function refreshAffichegaNewMessages(){
             parent.innerHTML = ""
             parent.appendChild(p);
 
-            var mess = document.createElement("p");
-
             for (z=0; z<dataType.data2.length; z++)
             {
-                parent2 = document.getElementById('conteneur_des_messages')
-                var mess = document.createElement("p");
-                contenur_mess = dataType.data2[z][4]
-                mess.innerHTML = contenur_mess
-                parent2.appendChild(mess);
+                if(dataType.data2[z].fk_id_auteur_message == session_id_php)
+                {
+                    console.log(dataType.data2)
+                    parent2 = document.getElementById('conteneur_des_messages')
+                    var mess = document.createElement("p");
+                    mess.className  = "auteur_message_moi"
+                     contenur_mess = dataType.data2[z][4]
+                     mess.innerHTML = contenur_mess
+                     parent2.appendChild(mess);
+                }
+                else{
+
+                    console.log(dataType.data2)
+                    parent2 = document.getElementById('conteneur_des_messages')
+                    var mess = document.createElement("p");
+                     contenur_mess = dataType.data2[z][4]
+                     mess.innerHTML = contenur_mess
+                     parent2.appendChild(mess);
+
+                }
             }
         
         },
@@ -525,9 +538,7 @@ function clickSurUnGroupe(){
 
     groupes = document.getElementsByClassName("liste_groupes");
     // nom_groupes = document.querySelectorAll(" .nom_du_groupe p");
-    // console.log(nom_groupes)
-
-
+    console.log(groupes)
 
         for(i = 0; i<groupes.length; i++)
         {  
@@ -536,11 +547,10 @@ function clickSurUnGroupe(){
             let first = nom_groupes[i]
             // console.log(first)
 
-
             groupes[i].addEventListener('click', function(e){
                
-
                 nom_du_groupe = first.innerHTML
+                console.log(nom_du_groupe)
 
                 parent2 = document.getElementById('conteneur_des_messages')
                 parent2.innerHTML = ""
@@ -556,7 +566,7 @@ function clickSurUnGroupe(){
                         console.log(dataType)  
                         parent = document.getElementById('user_selection_chat')
                         var p = document.createElement("p");
-                        p.innerHTML = dataType[0].nom_du_groupe
+                        p.innerHTML = nom_du_groupe
                         parent.innerHTML = ""
                         parent.appendChild(p);
     
