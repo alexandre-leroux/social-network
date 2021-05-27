@@ -1,11 +1,12 @@
 <?php 
 session_start();
 require_once('model/database.php');
+require_once('model/display_chat_groupe.php');
 
-var_dump($_SESSION);
+// var_dump($_SESSION);
 $mail = $_SESSION['mail'];
-var_dump($mail);
-var_dump($bdd);
+// var_dump($mail);
+// var_dump($bdd);
 $deco = $bdd->prepare('UPDATE users SET connecte = 1 WHERE mail = :mail');
 $deco->execute(array('mail' => $mail));
 
@@ -101,33 +102,23 @@ else
                     <button>créer</button>
                 </div>
 
-                <div>
-                    <div>
-                        <img src="img/group.svg" alt="#">
-                    </div>
-                    <div>
-                        <p> Groupe 1 </p>
-                    </div>
-                </div>
+                <?php
+                    foreach($groupe as $key => $value)
+                    {
+                        ?>
+                            <div>
+                            <div>
+                                <img src="img/group.svg" alt="#">
+                            </div>
+                            <div>
+                                <p><?=$value[0]?></p>
+                            </div>
+                            </div>
+                         <?php
+                    }
                 
-                <div>
-                    <div>
-                        <img src="img/group.svg" alt="#">
-                    </div>
-                    <div>
-                        <p> Groupe 2 </p>
-                    </div>
-                </div>
-                
-                <div>
-                    <div>
-                        <img src="img/group.svg" alt="#">
-                    </div>
-                    <div>
-                        <p> Groupe 3 </p>
-                    </div>
-                </div>
-                
+                ?>
+                               
             </div>
             
         </article>
