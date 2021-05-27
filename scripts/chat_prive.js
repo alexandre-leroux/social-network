@@ -11,8 +11,10 @@ setInterval(checkNewMessage, 4000)
 setInterval(refreshAffichegaNewMessages, 1250)
 
 setInterval(messageLuSiFenetreChatEstSurUser, 1000)
+setInterval(messageLuSiFenetreChatEstSurGroupe, 1500)
+setInterval(checkNewMessageDansGroupe, 1250)
 
-setTimeout(checkNewMessageDansGroupe, 100)        
+// setTimeout(checkNewMessageDansGroupe, 100)        
 
 
 
@@ -808,7 +810,7 @@ function clickSurUnGroupe(){
    
     
 
-
+// ---------------------------------------check si new messages de groupe non lu
 function checkNewMessageDansGroupe(){
 
     $.ajax({
@@ -837,6 +839,11 @@ function checkNewMessageDansGroupe(){
                         // console.log('hourra')
                         groupes[i].classList.add("new_message");
                     }
+                    else
+                    {
+                        groupes[i].classList.remove("new_message");
+                        
+                    }
         
                 
                        
@@ -860,6 +867,34 @@ function checkNewMessageDansGroupe(){
     
         complete : function(resultat, statut){
         }
+
+    })
+
+}
+
+// --------------------------------------------update les messages de groupe une fois qu'ils sont lus
+function messageLuSiFenetreChatEstSurGroupe(){
+
+    groupe = document.querySelector('#user_selection_chat p').innerHTML
+
+    console.log(groupe)
+
+    $.ajax({
+        url: "scripts_ajax_php/update_message_groupe_lu.php",
+        type: "POST",
+        data: {  "groupe":groupe  },
+        datatype : "html",
+      
+        success : function(dataType){
+            console.log(dataType)
+        },
+    
+        error: function (request, status, error) {
+        },
+    
+        complete : function(resultat, statut){
+        }
+
 
     })
 
