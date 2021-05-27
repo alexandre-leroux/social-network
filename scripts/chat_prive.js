@@ -6,8 +6,11 @@ setTimeout(clickSurUnGroupe, 40)
 
 checkNewMessage()
 setInterval(checkNewMessage, 4000)
-// setInterval(refreshAffichegaNewMessages, 500)
-// setInterval(messageLuSiFenetreChatEstSurUser, 500)
+
+// setInterval(refreshMessagesGroupe, 500)
+setInterval(refreshAffichegaNewMessages, 1250)
+
+setInterval(messageLuSiFenetreChatEstSurUser, 1000)
 
 
 function displayUser(){
@@ -341,56 +344,130 @@ document.addEventListener('keyup', function(e){
 
 function refreshAffichegaNewMessages(){
 
-    destinataire = document.querySelector('#user_selection_chat p').innerHTML
+    type_de_chat = document.querySelector('#user_selection_chat p')
+    chat_groupe = type_de_chat.getAttribute('name');
+    console.log(chat_groupe)
+    if(chat_groupe == 'groupe')
+    {
+        nom_du_groupe = document.querySelector('#user_selection_chat p').innerHTML
+        console.log(nom_du_groupe)
 
-    $.ajax({
-        url: "scripts_ajax_php/chat_prive.php",
-        type: "POST",
-        data: {  "pseudo":destinataire,  },
-        dataType: "JSON",
-      
-        success : function(dataType){
 
-            parent2 = document.getElementById('conteneur_des_messages').innerHTML = ""
-            parent = document.getElementById('user_selection_chat')
-            var p = document.createElement("p");
-            p.innerHTML =  dataType.data1[1]
-            parent.innerHTML = ""
-            parent.appendChild(p);
 
-            for (z=0; z<dataType.data2.length; z++)
-            {
-                if(dataType.data2[z].fk_id_auteur_message == session_id_php)
+   $.ajax({
+       url: "scripts_ajax_php/messages_chat_groupe.php",
+       type: "POST",
+       data: {  "nom_du_groupe":nom_du_groupe,  },
+       dataType: "json",
+     
+       success : function(dataType){
+
+                // console.log(dataType)  
+                // parent = document.getElementById('user_selection_chat')
+                // var p = document.createElement("p");
+                // p.setAttribute('name', 'groupe');
+                // p.innerHTML = nom_du_groupe
+                // parent.innerHTML = ""
+                // parent.appendChild(p);
+                parent2 = document.getElementById('conteneur_des_messages')
+                parent2.innerHTML = ""
+                var mess = document.createElement("p");
+
+                for (z=0; z<dataType.length; z++)
                 {
-                    console.log(dataType.data2)
-                    parent2 = document.getElementById('conteneur_des_messages')
-                    var mess = document.createElement("p");
-                    mess.className  = "auteur_message_moi"
-                     contenur_mess = dataType.data2[z][4]
-                     mess.innerHTML = contenur_mess
-                     parent2.appendChild(mess);
-                }
-                else{
 
-                    console.log(dataType.data2)
-                    parent2 = document.getElementById('conteneur_des_messages')
-                    var mess = document.createElement("p");
-                     contenur_mess = dataType.data2[z][4]
-                     mess.innerHTML = contenur_mess
-                     parent2.appendChild(mess);
 
+                    if(dataType[z][7] == session_prenom_php)
+                    {
+                        console.log('dans foir')
+                        parent2 = document.getElementById('conteneur_des_messages')
+                        var mess = document.createElement("p");
+                        mess.className  = "auteur_message_moi"
+                         mess.innerHTML =  dataType[z].message
+                         parent2.appendChild(mess);
+                    }
+                    else{
+
+                        console.log('dans foir')
+                        parent2 = document.getElementById('conteneur_des_messages')
+                        var mess = document.createElement("p");
+                         mess.innerHTML =  "<b> "+dataType[z][7]+"</b> - "+dataType[z].message+"   "
+                         parent2.appendChild(mess);
+                        
+                    }
                 }
-            }
+                       
+       
+       },
+   
+       error: function (request, status, error) {
+           console.log(request)
+           console.log(status)
+           console.log(error)
+       },
+   
+       complete : function(resultat, statut){
+           console.log('ok')
+       }
+
+
+        })
+    }
+    else
+    {
+
+        destinataire = document.querySelector('#user_selection_chat p').innerHTML
+
+        $.ajax({
+            url: "scripts_ajax_php/chat_prive.php",
+            type: "POST",
+            data: {  "pseudo":destinataire,  },
+            dataType: "JSON",
+          
+            success : function(dataType){
+    
+                parent2 = document.getElementById('conteneur_des_messages').innerHTML = ""
+                parent = document.getElementById('user_selection_chat')
+                var p = document.createElement("p");
+                p.innerHTML =  dataType.data1[1]
+                parent.innerHTML = ""
+                parent.appendChild(p);
+    
+                for (z=0; z<dataType.data2.length; z++)
+                {
+                    if(dataType.data2[z].fk_id_auteur_message == session_id_php)
+                    {
+                        console.log(dataType.data2)
+                        parent2 = document.getElementById('conteneur_des_messages')
+                        var mess = document.createElement("p");
+                        mess.className  = "auteur_message_moi"
+                         contenur_mess = dataType.data2[z][4]
+                         mess.innerHTML = contenur_mess
+                         parent2.appendChild(mess);
+                    }
+                    else{
+    
+                        console.log(dataType.data2)
+                        parent2 = document.getElementById('conteneur_des_messages')
+                        var mess = document.createElement("p");
+                         contenur_mess = dataType.data2[z][4]
+                         mess.innerHTML = contenur_mess
+                         parent2.appendChild(mess);
+    
+                    }
+                }
+            
+            },
         
-        },
+            error: function (request, status, error) {
+            },
+        
+            complete : function(resultat, statut){
+            }
     
-        error: function (request, status, error) {
-        },
-    
-        complete : function(resultat, statut){
-        }
+        })
+    }
 
-    })
 
 }
 
@@ -652,5 +729,78 @@ function clickSurUnGroupe(){
        
         //    })
 
-   
+        function refreshMessagesGroupe(){
 
+            var nom_groupe = document.querySelector(" #user_selection_chat p").innerHTML;
+            // let first = nom_groupes[i]
+            // console.log(first)
+
+
+               
+                // nom_du_groupe = first.innerHTML
+                console.log(nom_groupe)
+
+                parent2 = document.getElementById('conteneur_des_messages')
+                parent2.innerHTML = ""
+
+           $.ajax({
+               url: "scripts_ajax_php/messages_chat_groupe.php",
+               type: "POST",
+               data: {  "nom_du_groupe":nom_groupe,  },
+               dataType: "json",
+             
+               success : function(dataType){
+       
+                        console.log(dataType)  
+                        parent = document.getElementById('user_selection_chat')
+                        var p = document.createElement("p");
+                        p.setAttribute('name', 'groupe');
+                        p.innerHTML = nom_du_groupe
+                        parent.innerHTML = ""
+                        parent.appendChild(p);
+    
+                        var mess = document.createElement("p");
+    
+                        for (z=0; z<dataType.length; z++)
+                        {
+
+
+                            if(dataType[z][7] == session_prenom_php)
+                            {
+                                console.log('dans foir')
+                                parent2 = document.getElementById('conteneur_des_messages')
+                                var mess = document.createElement("p");
+                                mess.className  = "auteur_message_moi"
+                                 mess.innerHTML =  dataType[z].message
+                                 parent2.appendChild(mess);
+                            }
+                            else{
+
+                                console.log('dans foir')
+                                parent2 = document.getElementById('conteneur_des_messages')
+                                var mess = document.createElement("p");
+                                 mess.innerHTML =  "<b> "+dataType[z][7]+"</b> - "+dataType[z].message+"   "
+                                 parent2.appendChild(mess);
+                                
+                            }
+                        }
+                               
+               
+               },
+           
+               error: function (request, status, error) {
+                   console.log(request)
+                   console.log(status)
+                   console.log(error)
+               },
+           
+               complete : function(resultat, statut){
+                   console.log('ok')
+               }
+       
+       
+                })
+        }
+
+   
+    
