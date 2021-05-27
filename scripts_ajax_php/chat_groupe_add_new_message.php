@@ -22,3 +22,6 @@ $req->bindParam(':id_groupe', $nom_du_groupe['id']);
 $req->bindParam(':message', $message);
 
 $req->execute();
+
+
+$requete = $bdd->query('UPDATE users_dans_groupe SET new_message = 1 WHERE id_groupe = '.$nom_du_groupe['id'].' AND id_user != '.$id_moi.'');

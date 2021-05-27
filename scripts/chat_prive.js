@@ -12,6 +12,9 @@ setInterval(refreshAffichegaNewMessages, 1250)
 
 setInterval(messageLuSiFenetreChatEstSurUser, 1000)
 
+setTimeout(checkNewMessageDansGroupe, 100)        
+
+
 
 function displayUser(){
 
@@ -804,3 +807,60 @@ function clickSurUnGroupe(){
 
    
     
+
+
+function checkNewMessageDansGroupe(){
+
+    $.ajax({
+        url: "scripts_ajax_php/chat_groupe_new_message.php",
+        type: "POST",
+        dataType: "json",
+      
+        success : function(dataType){
+
+            console.log(dataType)
+
+            groupes = document.getElementsByClassName("liste_groupes");
+            // nom_groupes = document.querySelectorAll(" .nom_du_groupe p");
+            // console.log(groupes)
+           
+                for(i = 0; i<groupes.length; i++)
+                {  
+                    // console.log(groupes[i])
+                    var nom_groupes = document.querySelectorAll(" .nom_du_groupe p");
+                    let nom_du_groupe = nom_groupes[i].innerHTML
+                    console.log(nom_du_groupe)
+                    console.log(dataType[i][5])
+
+                    if(nom_du_groupe == dataType[i][5] && dataType[i].new_message == 1 )
+                    {
+                        // console.log('hourra')
+                        groupes[i].classList.add("new_message");
+                    }
+        
+                
+                       
+                    //     nom_du_groupe = first.innerHTML
+                    //     console.log(nom_du_groupe)
+        
+                    //     parent2 = document.getElementById('conteneur_des_messages')
+                    //     parent2.innerHTML = ""
+                }
+        
+        },
+    
+        error: function (request, status, error) {
+            console.log(request)
+
+            console.log(status)
+
+            console.log(error)
+
+        },
+    
+        complete : function(resultat, statut){
+        }
+
+    })
+
+}
