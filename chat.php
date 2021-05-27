@@ -9,6 +9,7 @@ $mail = $_SESSION['mail'];
 // var_dump($bdd);
 $deco = $bdd->prepare('UPDATE users SET connecte = 1 WHERE mail = :mail');
 $deco->execute(array('mail' => $mail));
+$variableAPasser = $_SESSION['id'];
 
 
 ?>
@@ -178,5 +179,9 @@ if(isset($_SESSION['mail']))
 }
 ?>
 <script src="scripts/deconnecte.js"></script>
+<script>
+ var variableRecuperee = <?php echo json_encode($variableAPasser); ?>;
+</script>
 <script src="scripts/chat_prive.js"></script>
+
 </html>
