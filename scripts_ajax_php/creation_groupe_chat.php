@@ -1,5 +1,5 @@
 <?php
-session_start();
+@session_start();
 require_once('../model/database.php');
 
 
@@ -8,6 +8,7 @@ require_once('../model/database.php');
 
 
 $nom_groupe = htmlspecialchars($_POST['nom_groupe']);
+array_push ( $_POST['donnees'] , $_SESSION['prenom'] ) ;
 
 // $id_moi = $_SESSION['id'];
 // $message = $_POST['message'];
@@ -18,7 +19,7 @@ $nom_groupe = htmlspecialchars($_POST['nom_groupe']);
 // $requete = $bdd->query("SELECT id FROM users WHERE prenom = '".$prenom_user."'");
 // $nouveau_groupe= $requete->fetch();
 
-// var_dump($nouveau_groupe);
+var_dump($_POST['donnees'] );
 
 
 
@@ -31,7 +32,7 @@ $req->execute();
 
 $requete = $bdd->query("SELECT id FROM groupe WHERE nom_du_groupe = '".$nom_groupe."'");
 $id_groupe = $requete->fetch();
-var_dump($id_groupe);
+// var_dump($id_groupe);
 
 foreach($_POST['donnees'] as $key => $value)
 {

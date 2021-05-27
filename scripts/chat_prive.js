@@ -483,6 +483,7 @@ function creerGroupe(){
             success : function(dataType){
 
                 console.log(dataType)
+                document.location.reload();
             },
         
             error: function (request, status, error) {
@@ -494,6 +495,7 @@ function creerGroupe(){
             }
         
         })
+
 
 
 
