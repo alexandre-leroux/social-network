@@ -106,13 +106,13 @@ else
                     foreach($groupe as $key => $value)
                     {
                         ?>
-                            <div>
-                            <div>
-                                <img src="img/group.svg" alt="#">
-                            </div>
-                            <div>
-                                <p><?=$value[0]?></p>
-                            </div>
+                            <div class="liste_groupes">
+                                <div>
+                                    <img src="img/group.svg" alt="#">
+                                </div>
+                                <div class='nom_du_groupe'>
+                                    <p><?=$value[0]?></p>
+                                </div>
                             </div>
                          <?php
                     }

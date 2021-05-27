@@ -2,6 +2,7 @@ displayUser()
 checkUsersConnect()
 setInterval(checkUsersConnect, 10000)
 setTimeout(eventsurclick, 20)
+setTimeout(clickSurUnGroupe, 20)
 
 checkNewMessage()
 setInterval(checkNewMessage, 4000)
@@ -496,16 +497,102 @@ function creerGroupe(){
         
         })
 
-
-
-
-
-
         }
-
-
-
 
     })
 
 }
+
+
+
+// fonction sur click d'un groupe, pour afficher les messages
+
+function clickSurUnGroupe(){
+
+    groupes = document.getElementsByClassName("liste_groupes");
+    // nom_groupes = document.querySelectorAll(" .nom_du_groupe p");
+    // console.log(nom_groupes)
+
+
+
+        for(i = 0; i<groupes.length; i++)
+        {  
+            // console.log(groupes[i])
+            var nom_groupes = document.querySelectorAll(" .nom_du_groupe p");
+            let first = nom_groupes[i]
+            console.log(first)
+
+
+   
+  
+
+            groupes[i].addEventListener('click', function(e){
+                console.log(e)
+               
+                console.log(first)
+
+
+         })}}
+
+        //    $.ajax({
+        //        url: "scripts_ajax_php/chat_prive.php",
+        //        type: "POST",
+        //        data: {  "pseudo":pseudo,  },
+        //        dataType: "JSON",
+             
+        //        success : function(dataType){
+       
+        //            parent = document.getElementById('user_selection_chat')
+        //            var p = document.createElement("p");
+        //            p.innerHTML =  dataType.data1[1]
+        //            parent.innerHTML = ""
+        //            parent.appendChild(p);
+
+        //            var mess = document.createElement("p");
+
+        //            for (z=0; z<dataType.data2.length; z++)
+        //            {
+        //                console.log('dans foir')
+        //                parent2 = document.getElementById('conteneur_des_messages')
+        //                var mess = document.createElement("p");
+        //                 contenur_mess = dataType.data2[z][4]
+        //                 mess.innerHTML = contenur_mess
+        //                 parent2.appendChild(mess);
+        //            }
+               
+               
+        //        },
+           
+        //        error: function (request, status, error) {
+        //            console.log(request)
+        //            console.log(status)
+        //            console.log(error)
+        //        },
+           
+        //        complete : function(resultat, statut){
+        //            console.log('ok')
+        //        }
+       
+       
+        //    })
+
+        //    $.ajax({
+        //        url: "scripts_ajax_php/update_message_lu.php",
+        //        type: "POST",
+        //        data: {  "pseudo":pseudo,  },
+             
+        //        success : function(dataType){
+                
+        //        },
+           
+        //        error: function (request, status, error) {
+        //        },
+           
+        //        complete : function(resultat, statut){
+        //        }
+       
+       
+        //    })
+
+   
+
