@@ -41,7 +41,7 @@
     ?>
 <header >
     <nav>
-        <h1>BIENVENUE                                                                                                          <?php echo $_SESSION['prenom'] ?></h1>
+        <h1>BIENVENUE                                                                                                                               <?php echo $_SESSION['prenom'] ?></h1>
         <a href="../model/deconnexion.php">déconnexion</a>
     </nav>
 </header>
@@ -186,7 +186,40 @@
                         </div>
                     </div>
                 </div>
+                <!-- post tabs  -->
                 <div class="tab-pane is-active" id="pane-2">
+                    <!-- creation de post -->
+                                 <div class="content container-is-fluid">
+                    <div id="div2">
+                        <article class="post">
+        <div class="post_image">
+            <figure class="image is-128x128">
+                <img class="is-rounded" src="../img/Alex.jpg" alt="#">
+           </figure>
+            <div class="pseudo_user">
+                <p class="bold"> Alexandre Leroux </p>
+                <p> 2m </p>
+            </div>
+        </div>
+
+        <div class="description_post">
+            <p> Des vacances oui, mais jamais sans coder !</p>
+        </div>
+
+        <div class="image_post is-flex is-justify-content-center is-align-content-center is-align-items-center">
+            <div>
+                <img src="../img/Alex-en-Vacances.jpg" alt="#">
+            </div>
+            <!-- <div class="galerie">
+                <div>
+                    <img src="../img/landscape2.jpg" alt="">
+                </div>
+                <div>
+                    <img src="../img/landscape3.jpg" alt="">
+                </div>
+            </div> -->
+        </div>
+
                     <div class="content container-is-fluid">
                     <div id="div2">
                         <article class="post">
@@ -426,7 +459,7 @@
         </div>
     </article>
 
-    
+
 </div>
                 </div>
             </div>
@@ -437,11 +470,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="../scripts/commentaires.js"></script>
 <?php
-if(isset($_SESSION['mail']))
-{?>
+if (isset($_SESSION['mail'])) {?>
 <script src="../scripts/connecte.js"></script>
 <?php
-}
+    }
 ?>
 <script src="../scripts/deconnecte.js"></script>
 <script src="../scripts/users_connecte.js"></script>
