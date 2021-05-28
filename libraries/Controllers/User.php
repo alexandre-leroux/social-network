@@ -30,7 +30,7 @@ class User {
                             $extensionUpload = strtolower(substr(strrchr($_FILES['avatar']['name'], '.'),1));
                             if(in_array($extensionUpload, $extensionsValides))
                             {
-                                $chemin = "../img/".$id_user.".".$extensionUpload;
+                                $chemin = $id_user.".".$extensionUpload;
                                 $mouvement = move_uploaded_file($_FILES['avatar']['tmp_name'], $chemin ); 
                                 if($mouvement)
                                 {

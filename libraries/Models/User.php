@@ -19,14 +19,15 @@ class User extends Model {
     }
     public function inscriptionUser($chemin)
     {
-        $requete = $this->bdd->prepare("INSERT INTO users(prenom,nom,mdp,mail,avatar,hobbies,connecte) 
-        VALUES (:prenom,:nom,:mdp,:mail,:avatar,:hobbies,:connecte)"); 
+
+        $requete = $this->bdd->prepare('INSERT INTO users(prenom,nom,mdp,mail,avatar,hobbies,connecte) 
+        VALUES (:prenom,:nom,:mdp,:mail,:avatar,:hobbies,:connecte)'); 
 
         $requete->bindParam(':prenom', $this->prenom);
         $requete->bindParam(':nom', $this->nom);
         $requete->bindParam(':mdp', $this->mdp);
         $requete->bindParam(':mail', $this->mail);
-        $requete->bindParam(':avatar', $chemin);
+        $requete->bindValue(':avatar', $chemin);
         $requete->bindParam(':hobbies', $this->hobbies);
         $requete->bindParam(':connecte', $this->connecte);
 
