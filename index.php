@@ -54,7 +54,7 @@ else
     <nav>
         <h1>BIENVENUE <?= $_SESSION['prenom']?></h1>
         <a href="model/deconnexion.php">déconnexion</a>
-        <a href="chat.php">chat</a>
+        <a href="pages/chat.php">chat</a>
     </nav>
 </header>
 

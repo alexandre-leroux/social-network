@@ -69,7 +69,7 @@ header{
 
 #section_centrale{
 
-    // height: 100%;
+    height: 90vh;
 
     display: flex;
     justify-content: center;
@@ -381,6 +381,39 @@ border: 1px solid red;
         width: 80%;
     }
 }
+#div_like_button_creer_groupe{
+    @extend %displayflex;
+    height: 30px;
+    border-radius: 20px;
+    &:hover{
+        cursor: pointer;
+    }
+}
+#liste_user_pour_creer_groupe{
+    
+    display: none ;
+    @extend %displayflex;
+    flex-direction: column;
+    padding: 8px;
+    & .liste_pseudo_groupe{
+        border: 1px solid grey;
+        border-radius: 15px;
+        margin: 5px;
+        padding: 5px;
+        width: 80%;
+        text-align: center;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+.creer_groupe_green{
+    background-color: #4EEE8B;
+}
+.auteur_message_moi{
+    text-align: right;
+    background-color: rgb(224, 224, 224);
+}
 
 // style barre post 
 
@@ -432,37 +465,5 @@ border: 1px solid red;
             }
         }
     }
-#div_like_button_creer_groupe{
-    @extend %displayflex;
-    height: 30px;
-    border-radius: 20px;
-    &:hover{
-        cursor: pointer;
-    }
-}
-#liste_user_pour_creer_groupe{
-    
-    display: none ;
-    @extend %displayflex;
-    flex-direction: column;
-    padding: 8px;
-    & .liste_pseudo_groupe{
-        border: 1px solid grey;
-        border-radius: 15px;
-        margin: 5px;
-        padding: 5px;
-        width: 80%;
-        text-align: center;
-        &:hover{
-            cursor: pointer;
-        }
-    }
-}
-.creer_groupe_green{
-    background-color: #4EEE8B;
-}
-.auteur_message_moi{
-    text-align: right;
-    background-color: rgb(224, 224, 224);
-}
+
 }

@@ -7,7 +7,7 @@
   outline: none;
 }
 
-header nav .logo_text_header, header nav ul, #section_centrale #div1 .users, #section_centrale #div3 #pres_user_connect, #new_post #div_like_button_creer_groupe, #new_post #liste_user_pour_creer_groupe {
+header nav .logo_text_header, header nav ul, #section_centrale #div1 .users, #section_centrale #div3 #pres_user_connect, #div_like_button_creer_groupe, #liste_user_pour_creer_groupe {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -78,6 +78,7 @@ header nav ul li a {
 }
 
 #section_centrale {
+  height: 90vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -465,6 +466,46 @@ header nav ul li a {
   width: 80%;
 }
 
+#div_like_button_creer_groupe {
+  height: 30px;
+  border-radius: 20px;
+}
+
+#div_like_button_creer_groupe:hover {
+  cursor: pointer;
+}
+
+#liste_user_pour_creer_groupe {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 8px;
+}
+
+#liste_user_pour_creer_groupe .liste_pseudo_groupe {
+  border: 1px solid grey;
+  border-radius: 15px;
+  margin: 5px;
+  padding: 5px;
+  width: 80%;
+  text-align: center;
+}
+
+#liste_user_pour_creer_groupe .liste_pseudo_groupe:hover {
+  cursor: pointer;
+}
+
+.creer_groupe_green {
+  background-color: #4EEE8B;
+}
+
+.auteur_message_moi {
+  text-align: right;
+  background-color: #e0e0e0;
+}
+
 #new_post {
   background-color: rgba(0, 0, 0, 0);
 }
@@ -543,45 +584,5 @@ header nav ul li a {
   color: #fa5f5a;
   font-style: italic;
   font-size: 0.8rem;
-}
-
-#new_post #div_like_button_creer_groupe {
-  height: 30px;
-  border-radius: 20px;
-}
-
-#new_post #div_like_button_creer_groupe:hover {
-  cursor: pointer;
-}
-
-#new_post #liste_user_pour_creer_groupe {
-  display: none;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 8px;
-}
-
-#new_post #liste_user_pour_creer_groupe .liste_pseudo_groupe {
-  border: 1px solid grey;
-  border-radius: 15px;
-  margin: 5px;
-  padding: 5px;
-  width: 80%;
-  text-align: center;
-}
-
-#new_post #liste_user_pour_creer_groupe .liste_pseudo_groupe:hover {
-  cursor: pointer;
-}
-
-#new_post .creer_groupe_green {
-  background-color: #4EEE8B;
-}
-
-#new_post .auteur_message_moi {
-  text-align: right;
-  background-color: #e0e0e0;
 }
 /*# sourceMappingURL=style.css.map */

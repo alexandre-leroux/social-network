@@ -31,8 +31,8 @@ function displayUser(){
             // console.log(dataType)
             // data = JSON.parse(dataType);
             var count = Object.keys(dataType).length;
-            console.log(count)
-            console.log(dataType)
+            // console.log(count)
+            // console.log(dataType)
 
 
 
@@ -44,11 +44,11 @@ function displayUser(){
 
                 if(dataType[i]["connecte"] == 0)
                 {
-                    $('#users_list').append("<div id=\""+dataType[i][0]+"\" class=\"users\"><img src=\"img/pp.jpg\"><p class='p_liste_user'>"+dataType[i][1]+"</p></div>")
+                    $('#users_list').append("<div id=\""+dataType[i][0]+"\" class=\"users\"><img src=\"../img/pp.jpg\"><p class='p_liste_user'>"+dataType[i][1]+"</p></div>")
                 }
                 else if(dataType[i]["connecte"] == 1)
                 {
-                    $('#users_list').append("<div id=\""+dataType[i][0]+"\" class=\"users\"><img src=\"img/pp.jpg\"><p class='p_liste_user connecte'>"+dataType[i][1]+"</p></div>")
+                    $('#users_list').append("<div id=\""+dataType[i][0]+"\" class=\"users\"><img src=\"../img/pp.jpg\"><p class='p_liste_user connecte'>"+dataType[i][1]+"</p></div>")
                 }
 
                   i++
@@ -57,9 +57,9 @@ function displayUser(){
         },
     
         error: function (request, status, error) {
-            console.log(request);
-            console.log(status);
-            console.log(error);
+            // console.log(request);
+            // console.log(status);
+            // console.log(error);
         },
     
         complete : function(resultat, statut){
@@ -127,7 +127,7 @@ function eventsurclick(){
         let pseudo =  utilisateurs[i].lastChild.innerHTML
 
         utilisateurs[i].addEventListener('click', function(e){
-            console.log('ok')
+            // console.log('ok')
 
             parent2 = document.getElementById('conteneur_des_messages')
             parent2.innerHTML = "" 
@@ -152,7 +152,7 @@ function eventsurclick(){
                     {
                         if(dataType.data2[z].fk_id_auteur_message == session_id_php)
                         {
-                            console.log(dataType.data2)
+                            // console.log(dataType.data2)
                             parent2 = document.getElementById('conteneur_des_messages')
                             var mess = document.createElement("p");
                             mess.className  = "auteur_message_moi"
@@ -162,7 +162,7 @@ function eventsurclick(){
                         }
                         else{
 
-                            console.log(dataType.data2)
+                            // console.log(dataType.data2)
                             parent2 = document.getElementById('conteneur_des_messages')
                             var mess = document.createElement("p");
                              contenur_mess = dataType.data2[z][4]
@@ -176,13 +176,13 @@ function eventsurclick(){
                 },
             
                 error: function (request, status, error) {
-                    console.log(request)
-                    console.log(status)
-                    console.log(error)
+                    // console.log(request)
+                    // console.log(status)
+                    // console.log(error)
                 },
             
                 complete : function(resultat, statut){
-                    console.log('ok')
+                    // console.log('ok')
                 }
         
         
@@ -231,7 +231,7 @@ function checkNewMessage(){
 
                     if( dataType[x]['fk_id_auteur_message'] == attribut && dataType[x]['non_lu'] == 1)
                     {
-                        console.log('jai trouve un user dans if')
+                        // console.log('jai trouve un user dans if')
                         utilisateurs[i].classList.add("new_message");
                         break
                     }
@@ -265,7 +265,7 @@ function envoyerMessage(){
     destinataire = document.querySelector('#user_selection_chat p').innerHTML
     destinataire_type = document.querySelector('#user_selection_chat p')
     type_detinataire = destinataire_type.getAttribute('name');
-    console.log(type_detinataire)
+    console.log(destinataire_type)
 
     if(type_detinataire == 'groupe')
     {
@@ -279,12 +279,12 @@ function envoyerMessage(){
           
             success : function(dataType){
     
-                console.log(dataType);
+                // console.log(dataType);
             
             },
         
             error: function (request, status, error) {
-                console.log(request.responseText);
+                // console.log(request.responseText);
             },
         
             complete : function(resultat, statut){
@@ -295,7 +295,7 @@ function envoyerMessage(){
     }
     else
     {
-
+        console.log('dans else')
         $.ajax({
             url: "../scripts_ajax_php/chat_prive_add_message.php",
             type: "POST",
@@ -323,19 +323,18 @@ function envoyerMessage(){
     }
     
 
-    console.log(message)
-    console.log(destinataire)
+    // console.log(message)
+    // console.log(destinataire)
     document.getElementById('input_messages').value = ""
 }
 
 envoyer_message = document.getElementById('button_envoyer_message')
 
 envoyer_message.addEventListener('click', function(){
+    console.log('ok')
     envoyerMessage()
-    
-
-    console.log(message)
-    console.log(destinataire)
+    // console.log(message)
+    // console.log(destinataire)
     document.getElementById('input_messages').value = ""
 
 })
@@ -358,11 +357,11 @@ function refreshAffichegaNewMessages(){
 
     type_de_chat = document.querySelector('#user_selection_chat p')
     chat_groupe = type_de_chat.getAttribute('name');
-    console.log(chat_groupe)
+    // console.log(chat_groupe)
     if(chat_groupe == 'groupe')
     {
         nom_du_groupe = document.querySelector('#user_selection_chat p').innerHTML
-        console.log(nom_du_groupe)
+        // console.log(nom_du_groupe)
 
 
 
@@ -391,7 +390,7 @@ function refreshAffichegaNewMessages(){
 
                     if(dataType[z][7] == session_prenom_php)
                     {
-                        console.log('dans foir')
+                        // console.log('dans foir')
                         parent2 = document.getElementById('conteneur_des_messages')
                         var mess = document.createElement("p");
                         mess.className  = "auteur_message_moi"
@@ -400,7 +399,7 @@ function refreshAffichegaNewMessages(){
                     }
                     else{
 
-                        console.log('dans foir')
+                        // console.log('dans foir')
                         parent2 = document.getElementById('conteneur_des_messages')
                         var mess = document.createElement("p");
                          mess.innerHTML =  "<b> "+dataType[z][7]+"</b> - "+dataType[z].message+"   "
@@ -413,13 +412,13 @@ function refreshAffichegaNewMessages(){
        },
    
        error: function (request, status, error) {
-           console.log(request)
-           console.log(status)
-           console.log(error)
+        //    console.log(request)
+        //    console.log(status)
+        //    console.log(error)
        },
    
        complete : function(resultat, statut){
-           console.log('ok')
+        //    console.log('ok')
        }
 
 
@@ -449,7 +448,7 @@ function refreshAffichegaNewMessages(){
                 {
                     if(dataType.data2[z].fk_id_auteur_message == session_id_php)
                     {
-                        console.log(dataType.data2)
+                        // console.log(dataType.data2)
                         parent2 = document.getElementById('conteneur_des_messages')
                         var mess = document.createElement("p");
                         mess.className  = "auteur_message_moi"
@@ -459,7 +458,7 @@ function refreshAffichegaNewMessages(){
                     }
                     else{
     
-                        console.log(dataType.data2)
+                        // console.log(dataType.data2)
                         parent2 = document.getElementById('conteneur_des_messages')
                         var mess = document.createElement("p");
                          contenur_mess = dataType.data2[z][4]
@@ -490,7 +489,7 @@ function messageLuSiFenetreChatEstSurUser(){
 
     pseudo = document.querySelector('#user_selection_chat p').innerHTML
 
-    console.log(pseudo)
+    // console.log(pseudo)
 
     $.ajax({
         url: "../scripts_ajax_php/update_message_lu.php",
@@ -541,7 +540,7 @@ $("#div_like_button_creer_groupe").click(function(){
         },
     
         error: function (request, status, error) {
-            console.log(request.responseText);
+            // console.log(request.responseText);
         },
     
         complete : function(resultat, statut){
@@ -567,11 +566,11 @@ $("#div_like_button_creer_groupe").click(function(){
 function listeUserGroupe(){
 
     user_pour_groupe = document.getElementsByClassName('liste_pseudo_groupe')
-    console.log(user_pour_groupe)
+    // console.log(user_pour_groupe)
     for(i = 0; i<user_pour_groupe.length; i++)
     {
         user_pour_groupe[i].addEventListener('click', function(){
-            console.log("ok")
+            // console.log("ok")
        
                 $(this).toggleClass("creer_groupe_green");
             
@@ -595,7 +594,7 @@ function creerGroupe(){
             array_users.push(choix_user_groupe[i].innerHTML)
         }
         nom_groupe = document.getElementById('nom_du_groupe')
-        console.log(nom_groupe.value.length)
+        // console.log(nom_groupe.value.length)
 
         if(nom_groupe.value.length == 0)
         {
@@ -605,7 +604,7 @@ function creerGroupe(){
         }
         else{
             nom_groupe = document.getElementById('nom_du_groupe').value
-            console.log(array_users)
+            // console.log(array_users)
 
 
         $.ajax({
@@ -617,12 +616,12 @@ function creerGroupe(){
         
             success : function(dataType){
 
-                console.log(dataType)
+                // console.log(dataType)
                 document.location.reload();
             },
         
             error: function (request, status, error) {
-                console.log(request.responseText);
+                // console.log(request.responseText);
             },
         
             complete : function(resultat, statut){
@@ -645,7 +644,7 @@ function clickSurUnGroupe(){
 
     groupes = document.getElementsByClassName("liste_groupes");
     // nom_groupes = document.querySelectorAll(" .nom_du_groupe p");
-    console.log(groupes)
+    // console.log(groupes)
 
         for(i = 0; i<groupes.length; i++)
         {  
@@ -657,7 +656,7 @@ function clickSurUnGroupe(){
             groupes[i].addEventListener('click', function(e){
                
                 nom_du_groupe = first.innerHTML
-                console.log(nom_du_groupe)
+                // console.log(nom_du_groupe)
 
                 parent2 = document.getElementById('conteneur_des_messages')
                 parent2.innerHTML = ""
@@ -670,7 +669,7 @@ function clickSurUnGroupe(){
              
                success : function(dataType){
        
-                        console.log(dataType)  
+                        // console.log(dataType)  
                         parent = document.getElementById('user_selection_chat')
                         var p = document.createElement("p");
                         p.setAttribute('name', 'groupe');
@@ -686,7 +685,7 @@ function clickSurUnGroupe(){
 
                             if(dataType[z][7] == session_prenom_php)
                             {
-                                console.log('dans foir')
+                                // console.log('dans foir')
                                 parent2 = document.getElementById('conteneur_des_messages')
                                 var mess = document.createElement("p");
                                 mess.className  = "auteur_message_moi"
@@ -695,7 +694,7 @@ function clickSurUnGroupe(){
                             }
                             else{
 
-                                console.log('dans foir')
+                                // console.log('dans foir')
                                 parent2 = document.getElementById('conteneur_des_messages')
                                 var mess = document.createElement("p");
                                  mess.innerHTML =  "<b> "+dataType[z][7]+"</b> - "+dataType[z].message+"   "
@@ -708,13 +707,13 @@ function clickSurUnGroupe(){
                },
            
                error: function (request, status, error) {
-                   console.log(request)
-                   console.log(status)
-                   console.log(error)
+                //    console.log(request)
+                //    console.log(status)
+                //    console.log(error)
                },
            
                complete : function(resultat, statut){
-                   console.log('ok')
+                //    console.log('ok')
                }
        
        
@@ -734,7 +733,7 @@ function clickSurUnGroupe(){
 
                
                 // nom_du_groupe = first.innerHTML
-                console.log(nom_groupe)
+                // console.log(nom_groupe)
 
                 parent2 = document.getElementById('conteneur_des_messages')
                 parent2.innerHTML = ""
@@ -747,7 +746,7 @@ function clickSurUnGroupe(){
              
                success : function(dataType){
        
-                        console.log(dataType)  
+                        // console.log(dataType)  
                         parent = document.getElementById('user_selection_chat')
                         var p = document.createElement("p");
                         p.setAttribute('name', 'groupe');
@@ -763,7 +762,7 @@ function clickSurUnGroupe(){
 
                             if(dataType[z][7] == session_prenom_php)
                             {
-                                console.log('dans foir')
+                                // console.log('dans foir')
                                 parent2 = document.getElementById('conteneur_des_messages')
                                 var mess = document.createElement("p");
                                 mess.className  = "auteur_message_moi"
@@ -772,7 +771,7 @@ function clickSurUnGroupe(){
                             }
                             else{
 
-                                console.log('dans foir')
+                                // console.log('dans foir')
                                 parent2 = document.getElementById('conteneur_des_messages')
                                 var mess = document.createElement("p");
                                  mess.innerHTML =  "<b> "+dataType[z][7]+"</b> - "+dataType[z].message+"   "
@@ -785,13 +784,13 @@ function clickSurUnGroupe(){
                },
            
                error: function (request, status, error) {
-                   console.log(request)
-                   console.log(status)
-                   console.log(error)
+                //    console.log(request)
+                //    console.log(status)
+                //    console.log(error)
                },
            
                complete : function(resultat, statut){
-                   console.log('ok')
+                //    console.log('ok')
                }
        
        
@@ -811,7 +810,7 @@ function checkNewMessageDansGroupe(){
       
         success : function(dataType){
 
-            console.log(dataType)
+            // console.log(dataType)
 
             groupes = document.getElementsByClassName("liste_groupes");
             // nom_groupes = document.querySelectorAll(" .nom_du_groupe p");
@@ -822,8 +821,8 @@ function checkNewMessageDansGroupe(){
                     // console.log(groupes[i])
                     var nom_groupes = document.querySelectorAll(" .nom_du_groupe p");
                     let nom_du_groupe = nom_groupes[i].innerHTML
-                    console.log(nom_du_groupe)
-                    console.log(dataType[i][5])
+                    // console.log(nom_du_groupe)
+                    // console.log(dataType[i][5])
 
                     if(nom_du_groupe == dataType[i][5] && dataType[i].new_message == 1 )
                     {
@@ -848,11 +847,11 @@ function checkNewMessageDansGroupe(){
         },
     
         error: function (request, status, error) {
-            console.log(request)
+            // console.log(request)
 
-            console.log(status)
+            // console.log(status)
 
-            console.log(error)
+            // console.log(error)
 
         },
     
@@ -868,7 +867,7 @@ function messageLuSiFenetreChatEstSurGroupe(){
 
     groupe = document.querySelector('#user_selection_chat p').innerHTML
 
-    console.log(groupe)
+    // console.log(groupe)
 
     $.ajax({
         url: "../scripts_ajax_php/update_message_groupe_lu.php",
@@ -877,7 +876,7 @@ function messageLuSiFenetreChatEstSurGroupe(){
         datatype : "html",
       
         success : function(dataType){
-            console.log(dataType)
+            // console.log(dataType)
         },
     
         error: function (request, status, error) {

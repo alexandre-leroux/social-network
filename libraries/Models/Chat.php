@@ -84,12 +84,14 @@ class Chat extends Model {
         echo json_encode($resultat_message_non_lu);
     }
 
-    public function chat_prive($id_moi, $id_user_selectionne)
+    public function chat_prive($id_moi, $pseudo)
     {
         $requete = $this->bdd->prepare('SELECT * FROM users WHERE prenom = ?');
-        $requete->execute([$_POST['pseudo']]);
+        $requete->execute([$pseudo]);
         $user = $requete->fetch();
 
+        $id_user_selectionne = $user['id'];
+        
         $recherche_discussion = $this->bdd->prepare('SELECT * FROM chat_prive 
         WHERE ( fk_id_user_1 = ?
         AND fk_id_user_2 = ? )
