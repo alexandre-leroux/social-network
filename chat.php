@@ -15,6 +15,10 @@ session_start();
 
     <link rel="stylesheet" href="style/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     <title>social network</title>
 </head>
 
@@ -86,33 +90,30 @@ else
             <h2> Conversations </h2>
             
             <div id="conv">
-                <div>
-                    <div>
-                        <img src="img/group.svg" alt="#">
-                    </div>
-                    <div>
-                        <p> Groupe 1 </p>
-                    </div>
+                <div id="div_like_button_creer_groupe">CREER UN GROUPE</div>
+
+                <div id="liste_user_pour_creer_groupe">
+                    <p class='liste_pseudo_groupe'>pseudo</p>
+                    <button>créer</button>
                 </div>
+
+                <?php
+                    foreach($groupe as $key => $value)
+                    {
+                        ?>
+                            <div class="liste_groupes">
+                                <div>
+                                    <img src="img/group.svg" alt="#">
+                                </div>
+                                <div class='nom_du_groupe'>
+                                    <p><?=$value[0]?></p>
+                                </div>
+                            </div>
+                         <?php
+                    }
                 
-                <div>
-                    <div>
-                        <img src="img/group.svg" alt="#">
-                    </div>
-                    <div>
-                        <p> Groupe 2 </p>
-                    </div>
-                </div>
-                
-                <div>
-                    <div>
-                        <img src="img/group.svg" alt="#">
-                    </div>
-                    <div>
-                        <p> Groupe 3 </p>
-                    </div>
-                </div>
-                
+                ?>
+                               
             </div>
             
         </article>
@@ -172,5 +173,11 @@ if(isset($_SESSION['mail']))
 }
 ?>
 <script src="scripts/deconnecte.js"></script>
+<script>
+ var session_id_php = <?php echo json_encode($session_id_php); ?>;
+ var session_prenom_php = <?php echo json_encode($session_prenom_php); ?>;
+ var session_prenom_php = <?php echo json_encode($session_prenom_php); ?>;
+</script>
 <script src="scripts/chat_prive.js"></script>
+
 </html>
