@@ -71,6 +71,21 @@ class User {
 
     }
 
+    public function checkIdUser($user){
+
+        if(!$user->selectLastId())
+        {
+            return 1 ; 
+        }
+        else{
+            $result = $user->selectLastId(); 
+
+            $last_id = intval($result) + 1; 
+
+            return $last_id; 
+        }
+    }
+
 
     /**
      * Conditions pour la connexion : renvoie le msg en fichier json 

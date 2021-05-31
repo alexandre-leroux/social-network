@@ -62,6 +62,17 @@ class User extends Model {
         $deco->execute(array('mail' => $mail));
     }
 
+    public function selectLastId(){
+
+        $requete = $this->bdd->prepare("SELECT id FROM users ORDER BY id DESC LIMIT 1");
+
+        $requete->execute() ;
+
+        $result = $requete->fetch(); 
+
+        return $result; 
+    }
+
 
 
 }
