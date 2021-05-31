@@ -1,6 +1,18 @@
 <?php 
 session_start();
-// require_once('model/database.php');
+require_once("../libraries/autoload.php");
+$mail = $_SESSION['mail'];
+$mon_id = $_SESSION['id'];
+
+$groupe = new \Models\Chat();
+$result = $groupe->display_groupes($mon_id);
+echo '<pre>';
+var_dump($result);
+echo '</pre>';
+
+$session_id_php = $_SESSION['id'];
+$session_prenom_php = $_SESSION['prenom'];
+
 
 
 
@@ -13,7 +25,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="../style/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link
     rel="stylesheet"
@@ -98,15 +110,15 @@ else
                 </div>
 
                 <?php
-                    foreach($groupe as $key => $value)
+                    foreach($result as $key => $value)
                     {
                         ?>
                             <div class="liste_groupes">
                                 <div>
-                                    <img src="img/group.svg" alt="#">
+                                    <img src="../img/group.svg" alt="#">
                                 </div>
                                 <div class='nom_du_groupe'>
-                                    <p><?=$value[0]?></p>
+                                    <p><?=$value['nom_du_groupe']?></p>
                                 </div>
                             </div>
                          <?php
@@ -175,7 +187,6 @@ if(isset($_SESSION['mail']))
 <script src="scripts/deconnecte.js"></script>
 <script>
  var session_id_php = <?php echo json_encode($session_id_php); ?>;
- var session_prenom_php = <?php echo json_encode($session_prenom_php); ?>;
  var session_prenom_php = <?php echo json_encode($session_prenom_php); ?>;
 </script>
 <script src="scripts/chat_prive.js"></script>
