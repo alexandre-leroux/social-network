@@ -78,11 +78,12 @@ class User {
             return 1 ; 
         }
         else{
+            
             $result = $user->selectLastId(); 
 
-            $last_id = intval($result) + 1; 
+            $last_id = intval($result['id']) + 1; 
 
-            return $last_id; 
+            return $last_id ; 
         }
     }
 
