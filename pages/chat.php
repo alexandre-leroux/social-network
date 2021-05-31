@@ -3,12 +3,10 @@ session_start();
 require_once("../libraries/autoload.php");
 $mail = $_SESSION['mail'];
 $mon_id = $_SESSION['id'];
+// var_dump($mon_id);
 
 $groupe = new \Models\Chat();
 $result = $groupe->display_groupes($mon_id);
-echo '<pre>';
-var_dump($result);
-echo '</pre>';
 
 $session_id_php = $_SESSION['id'];
 $session_prenom_php = $_SESSION['prenom'];
@@ -46,7 +44,7 @@ if(!isset($_SESSION['mail']))
     <nav>
         <div class="logo_text_header">
             <div class="logo_network">
-                <img src="img/logo.svg" alt="#">
+                <img src="../img/logo.svg" alt="#">
             </div>
             <div class="nom_header">
                 <h1> la plateforme_ network </h1>
@@ -84,7 +82,7 @@ else
 
             <div id="pres_user_connect">
                 <div class="img_user_connect">
-                    <img src="img/pp.jpg" alt="#">
+                    <img src="../img/pp.jpg" alt="#">
                 </div>
                 <div class="infos_user_connecte">
                     <p> Baptiste </p>
@@ -176,19 +174,13 @@ else
 
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="scripts/commentaires.js"></script>
-<?php
-if(isset($_SESSION['mail']))
-{?>
-<script src="scripts/connecte.js"></script>
-<?php
-}
-?>
-<script src="scripts/deconnecte.js"></script>
+
+
+<script src="../scripts/deconnecte.js"></script>
 <script>
  var session_id_php = <?php echo json_encode($session_id_php); ?>;
  var session_prenom_php = <?php echo json_encode($session_prenom_php); ?>;
 </script>
-<script src="scripts/chat_prive.js"></script>
+<script src="../scripts/chat_prive.js"></script>
 
 </html>

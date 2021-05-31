@@ -28,7 +28,7 @@ class Database
                 'mysql:host=localhost;dbname=social-network;charset=utf8', 'root', 'root',
                 [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+                // PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
                 ]
             );
         }

@@ -21,15 +21,20 @@ setInterval(checkNewMessageDansGroupe, 1250)
 function displayUser(){
 
     $.ajax({
-        url: "model/search_all_user.php",
+        url: "../scripts_ajax_php/search_all_user.php",
         type: "POST",
        
         dataType: "json",
       
         success : function(dataType){
 
-
+            // console.log(dataType)
+            // data = JSON.parse(dataType);
             var count = Object.keys(dataType).length;
+            console.log(count)
+            console.log(dataType)
+
+
 
             $('#users_list').empty();
 
@@ -52,7 +57,9 @@ function displayUser(){
         },
     
         error: function (request, status, error) {
-            console.log(request.responseText);
+            console.log(request);
+            console.log(status);
+            console.log(error);
         },
     
         complete : function(resultat, statut){
@@ -68,7 +75,7 @@ function displayUser(){
 function checkUsersConnect(){
     
     $.ajax({
-        url: "model/search_all_user.php",
+        url: "../scripts_ajax_php/search_all_user.php",
         type: "POST",
         dataType: "json",
       
@@ -126,7 +133,7 @@ function eventsurclick(){
             parent2.innerHTML = "" 
 
             $.ajax({
-                url: "scripts_ajax_php/chat_prive.php",
+                url: "../scripts_ajax_php/chat_prive.php",
                 type: "POST",
                 data: {  "pseudo":pseudo,  },
                 dataType: "JSON",
@@ -182,7 +189,7 @@ function eventsurclick(){
             })
 
             $.ajax({
-                url: "scripts_ajax_php/update_message_lu.php",
+                url: "../scripts_ajax_php/update_message_lu.php",
                 type: "POST",
                 data: {  "pseudo":pseudo,  },
               
@@ -207,7 +214,7 @@ function eventsurclick(){
 function checkNewMessage(){
 
     $.ajax({
-        url: "scripts_ajax_php/chat_prive_new_message.php",
+        url: "../scripts_ajax_php/chat_prive_new_message.php",
         type: "POST",
         dataType: "json",
       
@@ -263,7 +270,7 @@ function envoyerMessage(){
     if(type_detinataire == 'groupe')
     {
         $.ajax({
-            url: "scripts_ajax_php/chat_groupe_add_new_message.php",
+            url: "../scripts_ajax_php/chat_groupe_add_new_message.php",
             type: "POST",
             data: {     "message":message, 
                         "destinataire":destinataire, },
@@ -290,7 +297,7 @@ function envoyerMessage(){
     {
 
         $.ajax({
-            url: "scripts_ajax_php/chat_prive_add_message.php",
+            url: "../scripts_ajax_php/chat_prive_add_message.php",
             type: "POST",
             data: {     "message":message, 
                         "destinataire":destinataire, },
@@ -360,7 +367,7 @@ function refreshAffichegaNewMessages(){
 
 
    $.ajax({
-       url: "scripts_ajax_php/messages_chat_groupe.php",
+       url: "../scripts_ajax_php/messages_chat_groupe.php",
        type: "POST",
        data: {  "nom_du_groupe":nom_du_groupe,  },
        dataType: "json",
@@ -424,7 +431,7 @@ function refreshAffichegaNewMessages(){
         destinataire = document.querySelector('#user_selection_chat p').innerHTML
 
         $.ajax({
-            url: "scripts_ajax_php/chat_prive.php",
+            url: "../scripts_ajax_php/chat_prive.php",
             type: "POST",
             data: {  "pseudo":destinataire,  },
             dataType: "JSON",
@@ -486,7 +493,7 @@ function messageLuSiFenetreChatEstSurUser(){
     console.log(pseudo)
 
     $.ajax({
-        url: "scripts_ajax_php/update_message_lu.php",
+        url: "../scripts_ajax_php/update_message_lu.php",
         type: "POST",
         data: {  "pseudo":pseudo,  },
       
@@ -512,7 +519,7 @@ $("#div_like_button_creer_groupe").click(function(){
     $("#liste_user_pour_creer_groupe").toggle();
     
     $.ajax({
-        url: "model/search_all_user.php",
+        url: "../scripts_ajax_php/search_all_user.php",
         type: "POST",
         dataType: "json",
       
@@ -602,7 +609,7 @@ function creerGroupe(){
 
 
         $.ajax({
-            url: "scripts_ajax_php/creation_groupe_chat.php",
+            url: "../scripts_ajax_php/creation_groupe_chat.php",
             type: "POST",
             data: {"donnees":array_users,
                     "nom_groupe":nom_groupe},
@@ -656,7 +663,7 @@ function clickSurUnGroupe(){
                 parent2.innerHTML = ""
 
            $.ajax({
-               url: "scripts_ajax_php/messages_chat_groupe.php",
+               url: "../scripts_ajax_php/messages_chat_groupe.php",
                type: "POST",
                data: {  "nom_du_groupe":nom_du_groupe,  },
                dataType: "json",
@@ -716,23 +723,7 @@ function clickSurUnGroupe(){
               })}}
 
 
-        //    $.ajax({
-        //        url: "scripts_ajax_php/update_message_lu.php",
-        //        type: "POST",
-        //        data: {  "pseudo":pseudo,  },
-             
-        //        success : function(dataType){
-                
-        //        },
-           
-        //        error: function (request, status, error) {
-        //        },
-           
-        //        complete : function(resultat, statut){
-        //        }
-       
-       
-        //    })
+
 
         function refreshMessagesGroupe(){
 
@@ -749,7 +740,7 @@ function clickSurUnGroupe(){
                 parent2.innerHTML = ""
 
            $.ajax({
-               url: "scripts_ajax_php/messages_chat_groupe.php",
+               url: "../scripts_ajax_php/messages_chat_groupe.php",
                type: "POST",
                data: {  "nom_du_groupe":nom_groupe,  },
                dataType: "json",
@@ -814,7 +805,7 @@ function clickSurUnGroupe(){
 function checkNewMessageDansGroupe(){
 
     $.ajax({
-        url: "scripts_ajax_php/chat_groupe_new_message.php",
+        url: "../scripts_ajax_php/chat_groupe_new_message.php",
         type: "POST",
         dataType: "json",
       
@@ -880,7 +871,7 @@ function messageLuSiFenetreChatEstSurGroupe(){
     console.log(groupe)
 
     $.ajax({
-        url: "scripts_ajax_php/update_message_groupe_lu.php",
+        url: "../scripts_ajax_php/update_message_groupe_lu.php",
         type: "POST",
         data: {  "groupe":groupe  },
         datatype : "html",
