@@ -1,44 +1,10 @@
 <?php
-@session_start();
-require_once('../model/database.php');
-
-
-
+session_start();
+require_once("../libraries/autoload.php");
 
 $nom_groupe = htmlspecialchars($_POST['nom_groupe']);
 array_push ( $_POST['donnees'] , $_SESSION['prenom'] ) ;
 
+$groupe = new \Models\Chat();
+$result = $groupe->creation_groupe_chat($nom_groupe);
 
-
-var_dump($_POST['donnees'] );
-
-
-
-
-$req = $bdd->prepare('INSERT INTO groupe (nom_du_groupe) 
-                        VALUES (:nom_groupe) ');
-$req->bindParam(':nom_groupe', $nom_groupe);
-
-$req->execute();
-
-$requete = $bdd->query("SELECT id FROM groupe WHERE nom_du_groupe = '".$nom_groupe."'");
-$id_groupe = $requete->fetch();
-// var_dump($id_groupe);
-
-foreach($_POST['donnees'] as $key => $value)
-{
-    $requete = $bdd->query("SELECT id FROM users WHERE prenom = '".$value."'");
-    $id_user = $requete->fetch();
-
-    var_dump($id_user);
-
-    $req = $bdd->prepare('INSERT INTO users_dans_groupe (id_groupe, id_user, new_message) 
-                        VALUES (:id_groupe, :id_user, 0 ) ');
-    $req->bindParam(':id_groupe', $id_groupe[0]);
-    $req->bindParam(':id_user', $id_user[0]);
-
-    $req->execute();
-}
-
-// $requete = $bdd->query("SELECT id FROM users WHERE prenom = '".$prenom_user."'");
-// $nouveau_groupe= $requete->fetch();
