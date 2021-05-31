@@ -647,7 +647,6 @@ function clickSurUnGroupe(){
 
     groupes = document.getElementsByClassName("liste_groupes");
     // nom_groupes = document.querySelectorAll(" .nom_du_groupe p");
-    // console.log(groupes)
 
         for(i = 0; i<groupes.length; i++)
         {  
@@ -657,9 +656,11 @@ function clickSurUnGroupe(){
             // console.log(first)
 
             groupes[i].addEventListener('click', function(e){
+    console.log('groupe')
+    console.log(groupes)
                
                 nom_du_groupe = first.innerHTML
-                // console.log(nom_du_groupe)
+                console.log(nom_du_groupe)
 
                 parent2 = document.getElementById('conteneur_des_messages')
                 parent2.innerHTML = ""
@@ -667,7 +668,7 @@ function clickSurUnGroupe(){
            $.ajax({
                url: "../scripts_ajax_php/messages_chat_groupe.php",
                type: "POST",
-               data: {  "nom_du_groupe":nom_du_groupe,  },
+               data: {  "nom_du_groupe":nom_du_groupe  },
                dataType: "json",
              
                success : function(dataType){
@@ -727,7 +728,7 @@ function clickSurUnGroupe(){
 
 
 
-        function refreshMessagesGroupe(){
+function refreshMessagesGroupe(){
 
             var nom_groupe = document.querySelector(" #user_selection_chat p").innerHTML;
             // let first = nom_groupes[i]

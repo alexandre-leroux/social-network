@@ -64,7 +64,7 @@ else
 <header >
     <nav>
         <h1>BIENVENUE <?= $_SESSION['prenom']?></h1>
-        <a href="model/deconnexion.php">déconnexion</a>
+        <a href="deconnexion.php">déconnexion</a>
     </nav>
 </header>
 

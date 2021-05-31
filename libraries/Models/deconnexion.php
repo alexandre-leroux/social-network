@@ -1,11 +1,25 @@
 <?php
-session_start();
-require_once('database.php');
+// session_start();
+namespace Models ;
 
-$mail = $_SESSION['mail']  ;
-$connexion = $bdd->prepare('UPDATE users SET connecte = 0 WHERE mail = :mail');
-$connexion->execute(array('mail' => $mail));
+require_once("Model.php") ; 
 
-session_destroy ( );
 
-header('location:../index.php');
+class Deconnexion extends Model{
+
+
+    public function deco(){
+
+        $mail = $_SESSION['mail']  ;
+        $connexion = $this->bdd->prepare('UPDATE users SET connecte = 0 WHERE mail = :mail');
+        $connexion->execute(array('mail' => $mail));
+        
+        session_destroy ( );
+        
+        header('location:../index.php');
+    }
+
+
+
+}
+
