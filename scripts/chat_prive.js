@@ -246,6 +246,9 @@ function checkNewMessage(){
         },
     
         error: function (request, status, error) {
+            console.log(request)
+            console.log(status)
+            console.log(error)
         },
     
         complete : function(resultat, statut){
@@ -265,7 +268,7 @@ function envoyerMessage(){
     destinataire = document.querySelector('#user_selection_chat p').innerHTML
     destinataire_type = document.querySelector('#user_selection_chat p')
     type_detinataire = destinataire_type.getAttribute('name');
-    console.log(destinataire_type)
+    // console.log(destinataire_type)
 
     if(type_detinataire == 'groupe')
     {
@@ -306,12 +309,12 @@ function envoyerMessage(){
           
             success : function(dataType){
     
-                console.log(dataType);
+                // console.log(dataType);
             
             },
         
             error: function (request, status, error) {
-                console.log(request.responseText);
+                // console.log(request.responseText);
             },
         
             complete : function(resultat, statut){
