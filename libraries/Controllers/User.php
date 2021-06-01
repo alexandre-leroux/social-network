@@ -108,7 +108,10 @@ class User {
             {
                 $_SESSION['mail'] = $resultat_users['mail'] ;
                 $_SESSION['prenom'] = $resultat_users['prenom'] ; 
+                $_SESSION['nom'] = $resultat_users['nom'] ; 
                 $_SESSION['id'] = $resultat_users['id'] ; 
+                $_SESSION['avatar'] = $resultat_users['avatar'] ; 
+
 
                 $user->updateConnecte($mail); 
 

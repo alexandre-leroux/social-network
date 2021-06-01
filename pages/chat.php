@@ -89,11 +89,11 @@ else
 
             <div id="pres_user_connect">
                 <div class="img_user_connect">
-                    <img src="../img/pp.jpg" alt="#">
+                    <img src="../img/<?=$_SESSION['avatar']?>" alt="#">
                 </div>
                 <div class="infos_user_connecte">
-                    <p> Baptiste </p>
-                    <p>@baptistegauthier</p>
+                    <p><?=$_SESSION['prenom'];?></p>
+                    <p>@<?=$_SESSION['prenom']?><?=$_SESSION['nom']?></p>
                 </div>
             </div>
             
