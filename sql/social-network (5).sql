@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : lun. 31 mai 2021 à 13:38
+-- Généré le : mar. 01 juin 2021 à 08:25
 -- Version du serveur :  5.7.24
 -- Version de PHP : 7.4.1
 
@@ -83,7 +83,14 @@ INSERT INTO `chat_prive` (`id`, `fk_id_user_1`, `fk_id_user_2`, `fk_id_auteur_me
 (26, 2, 4, 2, 'ttttttttt', '2021-05-25 07:30:31', 0),
 (27, 2, 4, 2, 'ergerg', '2021-05-25 07:30:41', 0),
 (28, 4, 2, 4, 'erf', '2021-05-25 07:30:49', 0),
-(29, 2, 4, 2, 'ererf', '2021-05-25 07:30:51', 0);
+(29, 2, 4, 2, 'ererf', '2021-05-25 07:30:51', 0),
+(30, 2, 1, 2, 'hello', '2021-06-01 08:15:25', 0),
+(31, 2, 1, 2, 'hgfhfgh', '2021-06-01 08:19:53', 0),
+(32, 1, 2, 1, 'fghfgh', '2021-06-01 08:20:02', 0),
+(33, 1, 2, 1, 'fghfgh', '2021-06-01 08:20:06', 0),
+(34, 1, 6, 1, 'zefzef', '2021-06-01 08:23:11', 1),
+(35, 1, 6, 1, 'zefzef', '2021-06-01 08:23:25', 1),
+(36, 1, 2, 1, 'zefzef', '2021-06-01 08:23:31', 0);
 
 -- --------------------------------------------------------
 
@@ -115,24 +122,8 @@ CREATE TABLE `groupe` (
 --
 
 INSERT INTO `groupe` (`id`, `nom_du_groupe`) VALUES
-(1, 'test'),
-(24, 'test numéro 2'),
-(25, 'Le cub'),
-(26, 'ergerg'),
-(27, 'efzefzef'),
-(28, 'zefzefzef'),
-(29, 'qsqs'),
-(30, 'zef'),
-(31, 'sdqsd'),
-(32, 'zefzef'),
-(33, 'efzef'),
-(34, 'champion'),
-(35, 'ianefianzf'),
-(36, 'test'),
-(37, 'test numéro 2'),
-(38, 'efzef'),
-(39, 'efzef'),
-(40, 'ianefianzf');
+(1, 'tennis'),
+(2, 'TEST');
 
 -- --------------------------------------------------------
 
@@ -152,33 +143,8 @@ CREATE TABLE `messages_chat_groupe` (
 --
 
 INSERT INTO `messages_chat_groupe` (`id`, `id_auteur`, `id_groupe`, `message`) VALUES
-(1, 2, 1, 'ceci est un test'),
-(2, 3, 1, 'réponse au test'),
-(3, 2, 1, 'new mess'),
-(4, 2, 24, 'y\'a quelqu\'un ?'),
-(5, 2, 1, 'ecnnnn'),
-(6, 2, 1, 'salut'),
-(7, 2, 24, 'alors ??????'),
-(8, 2, 1, 't\'es la ?'),
-(9, 2, 1, '??'),
-(10, 2, 1, 'yo'),
-(11, 3, 1, 'oui?'),
-(12, 3, 1, 'heeeee'),
-(13, 2, 1, 'oui quoi ?'),
-(14, 2, 1, 'sdf'),
-(15, 2, 1, 'sdf'),
-(16, 2, 1, 'sdf'),
-(17, 2, 1, 'sdf'),
-(18, 2, 1, 'coucou'),
-(19, 2, 1, 'hoho'),
-(20, 2, 1, 'dfg'),
-(21, 4, 1, 'coucou'),
-(22, 4, 1, 'qq?'),
-(23, 4, 1, 'yes'),
-(24, 2, 33, 'yo'),
-(25, 2, 33, 'gfh'),
-(26, 2, 1, 'therterth'),
-(27, 2, 1, 'dfhdfgh');
+(1, 1, 2, 'zefzefzef'),
+(2, 2, 2, 'zefzef');
 
 -- --------------------------------------------------------
 
@@ -253,23 +219,12 @@ CREATE TABLE `users_dans_groupe` (
 --
 
 INSERT INTO `users_dans_groupe` (`id`, `id_groupe`, `id_user`, `new_message`) VALUES
-(26, 1, 2, 0),
-(27, 1, 3, 1),
-(28, 24, 2, 0),
-(29, 24, 4, 0),
-(30, 1, 4, 1),
-(31, 1, 5, 1),
-(32, 33, 3, 0),
-(33, 33, 4, 0),
-(34, 33, 2, 0),
-(35, 34, 5, 0),
-(36, 34, 6, 0),
-(37, 34, 7, 0),
-(38, 34, 3, 0),
-(39, 35, 2, 0),
-(40, 35, 4, 0),
-(41, 35, 5, 0),
-(42, 35, 3, 0);
+(1, 1, 2, 0),
+(2, 1, 6, 0),
+(3, 1, 1, 0),
+(4, 2, 2, 0),
+(5, 2, 6, 1),
+(6, 2, 1, 0);
 
 --
 -- Index pour les tables déchargées
@@ -343,7 +298,7 @@ ALTER TABLE `aime`
 -- AUTO_INCREMENT pour la table `chat_prive`
 --
 ALTER TABLE `chat_prive`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT pour la table `comment`
@@ -355,13 +310,13 @@ ALTER TABLE `comment`
 -- AUTO_INCREMENT pour la table `groupe`
 --
 ALTER TABLE `groupe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `messages_chat_groupe`
 --
 ALTER TABLE `messages_chat_groupe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `post`
@@ -385,7 +340,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `users_dans_groupe`
 --
 ALTER TABLE `users_dans_groupe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
