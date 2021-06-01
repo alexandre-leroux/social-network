@@ -420,10 +420,11 @@ else
 <?php
 if(isset($_SESSION['mail']))
 {?>
-<script src="scripts/connecte.js"></script>
+<!-- <script src="scripts/connecte.js"></script> -->
 <?php
 }
 ?>
 <!-- <script src="scripts/deconnecte.js"></script> -->
 <script src="scripts/users_connecte.js"></script>
+<script src="scripts/fonction_chat_depuis_index.js"></script>
 </html>

@@ -1,5 +1,5 @@
 var btn = document.querySelectorAll(".button_comment") ; 
-console.log(btn.length)
+// console.log(btn.length)
 
 
 //console.log(bloc); 
@@ -25,7 +25,7 @@ for(var i = 0 ; i < btn.length ; i++)
 
 var btn_add_comment = document.querySelectorAll(".input_ajout_comment") ;
 
-console.log(btn_add_comment); 
+// console.log(btn_add_comment); 
 
 for(var i = 0 ; i < btn_add_comment.length ; i++)
 {

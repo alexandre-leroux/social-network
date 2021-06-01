@@ -8,7 +8,7 @@ function displayUser(){
 
 
     $.ajax({
-        url: "libraries/Models/search_all_user.php",
+        url: "scripts_ajax_php/search_all_user.php",
         type: "POST",
        
         dataType: "json",
@@ -17,7 +17,7 @@ function displayUser(){
 
 
             var count = Object.keys(dataType).length;
-            console.log(count);
+            console.log(dataType);
 
             $('#users_list').empty();
 
@@ -27,11 +27,11 @@ function displayUser(){
 
                 if(dataType[i]["connecte"] == 0)
                 {
-                    $('#users_list').append("<div class=\"users\"><img src=\"img/pp.jpg\"><p class='p_liste_user'>"+dataType[i][1]+"</p></div>")
+                    $('#users_list').append("<div class=\"users\"><img src=\"img/"+dataType[i][5]+"\"><p class='p_liste_user'>"+dataType[i][1]+"</p></div>")
                 }
                 else if(dataType[i]["connecte"] == 1)
                 {
-                    $('#users_list').append("<div class=\"users\"><img src=\"img/pp.jpg\"><p class='p_liste_user connecte'>"+dataType[i][1]+"</p></div>")
+                    $('#users_list').append("<div class=\"users\"><img src=\"img/"+dataType[i][5]+"\"><p class='p_liste_user connecte'>"+dataType[i][1]+"</p></div>")
                 }
        
 
@@ -60,7 +60,7 @@ function displayUser(){
 function checkUsersConnect(){
     
     $.ajax({
-        url: "libraries/Models/search_all_user.php",
+        url: "scripts_ajax_php/search_all_user.php",
         type: "POST",
         dataType: "json",
       
