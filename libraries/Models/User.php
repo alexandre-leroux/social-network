@@ -73,6 +73,12 @@ class User extends Model {
         return $result; 
     }
 
+    public function updateDeconnecteChat($mail)
+    {
+        $deco = $this->bdd->prepare('UPDATE users SET connecte = 0 WHERE mail = :mail');
+        $deco->execute(array('mail' => $mail));
+    }
+
 
 
 }

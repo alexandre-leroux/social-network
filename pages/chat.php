@@ -8,9 +8,13 @@ $mon_id = $_SESSION['id'];
 $groupe = new \Models\Chat();
 $result = $groupe->display_groupes($mon_id);
 
+
+$user = new \Models\User(NULL,NULL,NULL,$mail,NULL,NULL,NULL);
+$user->updateConnecte($mail);
+
+
 $session_id_php = $_SESSION['id'];
 $session_prenom_php = $_SESSION['prenom'];
-
 
 
 
@@ -92,7 +96,7 @@ else
             
             <nav id="menu">
                 <ul>
-                    <li><a href="#"><i class="fa fa-home"></i> Accueil </a></li>
+                    <li><a href="../index.php"><i class="fa fa-home"></i> Accueil </a></li>
                     <li><a href="#"><i class="fa fa-user-circle"></i> Profil </a></li>
                 </ul>
             </nav>

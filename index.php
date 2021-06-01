@@ -424,6 +424,6 @@ if(isset($_SESSION['mail']))
 <?php
 }
 ?>
-<script src="scripts/deconnecte.js"></script>
+<!-- <script src="scripts/deconnecte.js"></script> -->
 <script src="scripts/users_connecte.js"></script>
 </html>

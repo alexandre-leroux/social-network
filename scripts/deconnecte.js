@@ -6,13 +6,15 @@
 
 
 window.onbeforeunload = deconnexion;
+
+// deconnexion()
 		
 //Fonction appelé au moment de fermer la page
 function deconnexion(){
     console.log('script deco tourne')
 
     $.ajax({
-        url: "scripts_ajax_php/deco_user.php",
+        url: "../scripts_ajax_php/deco_du_chat.php",
         type: "POST",
         // data: {"motclef":donnees},
         // dataType: "json",
