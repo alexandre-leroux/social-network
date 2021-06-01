@@ -93,21 +93,37 @@ header{
         }
         & .users {
             @extend %displayflex; 
+            justify-content: space-between;
             width: 100%;
             background-color: rgb(236, 232, 232);
             margin: 10px 0px;
             border-radius: 1em;
-            & img {
+            & .img_avatar_chat{
                 display: block;
-                width: 80px;
-                padding: 30px;
+                width: 100px;
+                padding: 10px;
                 object-fit: cover;
-               
+                border-radius: 50%;
             }
+            // & img {
+            //     display: block;
+            //     width: 80px;
+            //     padding: 30px;
+            //     object-fit: cover;
+               
+            // }
             & p {
                 width: 70%;
                 display: flex;
                 align-items: center;
+            }
+            & .img_mail_user{
+                display: block;
+                // padding: 10px;
+                padding-right: 20px;
+
+                width: 60px !important;
+                min-width: 60px !important;
             }
         }
     }

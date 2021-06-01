@@ -109,18 +109,22 @@ header nav ul li a {
 }
 
 #section_centrale #div1 .users {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 100%;
   background-color: #ece8e8;
   margin: 10px 0px;
   border-radius: 1em;
 }
 
-#section_centrale #div1 .users img {
+#section_centrale #div1 .users .img_avatar_chat {
   display: block;
-  width: 80px;
-  padding: 30px;
+  width: 100px;
+  padding: 10px;
   -o-object-fit: cover;
      object-fit: cover;
+  border-radius: 50%;
 }
 
 #section_centrale #div1 .users p {
@@ -131,6 +135,13 @@ header nav ul li a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+#section_centrale #div1 .users .img_mail_user {
+  display: block;
+  padding-right: 20px;
+  width: 60px !important;
+  min-width: 60px !important;
 }
 
 #section_centrale #div2 {
