@@ -8,7 +8,7 @@ require_once('../libraries/autoload.php') ;
 
 $commmentaire = new \Models\Comment(); 
 
-$post_id = 1 ;
+$post_id = $_POST['post_id'] ;
 $description = $_POST['description'] ; 
 date_default_timezone_set('Europe/Paris');
 $date = date('Y-m-d H:i:s');
