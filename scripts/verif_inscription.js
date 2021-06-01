@@ -149,12 +149,11 @@ $("#form_inscription").submit(function(e) {
         data: formData, 
         datatype: "text",
         success: function (data) {
-            // var message = JSON.parse(data) ; 
-            // $(".message_statut").append(message.message) ;
+            var message = JSON.parse(data) ; 
+            $(".message_statut").append(message.message) ;
 
-            // setTimeout(function(){ window.location.href = '../pages/connexion.php';}, 1500);
+            setTimeout(function(){ window.location.href = '../pages/connexion.php';}, 1500);
 
-            $("body").append(data)
         },
 
         cache: false,

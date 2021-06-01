@@ -4,6 +4,8 @@ console.log(btn.length)
 
 //console.log(bloc); 
 
+// ajoute une venement sur tout les boutons commentaires -> deplie la div au click
+
 for(var i = 0 ; i < btn.length ; i++)
 {
     btn[i].addEventListener("click", function(e){
@@ -19,6 +21,8 @@ for(var i = 0 ; i < btn.length ; i++)
     })
 }
 
+// ajoute un evenement sur tout les boutons ajouter un com -> push le nouveau commentaire dans la div parent 
+
 var btn_add_comment = document.querySelectorAll(".input_ajout_comment") ;
 
 console.log(btn_add_comment); 
@@ -29,19 +33,35 @@ for(var i = 0 ; i < btn_add_comment.length ; i++)
 
         var input = e.target.previousElementSibling.value ; 
 
-        var div = document.createElement("div"); 
-        div.classList.add("comment") ;
+        
+        // var des_commentaire = document.getElementsByClassName(".text_commentaire").innerText ; 
+        
+        $.ajax({
+            type: "POST",
+            url: "scripts_ajax_php/add_comment.php",
+            data: {description: input},
+            dataType: "json",
+            success: function (response) {
+            
+                var div = document.createElement("div"); 
+                div.classList.add("comment") ;
+        
+                div.innerHTML = '<div id="description_comment"><p class="bold" id="user_commentaire">' + response.prenom + '</p><p id="text_commentaire">' + input +'</p></div><div id="img_comment"><img src="img/pp.jpg" alt="#"></div>';
+        
+                var parent = e.target.parentElement.parentElement.parentElement.firstElementChild; 
+        
+                parent.append(div); 
+        
+                e.target.previousElementSibling.value = "";  
+            }
+        });
 
-        div.innerHTML = '<div id="description_comment"><p class="bold"> Nom de la personne</p>' + input +'</p></div><div id="img_comment"><img src="img/pp.jpg" alt="#"></div>';
 
-        var parent = e.target.parentElement.parentElement.parentElement.firstElementChild; 
-
-        parent.append(div); 
-
-        e.target.previousElementSibling.value = "";  
 
     })
 }
+
+// search bar permettant de créer un nouveau post 
 
 var input_new_post = document.getElementById("input_text") ; 
 var choix_img = document.getElementsByClassName("choix_image"); 
@@ -66,3 +86,4 @@ input_new_post.addEventListener("blur" , function (e){
     }, 3000); 
   
 })
+

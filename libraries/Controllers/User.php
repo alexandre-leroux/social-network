@@ -30,11 +30,12 @@ class User {
                             $extensionUpload = strtolower(substr(strrchr($_FILES['avatar']['name'], '.'),1));
                             if(in_array($extensionUpload, $extensionsValides))
                             {
-                                $chemin = $id_user.".".$extensionUpload;
-                                $mouvement = move_uploaded_file($_FILES['avatar']['tmp_name'], $chemin ); 
+                                $chemin = "../img/".$id_user.".".$extensionUpload;
+                                $mouvement = move_uploaded_file($_FILES['avatar']['tmp_name'], $chemin );
+                                $avatar =  $id_user.".".$extensionUpload ; 
                                 if($mouvement)
                                 {
-                                    $user->inscriptionUser($chemin); 
+                                    $user->inscriptionUser($avatar); 
             
                                     $message['message'] = '<p class="msg_inscription success">Inscription réussi ! Vous allez etre rediriger vers la page de connexion.</p>' ;
                                 }
@@ -78,11 +79,12 @@ class User {
             return 1 ; 
         }
         else{
+            
             $result = $user->selectLastId(); 
 
-            $last_id = intval($result) + 1; 
+            $last_id = intval($result['id']) + 1; 
 
-            return $last_id; 
+            return $last_id ; 
         }
     }
 
