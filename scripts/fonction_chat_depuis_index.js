@@ -27,11 +27,11 @@ function displayUser(){
 
                 if(dataType[i]["connecte"] == 0)
                 {
-                    $('#users_list').append("<div id=\""+dataType[i][0]+"\" class=\"users\"><img src=\"img/"+dataType[i][5]+"\"><p class='p_liste_user'>"+dataType[i][1]+"</p></div>")
+                    $('#users_list').append("<div id=\""+dataType[i][0]+"\" class=\"users\"><img src=\"img/"+dataType[i][5]+"\"><a href='pages/profil.php'><p class='p_liste_user'>"+dataType[i][1]+"</p></a><a href='pages/chat.php'><img class='img_mail_user' src='img/email.png'></a></div>")
                 }
                 else if(dataType[i]["connecte"] == 1)
                 {
-                    $('#users_list').append("<div id=\""+dataType[i][0]+"\" class=\"users\"><img src=\"img/"+dataType[i][5]+"\"><p class='p_liste_user connecte'>"+dataType[i][1]+"</p></div>")
+                    $('#users_list').append("<div id=\""+dataType[i][0]+"\" class=\"users\"><img src=\"img/"+dataType[i][5]+"\"><a href='pages/profil.php'><p class='p_liste_user connecte'>"+dataType[i][1]+"</p></a><a href='pages/chat.php'><img class='img_mail_user' src='img/email.png'></a></div>")
                 }
 
                   i++

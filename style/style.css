@@ -117,7 +117,7 @@ header nav ul li a {
 
 #section_centrale #div1 .users img {
   display: block;
-  width: 50%;
+  width: 80px;
   padding: 30px;
   -o-object-fit: cover;
      object-fit: cover;
@@ -428,8 +428,8 @@ header nav ul li a {
   content: "";
   background-color: #646665;
   border-radius: 2em;
-  width: 13px;
-  height: 13px;
+  min-width: 13px;
+  min-height: 13px;
   display: block;
   -webkit-transform: translateX(-43px) translateY(20px);
           transform: translateX(-43px) translateY(20px);
