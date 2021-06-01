@@ -1,5 +1,8 @@
 <?php 
 session_start();
+if(!isset($_SESSION['mail'])){
+    header('Location: ../index.php');
+}
 require_once("../libraries/autoload.php");
 $mail = $_SESSION['mail'];
 $mon_id = $_SESSION['id'];
@@ -97,7 +100,7 @@ else
             <nav id="menu">
                 <ul>
                     <li><a href="../index.php"><i class="fa fa-home"></i> Accueil </a></li>
-                    <li><a href="#"><i class="fa fa-user-circle"></i> Profil </a></li>
+                    <li><a href="profil.php"><i class="fa fa-user-circle"></i> Profil </a></li>
                 </ul>
             </nav>
             
