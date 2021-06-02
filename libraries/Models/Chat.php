@@ -14,6 +14,15 @@ class Chat extends Model {
         echo json_encode($all_users);
     }
 
+    public function search_all_user_with_what($mon_id)
+    {
+        $query = $this->bdd->query("SELECT DISTINCT  users.id,users.prenom,users.mail,users.connecte,users.nom,users.avatar,users.hobbies FROM  users INNER JOIN chat_prive 
+                                        WHERE (fk_id_user_1 = ".$mon_id." AND chat_prive.fk_id_user_2 = users.id) OR (fk_id_user_2 = ".$mon_id." AND chat_prive.fk_id_user_1 = users.id) ");
+        $all_users = $query->fetchall();
+        // var_dump($all_users);
+        echo json_encode($all_users);
+    }
+
     public function display_groupes($mon_id)
     {
         $query = $this->bdd->query("SELECT nom_du_groupe FROM groupe INNER JOIN users_dans_groupe ON groupe.id = users_dans_groupe.id_groupe where id_user = ".$mon_id."");

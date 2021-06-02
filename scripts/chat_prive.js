@@ -1,6 +1,6 @@
 displayUser()
-checkUsersConnect()
-setInterval(checkUsersConnect, 10000)
+// checkUsersConnect()
+setInterval(displayUser, 10000)
 setTimeout(eventsurclick, 20)
 setTimeout(clickSurUnGroupe, 40)
 
@@ -21,7 +21,7 @@ setInterval(checkNewMessageDansGroupe, 1250)
 function displayUser(){
 
     $.ajax({
-        url: "../scripts_ajax_php/search_all_user.php",
+        url: "../scripts_ajax_php/search_all_user_with_chat.php",
         type: "POST",
        
         dataType: "json",
@@ -44,11 +44,15 @@ function displayUser(){
 
                 if(dataType[i]["connecte"] == 0)
                 {
-                    $('#users_list').append("<div id=\""+dataType[i][0]+"\" class=\"users\"><img src=\"../img/pp.jpg\"><p class='p_liste_user'>"+dataType[i][1]+"</p></div>")
+                    // $('#users_list').append("<div id=\""+dataType[i][0]+"\" class=\"users\"><img src=\"../img/pp.jpg\"><p class='p_liste_user'>"+dataType[i][1]+"</p></div>")
+                    $('#users_list').append("<div id=\""+dataType[i][0]+"\" class=\"users\"><img class='img_avatar_chat' src=\"../img/"+dataType[i][5]+"\"><p class='p_liste_user'>"+dataType[i][1]+"</p></div>")
+
                 }
                 else if(dataType[i]["connecte"] == 1)
                 {
-                    $('#users_list').append("<div id=\""+dataType[i][0]+"\" class=\"users\"><img src=\"../img/pp.jpg\"><p class='p_liste_user connecte'>"+dataType[i][1]+"</p></div>")
+                    // $('#users_list').append("<div id=\""+dataType[i][0]+"\" class=\"users\"><img src=\"../img/pp.jpg\"><p class='p_liste_user connecte'>"+dataType[i][1]+"</p></div>")
+                    $('#users_list').append("<div id=\""+dataType[i][0]+"\" class=\"users\"><img class='img_avatar_chat' src=\"../img/"+dataType[i][5]+"\"><p class='p_liste_user connecte'>"+dataType[i][1]+"</p></div>")
+
                 }
 
                   i++
@@ -81,6 +85,7 @@ function checkUsersConnect(){
       
         success : function(dataType){
 
+            console.log(dataType)
             var count = Object.keys(dataType).length;
 
             utilisateurs = document.getElementsByClassName("users");
@@ -88,6 +93,7 @@ function checkUsersConnect(){
             let i = 0;
             while ( i < count)
             {
+                console.log(dataType[i]["connecte"] )
 
                 if(dataType[i]["connecte"] == 1)
                 {
