@@ -2,10 +2,10 @@
 -- version 4.9.5
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost:3306
--- Généré le : mar. 01 juin 2021 à 08:25
--- Version du serveur :  5.7.24
--- Version de PHP : 7.4.1
+-- Host: localhost:3306
+-- Generation Time: Jun 02, 2021 at 07:44 AM
+-- Server version: 5.7.24
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `social-network`
+-- Database: `social-network`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `aime`
+-- Table structure for table `aime`
 --
 
 CREATE TABLE `aime` (
@@ -39,7 +39,7 @@ CREATE TABLE `aime` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `chat_prive`
+-- Table structure for table `chat_prive`
 --
 
 CREATE TABLE `chat_prive` (
@@ -53,7 +53,7 @@ CREATE TABLE `chat_prive` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `chat_prive`
+-- Dumping data for table `chat_prive`
 --
 
 INSERT INTO `chat_prive` (`id`, `fk_id_user_1`, `fk_id_user_2`, `fk_id_auteur_message`, `message`, `date`, `non_lu`) VALUES
@@ -95,7 +95,7 @@ INSERT INTO `chat_prive` (`id`, `fk_id_user_1`, `fk_id_user_2`, `fk_id_auteur_me
 -- --------------------------------------------------------
 
 --
--- Structure de la table `comment`
+-- Table structure for table `comment`
 --
 
 CREATE TABLE `comment` (
@@ -109,7 +109,7 @@ CREATE TABLE `comment` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `groupe`
+-- Table structure for table `groupe`
 --
 
 CREATE TABLE `groupe` (
@@ -118,17 +118,17 @@ CREATE TABLE `groupe` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `groupe`
+-- Dumping data for table `groupe`
 --
 
 INSERT INTO `groupe` (`id`, `nom_du_groupe`) VALUES
 (1, 'tennis'),
-(2, 'TEST');
+(2, 'natation');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `messages_chat_groupe`
+-- Table structure for table `messages_chat_groupe`
 --
 
 CREATE TABLE `messages_chat_groupe` (
@@ -138,18 +138,10 @@ CREATE TABLE `messages_chat_groupe` (
   `message` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Déchargement des données de la table `messages_chat_groupe`
---
-
-INSERT INTO `messages_chat_groupe` (`id`, `id_auteur`, `id_groupe`, `message`) VALUES
-(1, 1, 2, 'zefzefzef'),
-(2, 2, 2, 'zefzef');
-
 -- --------------------------------------------------------
 
 --
--- Structure de la table `post`
+-- Table structure for table `post`
 --
 
 CREATE TABLE `post` (
@@ -162,7 +154,7 @@ CREATE TABLE `post` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `post_image`
+-- Table structure for table `post_image`
 --
 
 CREATE TABLE `post_image` (
@@ -178,7 +170,7 @@ CREATE TABLE `post_image` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -193,18 +185,29 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `prenom`, `mail`, `connecte`, `nom`, `avatar`, `hobbies`, `mdp`) VALUES
 (1, 'Alexandre', 'alex@laplateforme.io', 0, 'Leroux', '1.png', 'chat\npneu\ntélé', 'Azer-1234'),
-(2, 'boris', 'boris@laplateforme.io', 0, 'becker', '2.png', 'tennis\nsculpture sur blé', 'Azer-1234'),
-(6, 'rafa', 'rafa@laplateforme.io', 0, 'nadal', '2.png', 'tennis\npetanque', 'Azer-1234');
+(2, 'boris', 'boris@laplateforme.io', 0, 'becker', '2.jpg', 'tennis\nsculpture sur blé', 'Azer-1234'),
+(6, 'rafa', 'rafa@laplateforme.io', 0, 'nadal', '6.jpg', 'tennis\npetanque', 'Azer-1234'),
+(7, 'John', 'John@laplateforme.io', 0, 'Snow', '7.jpg', 'hiver*\nmarcheur blanc', 'Azer-1234'),
+(8, 'El', 'elprofesseur@laplateforme.io', 0, 'Professeur', '8.jpg', 'braquage\nvin', 'Azer-1234'),
+(9, 'Roger', 'roger@laplateforme.io', 0, 'Federer', '9.jpg', 'tennis\ngagner', 'Azer-1234'),
+(10, 'Jean', 'jean@laplateforme.io', 0, 'De Florette', '10.jpg', 'source', 'Azer-1234'),
+(11, 'leonardo', 'leonardo@laplateforme.io', 0, 'Dicaprio', '11.jpg', 'film', 'Azer-1234'),
+(12, 'brad', 'brad@laplateforme.io', 0, 'pitt', '12.jpg', 'cinema\nfilms', 'Azer-1234'),
+(13, 'stephen', 'stephen@laplateforme.io', 0, 'king', '13.jpg', 'film\nhorreur', 'Azer-1234'),
+(14, 'patrick', 'patrick@laplateforme.io', 0, 'sebastien', '14.jpg', 'humour\nchanson', 'Azer-1234'),
+(15, 'didier', 'didier@laplateforme.io', 0, 'super', '15.jpg', 'chanson\ntexte', 'Azer-1234'),
+(16, 'gargamel', 'gargamel@laplateforme.io', 0, 'garga', '16.jpg', 'schtroumph\nmagie', 'Azer-1234'),
+(17, 'gandalf', 'gandalf@laplateforme.io', 0, 'legris', '17.jpg', 'joaillerie\nvoyage', 'Azer-1234');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users_dans_groupe`
+-- Table structure for table `users_dans_groupe`
 --
 
 CREATE TABLE `users_dans_groupe` (
@@ -215,7 +218,7 @@ CREATE TABLE `users_dans_groupe` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `users_dans_groupe`
+-- Dumping data for table `users_dans_groupe`
 --
 
 INSERT INTO `users_dans_groupe` (`id`, `id_groupe`, `id_user`, `new_message`) VALUES
@@ -227,117 +230,117 @@ INSERT INTO `users_dans_groupe` (`id`, `id_groupe`, `id_user`, `new_message`) VA
 (6, 2, 1, 0);
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `aime`
+-- Indexes for table `aime`
 --
 ALTER TABLE `aime`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `chat_prive`
+-- Indexes for table `chat_prive`
 --
 ALTER TABLE `chat_prive`
   ADD UNIQUE KEY `id` (`id`);
 
 --
--- Index pour la table `comment`
+-- Indexes for table `comment`
 --
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `groupe`
+-- Indexes for table `groupe`
 --
 ALTER TABLE `groupe`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `messages_chat_groupe`
+-- Indexes for table `messages_chat_groupe`
 --
 ALTER TABLE `messages_chat_groupe`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `post`
+-- Indexes for table `post`
 --
 ALTER TABLE `post`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `post_image`
+-- Indexes for table `post_image`
 --
 ALTER TABLE `post_image`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `users_dans_groupe`
+-- Indexes for table `users_dans_groupe`
 --
 ALTER TABLE `users_dans_groupe`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `aime`
+-- AUTO_INCREMENT for table `aime`
 --
 ALTER TABLE `aime`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `chat_prive`
+-- AUTO_INCREMENT for table `chat_prive`
 --
 ALTER TABLE `chat_prive`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
--- AUTO_INCREMENT pour la table `comment`
+-- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `groupe`
+-- AUTO_INCREMENT for table `groupe`
 --
 ALTER TABLE `groupe`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT pour la table `messages_chat_groupe`
+-- AUTO_INCREMENT for table `messages_chat_groupe`
 --
 ALTER TABLE `messages_chat_groupe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `post`
+-- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `post_image`
+-- AUTO_INCREMENT for table `post_image`
 --
 ALTER TABLE `post_image`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT pour la table `users_dans_groupe`
+-- AUTO_INCREMENT for table `users_dans_groupe`
 --
 ALTER TABLE `users_dans_groupe`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
