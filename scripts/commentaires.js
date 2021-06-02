@@ -1,7 +1,6 @@
 var btn = document.querySelectorAll(".button_comment") ; 
 console.log(btn.length)
 
-
 //console.log(bloc); 
 
 // ajoute une venement sur tout les boutons commentaires -> deplie la div au click
@@ -10,7 +9,7 @@ for(var i = 0 ; i < btn.length ; i++)
 {
     btn[i].addEventListener("click", function(e){
         var bloc = e.target.parentElement.parentElement.parentElement.lastChild.previousElementSibling; 
-    
+
         attr = bloc.getAttribute("style") ; 
         if(attr === "display: none;"){
             bloc.setAttribute("style" , "display: block;"); 
@@ -33,13 +32,20 @@ for(var i = 0 ; i < btn_add_comment.length ; i++)
 
         var input = e.target.previousElementSibling.value ; 
 
+        var article = e.target.parentElement.parentElement.parentElement.firstElementChild.parentElement.parentElement; 
+
+        var post_id = article.dataset.id ;
+
+        console.log("le bloc" ,article)
+        console.log("son id" ,post_id)
+
         
         // var des_commentaire = document.getElementsByClassName(".text_commentaire").innerText ; 
         
         $.ajax({
             type: "POST",
             url: "scripts_ajax_php/add_comment.php",
-            data: {description: input},
+            data: {description: input, post_id: post_id},
             dataType: "json",
             success: function (response) {
             
@@ -48,15 +54,13 @@ for(var i = 0 ; i < btn_add_comment.length ; i++)
         
                 div.innerHTML = '<div id="description_comment"><p class="bold" id="user_commentaire">' + response.prenom + '</p><p id="text_commentaire">' + input +'</p></div><div id="img_comment"><img src="img/pp.jpg" alt="#"></div>';
         
-                var parent = e.target.parentElement.parentElement.parentElement.firstElementChild; 
+                var parent = e.target.parentElement.parentElement.parentElement.firstElementChild;
         
                 parent.append(div); 
         
                 e.target.previousElementSibling.value = "";  
             }
         });
-
-
 
     })
 }

@@ -141,7 +141,7 @@ else
         </div>
     </article>
 
-    <article class="post">
+    <article class="post" data-id="1">
         <div class="post_image">
             <div class="photo_profil">
                 <img src="img/pp.jpg" alt="#">
@@ -198,7 +198,7 @@ else
         </div>
     </article>
 
-    <article class="post">
+    <article class="post" data-id="2">
         <div class="post_image">
             <div class="photo_profil">
                 <img src="img/pp.jpg" alt="#">
@@ -255,7 +255,7 @@ else
         </div>
     </article>
 
-    <article class="post">
+    <article class="post" data-id="3">
         <div class="post_image">
             <div class="photo_profil">
                 <img src="img/pp.jpg" alt="#">
@@ -316,7 +316,7 @@ else
         </div>
     </article>
 
-    <article class="post">
+    <article class="post" data-id="4">
         <div class="post_image">
             <div class="photo_profil">
                 <img src="img/pp.jpg" alt="#">
