@@ -1,4 +1,448 @@
 @import url("https://fonts.googleapis.com/css2?family=Hind:wght@300;500;700&family=Roboto:ital,wght@0,300;0,400;0,700;0,900;1,700&display=swap");
+@import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
+* {
+  font-family: "Roboto", sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: none;
+}
+
+header nav .logo_text_header, header nav ul, #section_centrale #div1 #users, #section_centrale #div3 #pres_user_connect {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+header {
+  background-color: #f1efef;
+  margin-bottom: 20px;
+}
+
+header nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+header nav .logo_text_header {
+  width: 50%;
+}
+
+header nav .logo_text_header .logo_network {
+  width: 30%;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+header nav .logo_text_header .logo_network img {
+  width: 50%;
+}
+
+header nav .logo_text_header .nom_header {
+  width: 70%;
+}
+
+header nav .logo_text_header .nom_header h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: capitalize;
+}
+
+header nav ul {
+  width: 50%;
+}
+
+header nav ul li {
+  padding: 10px;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+#section_centrale {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#section_centrale > div {
+  border-radius: 2em;
+  background-color: #f8f2f2;
+  padding: 20px;
+  margin: 0px 10px;
+}
+
+#section_centrale #div1 {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 20%;
+}
+
+#section_centrale #div1 #contenu_div1 {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 20px 0px;
+}
+
+#section_centrale #div1 #users {
+  width: 100%;
+  background-color: #ece8e8;
+  margin: 10px 0px;
+  border-radius: 1em;
+}
+
+#section_centrale #div1 #users img {
+  display: block;
+  width: 50%;
+  padding: 30px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#section_centrale #div1 #users p {
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#section_centrale #div2 {
+  background-color: #f5f3f3;
+  width: 45%;
+}
+
+#section_centrale #div2 .post {
+  margin: 15px 0px;
+  padding: 20px;
+  border-radius: 2em;
+  background-color: white;
+}
+
+#section_centrale #div2 .post .post_image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#section_centrale #div2 .post .post_image > div {
+  padding: 20px;
+}
+
+#section_centrale #div2 .post .post_image .photo_profil {
+  width: 30%;
+}
+
+#section_centrale #div2 .post .post_image .pseudo_user {
+  width: 70%;
+}
+
+#section_centrale #div2 .post .post_image .pseudo_user + p {
+  font-weight: 800;
+}
+
+#section_centrale #div2 .post .description_post {
+  padding: 20px;
+}
+
+#section_centrale #div2 .post .image_post {
+  padding: 20px;
+}
+
+#section_centrale #div2 .post .image_post img {
+  border-radius: 1em;
+}
+
+#section_centrale #div2 .post .image_post .galerie {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#section_centrale #div2 .post .image_post .galerie div {
+  width: 50%;
+  margin-top: 10px;
+}
+
+#section_centrale #div2 .post .image_post .galerie :nth-child(1) {
+  margin-right: 5px;
+}
+
+#section_centrale #div2 .post .image_post .galerie :nth-child(2) {
+  margin-left: 5px;
+}
+
+#section_centrale #div2 .post .like_post {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+}
+
+#section_centrale #div2 .post .like_post i {
+  cursor: pointer;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  display: inline-block;
+  color: #fa5f5a;
+}
+
+#section_centrale #div2 .post .like_post i:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+#section_centrale #div2 .post .like_post > * {
+  padding: 10px;
+}
+
+#section_centrale #div2 .post .comment_post .comment {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#section_centrale #div2 .post .comment_post .comment #img_comment {
+  width: 10%;
+  margin: 20px;
+}
+
+#section_centrale #div2 .post .comment_post .comment #img_comment img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#section_centrale #div2 .post .comment_post .comment #description_comment {
+  width: 80%;
+  padding: 15px;
+  font-size: 0.8em;
+  background-color: #e6e6e6;
+}
+
+#section_centrale #div2 .post #link_autres_comment {
+  text-align: center;
+  color: #fa5f5a;
+  text-decoration: underline;
+  font-size: 0.8em;
+  cursor: pointer;
+  padding: 10px;
+}
+
+#section_centrale #div2 .post #form_comment {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#section_centrale #div2 .post #form_comment .img_form_comment {
+  width: 10%;
+  margin: 20px;
+}
+
+#section_centrale #div2 .post #form_comment .img_form_comment img {
+  width: 100%;
+}
+
+#section_centrale #div2 .post #form_comment .input_form_comment {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#section_centrale #div2 .post #form_comment .input_form_comment textarea {
+  width: 70%;
+  border-radius: 2em;
+  background-color: #e4e4e4;
+  border: none;
+  padding: 10px;
+}
+
+#section_centrale #div2 .post #form_comment .input_form_comment textarea::-webkit-input-placeholder {
+  color: black;
+  padding: 5px;
+}
+
+#section_centrale #div2 .post #form_comment .input_form_comment textarea:-ms-input-placeholder {
+  color: black;
+  padding: 5px;
+}
+
+#section_centrale #div2 .post #form_comment .input_form_comment textarea::-ms-input-placeholder {
+  color: black;
+  padding: 5px;
+}
+
+#section_centrale #div2 .post #form_comment .input_form_comment textarea::placeholder {
+  color: black;
+  padding: 5px;
+}
+
+#section_centrale #div2 .post #form_comment .input_form_comment input {
+  width: 30%;
+  margin: 10px;
+  background-color: #fa5f5a;
+  padding: 10px;
+  text-transform: uppercase;
+  color: white;
+  font-size: 0.7em;
+  border: none;
+  border-radius: 2em;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#section_centrale #div2 .post #form_comment .input_form_comment input:hover {
+  color: #fa5f5a;
+  background-color: transparent;
+  border: 1px solid #fa5f5a;
+}
+
+#section_centrale #div3 {
+  background-color: #f5f3f3;
+  width: 20%;
+}
+
+#section_centrale #div3 #contenu_div3 {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 20px 0px;
+}
+
+#section_centrale #div3 #pres_user_connect .img_user_connect img {
+  width: 100%;
+}
+
+#section_centrale #div3 #pres_user_connect .infos_user_connecte {
+  padding: 20px 10px;
+}
+
+#section_centrale #div3 #pres_user_connect .infos_user_connecte p {
+  padding: 2px;
+}
+
+#section_centrale #div3 #pres_user_connect .infos_user_connecte :nth-child(1) {
+  font-weight: 700;
+}
+
+#section_centrale #div3 #pres_user_connect .infos_user_connecte :nth-child(2) {
+  font-size: small;
+  color: rgba(0, 0, 0, 0.527);
+}
+
+#section_centrale #div3 h2 {
+  padding: 10px 0px;
+  font-weight: 800;
+}
+
+#section_centrale #div3 #menu li {
+  padding: 10px;
+  background-color: white;
+  margin: 10px 0px;
+}
+
+#section_centrale #div3 #menu li i {
+  margin-right: 10px;
+}
+
+#section_centrale #div3 #menu li a {
+  color: #fa5f5a;
+  text-decoration: none;
+}
+
+#section_centrale #div3 #conv > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.096);
+  margin: 10px 0px;
+}
+
+#section_centrale #div3 #conv > div div {
+  width: 50%;
+  margin: auto;
+}
+
+#section_centrale #div3 #conv > div div img {
+  width: 100%;
+  padding: 30px;
+}
+
+.p_liste_user {
+  text-transform: capitalize;
+  padding: 5px;
+  font-weight: 700;
+}
+
+.p_liste_user::before {
+  content: "";
+  background-color: #646665;
+  border-radius: 2em;
+  width: 13px;
+  height: 13px;
+  display: block;
+  -webkit-transform: translateX(-43px) translateY(20px);
+          transform: translateX(-43px) translateY(20px);
+}
+
+.connecte::before {
+  background-color: #4eee8b;
+}
+
+.bold {
+  font-weight: 700;
+  padding: 5px 0px;
+}
+
 .tabs {
   margin-bottom: -1px !important;
   position: relative;

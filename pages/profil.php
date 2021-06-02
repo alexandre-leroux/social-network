@@ -10,7 +10,6 @@
         <title>Profil</title>
         <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
         <!-- Bulma Version 0.9.0-->
-        <link rel="stylesheet" href="../style/style.css" />
         <link rel='stylesheet prefetch' href='https://unpkg.com/bulma@0.9.0/css/bulma.min.css'>
         <link rel="stylesheet" href="../style/style-profil.css">
         <script src="https://kit.fontawesome.com/7dc3015a44.js" crossorigin="anonymous"></script>
