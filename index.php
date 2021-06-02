@@ -1,6 +1,12 @@
 <?php 
 session_start();
-// require_once('model/database.php');
+if($_SESSION['mail'])
+{
+    $mail = $_SESSION['mail'];
+    require_once("libraries/autoload_index.php");
+    $user = new \Models\User(NULL,NULL,NULL,$mail,NULL,NULL,NULL);
+    $user->updateConnecte($mail);
+}
 
 // var_dump($_SESSION);
 // $mail = $_SESSION['mail'];
@@ -424,7 +430,7 @@ if(isset($_SESSION['mail']))
 <?php
 }
 ?>
-<!-- <script src="scripts/deconnecte.js"></script> -->
+<script src="scripts/deconnecte_index.js"></script>
 <script src="scripts/users_connecte.js"></script>
-<script src="scripts/fonction_chat_depuis_index.js"></script>
+<!-- <script src="scripts/fonction_chat_depuis_index.js"></script> -->
 </html>
