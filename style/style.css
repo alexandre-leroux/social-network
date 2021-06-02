@@ -99,6 +99,7 @@ header nav ul li a {
   position: sticky;
   top: 0;
   width: 20%;
+  height: 90vh;
 }
 
 #section_centrale #div1 #contenu_div1 {
@@ -106,6 +107,13 @@ header nav ul li a {
   position: sticky;
   top: 0;
   padding: 20px 0px;
+}
+
+#section_centrale #div1 #contenu_div1 #users_list {
+  height: 70vh;
+  overflow: scroll;
+  margin-top: 10px;
+  overflow-x: hidden;
 }
 
 #section_centrale #div1 .users {
@@ -121,6 +129,7 @@ header nav ul li a {
 #section_centrale #div1 .users .img_avatar_chat {
   display: block;
   width: 100px;
+  height: 100px;
   padding: 10px;
   -o-object-fit: cover;
      object-fit: cover;
@@ -433,6 +442,8 @@ header nav ul li a {
   text-transform: capitalize;
   padding: 5px;
   font-weight: 700;
+  width: 100px !important;
+  text-align: left;
 }
 
 .p_liste_user::before {
@@ -442,8 +453,8 @@ header nav ul li a {
   min-width: 13px;
   min-height: 13px;
   display: block;
-  -webkit-transform: translateX(-43px) translateY(20px);
-          transform: translateX(-43px) translateY(20px);
+  -webkit-transform: translateX(-40px) translateY(20px);
+          transform: translateX(-40px) translateY(20px);
 }
 
 .connecte::before {
