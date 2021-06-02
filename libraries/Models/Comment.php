@@ -20,9 +20,13 @@ class Comment extends Model {
         $connexion->execute() ; 
     }
 
-    public function getComment(?string $order){
+    public function getComment(?string $order, $post_id){
 
-        $sql = "SELECT * FROM comment WHERE post_id = :post_id" ;
+        $sql = "SELECT post_id,user_id,comment,date_comment,avatar,prenom
+                    FROM comment 
+                        INNER JOIN users
+                            ON comment.user_id = users.id
+                                WHERE post_id = :post_id" ;
                 
         if($order){
             $sql .= $order;

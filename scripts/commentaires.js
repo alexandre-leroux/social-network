@@ -9,7 +9,19 @@ for(var i = 0 ; i < btn.length ; i++)
 {
     btn[i].addEventListener("click", function(e){
         var bloc = e.target.parentElement.parentElement.parentElement.lastChild.previousElementSibling; 
+        var bloc_parent = bloc.parentElement ; 
+        var id = bloc_parent.dataset.id ; 
 
+        $.ajax({
+            type: "POST",
+            url: "scripts_ajax_php/get_last_comment.php",
+            data: {id: id},
+            dataType: "text",
+            success: function (response) {
+                e.target.parentElement.parentElement.nextElementSibling.firstElementChild.innerHTML = response ; 
+            }
+        });
+        
         attr = bloc.getAttribute("style") ; 
         if(attr === "display: none;"){
             bloc.setAttribute("style" , "display: block;"); 
@@ -48,6 +60,8 @@ for(var i = 0 ; i < btn_add_comment.length ; i++)
             data: {description: input, post_id: post_id},
             dataType: "json",
             success: function (response) {
+
+                console.log("la rep", response)
             
                 var div = document.createElement("div"); 
                 div.classList.add("comment") ;
@@ -59,7 +73,12 @@ for(var i = 0 ; i < btn_add_comment.length ; i++)
                 parent.append(div); 
         
                 e.target.previousElementSibling.value = "";  
+            },
+
+            error: function (request, status, error) {
+                alert("Veuillez vous connecter pour poster un commentaire") ; 
             }
+            
         });
 
     })

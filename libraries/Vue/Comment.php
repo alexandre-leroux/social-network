@@ -8,20 +8,22 @@ class Comment {
 
 
         foreach($array as $key => $value)
+        {
+
+        
         ?>
 
-        <div class="contenu_comment">
             <div class="comment">
                 <div id="img_comment">
-                    <img src="img/<?= $value['avatar'] ; ?>" alt="#">
+                    <img src="../img/<?= $value['avatar'] ; ?>" alt="#">
                 </div>
                 <div id="description_comment">
                     <p class="bold"> <?= $value['prenom'] ; ?> </p>
                     <p> <?= $value['comment'] ; ?></p>
                 </div>
             </div>   
-        </div> 
 
         <?php   
+        }
     }
 }
