@@ -15,7 +15,7 @@ class Comment {
 
             <div class="comment">
                 <div id="img_comment">
-                    <img src="../img/<?= $value['avatar'] ; ?>" alt="#">
+                    <img src="img/<?= $value['avatar'] ; ?>" alt="#">
                 </div>
                 <div id="description_comment">
                     <p class="bold"> <?= $value['prenom'] ; ?> </p>

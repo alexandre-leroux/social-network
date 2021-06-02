@@ -8,6 +8,9 @@ console.log(btn.length)
 for(var i = 0 ; i < btn.length ; i++)
 {
     btn[i].addEventListener("click", function(e){
+
+        console.log("e",e) ; 
+
         var bloc = e.target.parentElement.parentElement.parentElement.lastChild.previousElementSibling; 
         var bloc_parent = bloc.parentElement ; 
         var id = bloc_parent.dataset.id ; 
@@ -29,6 +32,27 @@ for(var i = 0 ; i < btn.length ; i++)
         else{
             bloc.setAttribute("style" , "display: none;");
         }
+    })
+}
+
+// ajoute un evenement sur le lien voir tout les commentaires -> requete ajax qui affiche tout les commentaire du post
+
+var affiche_comment = document.querySelectorAll(".button_all_comment") ; 
+
+for(var i = 0 ; i < affiche_comment.length ; i++)
+{
+    
+    affiche_comment[i].addEventListener("click" , (e) => {
+        var id = e.target.parentElement.parentElement.parentElement.lastChild.previousElementSibling.parentElement.dataset.id; 
+        $.ajax({
+            type: "POST",
+            url: "scripts_ajax_php/get_all_comment.php",
+            data: {id: id},
+            dataType: "text",
+            success: function (response) {
+                e.target.parentElement.parentElement.firstElementChild.innerHTML = response ; 
+            }
+        });
     })
 }
 

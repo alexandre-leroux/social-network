@@ -182,7 +182,7 @@ else
             </div>    
                 
             <div id="link_autres_comment">
-                <p> Voir tous les commentaires </p>
+                <p class="button_all_comment"> Voir tous les commentaires </p>
             </div>
 
             <div id="form_comment">
@@ -239,7 +239,7 @@ else
             </div>    
                 
             <div id="link_autres_comment">
-                <p> Voir tous les commentaires </p>
+                <p class="button_all_comment"> Voir tous les commentaires </p>
             </div>
 
             <div id="form_comment">
@@ -300,7 +300,7 @@ else
             </div> 
                 
             <div id="link_autres_comment">
-                <p> Voir tous les commentaires </p>
+                <p class="button_all_comment"> Voir tous les commentaires </p>
             </div>
 
             <div id="form_comment">
@@ -371,7 +371,7 @@ else
             </div> 
                 
             <div id="link_autres_comment">
-                <p> Voir tous les commentaires </p>
+                <p class="button_all_comment"> Voir tous les commentaires </p>
             </div>
 
             <div id="form_comment">
