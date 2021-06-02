@@ -19,4 +19,17 @@ class Post extends Model {
         $connexion->execute() ; 
 
     }
+
+    public function getPost() {
+
+        $connexion = $this->bdd->prepare("SELECT *
+                                            FROM post
+                                                ORDER BY date DESC
+        "); 
+
+        $connexion->execute(); 
+        $result = $connexion->fetchAll();
+        
+        return $result ; 
+    }
 }
