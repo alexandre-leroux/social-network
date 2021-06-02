@@ -1,11 +1,12 @@
 displayUser()
 // checkUsersConnect()
-setInterval(displayUser, 10000)
-setTimeout(eventsurclick, 20)
+setInterval(displayUser, 4000)
+setInterval(eventsurclick, 4030)
+setTimeout(eventsurclick, 30)
 setTimeout(clickSurUnGroupe, 40)
 
 checkNewMessage()
-setInterval(checkNewMessage, 4000)
+setInterval(checkNewMessage, 4010)
 
 // setInterval(refreshMessagesGroupe, 500)
 setInterval(refreshAffichegaNewMessages, 1250)
@@ -76,55 +77,56 @@ function displayUser(){
 
 
 
-function checkUsersConnect(){
+// function checkUsersConnect(){
     
-    $.ajax({
-        url: "../scripts_ajax_php/search_all_user.php",
-        type: "POST",
-        dataType: "json",
+//     $.ajax({
+//         url: "../scripts_ajax_php/search_all_user.php",
+//         type: "POST",
+//         dataType: "json",
       
-        success : function(dataType){
+//         success : function(dataType){
 
-            console.log(dataType)
-            var count = Object.keys(dataType).length;
+//             console.log(dataType)
+//             var count = Object.keys(dataType).length;
 
-            utilisateurs = document.getElementsByClassName("users");
+//             utilisateurs = document.getElementsByClassName("users");
 
-            let i = 0;
-            while ( i < count)
-            {
-                console.log(dataType[i]["connecte"] )
+//             let i = 0;
+//             while ( i < count)
+//             {
+//                 console.log(dataType[i]["connecte"] )
 
-                if(dataType[i]["connecte"] == 1)
-                {
-                    utilisateurs[i].lastChild.classList.add("connecte");
-                }
-                else if(dataType[i]["connecte"] == 0 )
-                {
-                    utilisateurs[i].lastChild.classList.remove("connecte");
-                }
+//                 if(dataType[i]["connecte"] == 1)
+//                 {
+//                     utilisateurs[i].lastChild.classList.add("connecte");
+//                 }
+//                 else (dataType[i]["connecte"] == 0 )
+//                 {
+//                     utilisateurs[i].lastChild.classList.remove("connecte");
+//                 }
 
-                  i++
-            }
+//                   i++
+//             }
         
-        },
+//         },
     
-        error: function (request, status, error) {
+//         error: function (request, status, error) {
 
-        },
+//         },
     
-        complete : function(resultat, statut){
+//         complete : function(resultat, statut){
 
-        }
+//         }
     
-    })
-}
+//     })
+// }
 
 
 
 function eventsurclick(){
 
      utilisateurs = document.getElementsByClassName("users");
+     console.log('ok')
 
    
     for(i = 0; i<utilisateurs.length; i++)
@@ -133,7 +135,7 @@ function eventsurclick(){
         let pseudo =  utilisateurs[i].lastChild.innerHTML
 
         utilisateurs[i].addEventListener('click', function(e){
-            // console.log('ok')
+            console.log('ok')
 
             parent2 = document.getElementById('conteneur_des_messages')
             parent2.innerHTML = "" 
