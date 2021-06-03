@@ -1,11 +1,17 @@
 <?php 
 session_start();
-if($_SESSION['mail'])
+if(@$_SESSION['mail'])
 {
     $mail = $_SESSION['mail'];
     require_once("libraries/autoload_index.php");
     $user = new \Models\User(NULL,NULL,NULL,$mail,NULL,NULL,NULL);
     $user->updateConnecte($mail);
+
+$mail = $_SESSION['mail'];
+$mon_id = $_SESSION['id'];
+
+$groupe = new \Models\Chat();
+$result = $groupe->display_groupes($mon_id);
 }
 
 // var_dump($_SESSION);
@@ -79,11 +85,11 @@ else
 
             <div id="pres_user_connect">
                 <div class="img_user_connect">
-                    <img src="img/pp.jpg" alt="#">
+                    <img src="img/<?=$_SESSION['avatar']?>" alt="#">
                 </div>
                 <div class="infos_user_connecte">
-                    <p> Baptiste </p>
-                    <p>@baptistegauthier</p>
+                <p><?=$_SESSION['prenom'];?></p>
+                    <p>@<?=$_SESSION['prenom']?><?=$_SESSION['nom']?></p>
                 </div>
             </div>
             
@@ -97,32 +103,22 @@ else
             <h2> Conversations </h2>
             
             <div id="conv">
-                <div>
-                    <div>
-                        <img src="img/group.svg" alt="#">
-                    </div>
-                    <div>
-                        <p> Groupe 1 </p>
-                    </div>
-                </div>
+            <?php
+                    foreach($result as $key => $value)
+                    {
+                        ?>
+                            <div class="liste_groupes">
+                                <div>
+                                    <img src="img/group.svg" alt="#">
+                                </div>
+                                <div class='nom_du_groupe'>
+                                    <p><?=$value['nom_du_groupe']?></p>
+                                </div>
+                            </div>
+                         <?php
+                    }
                 
-                <div>
-                    <div>
-                        <img src="img/group.svg" alt="#">
-                    </div>
-                    <div>
-                        <p> Groupe 2 </p>
-                    </div>
-                </div>
-                
-                <div>
-                    <div>
-                        <img src="img/group.svg" alt="#">
-                    </div>
-                    <div>
-                        <p> Groupe 3 </p>
-                    </div>
-                </div>
+                ?>
                 
             </div>
             

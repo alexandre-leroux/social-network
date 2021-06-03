@@ -6,23 +6,17 @@ if(!isset($_SESSION['mail'])){
 require_once("../libraries/autoload.php");
 $mail = $_SESSION['mail'];
 $mon_id = $_SESSION['id'];
-// var_dump($mon_id);
 
 $groupe = new \Models\Chat();
 $result = $groupe->display_groupes($mon_id);
 
-
 $user = new \Models\User(NULL,NULL,NULL,$mail,NULL,NULL,NULL);
 $user->updateConnecte($mail);
-
 
 $session_id_php = $_SESSION['id'];
 $session_prenom_php = $_SESSION['prenom'];
 
 $pseudo_for_js = $_GET['pseudo'];
-
-
-
 
 
 ?>
@@ -44,32 +38,7 @@ $pseudo_for_js = $_GET['pseudo'];
 
 <body>
 
-<?php
-if(!isset($_SESSION['mail']))
-{
-?>
 
-<header>
-    <nav>
-        <div class="logo_text_header">
-            <div class="logo_network">
-                <img src="../img/logo.svg" alt="#">
-            </div>
-            <div class="nom_header">
-                <h1> la plateforme_ network </h1>
-            </div>
-        </div>
-        <ul>
-            <li><a href="pages/inscription.php">S'inscrire</a></li>
-            <li><a href="pages/connexion.php">Se connecter</a></li>
-        </ul>
-    </nav>
-</header>
-<?php
-}
-else
-{
-?>
 <header >
     <nav>
         <h1>BIENVENUE <?= $_SESSION['prenom']?></h1>
@@ -79,9 +48,6 @@ else
 
 
 
-<?php
-}
-?>
 
 
 <section id="section_centrale">
@@ -91,7 +57,7 @@ else
 
             <div id="pres_user_connect">
                 <div class="img_user_connect">
-                    <img src="../img/<?=$_SESSION['avatar']?>" alt="#">
+                    <img src="img/<?=$_SESSION['avatar']?>" alt="#">
                 </div>
                 <div class="infos_user_connecte">
                     <p><?=$_SESSION['prenom'];?></p>

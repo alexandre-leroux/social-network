@@ -1,6 +1,6 @@
 displayUser()
 checkUsersConnect()
-setInterval(checkUsersConnect, 4000)
+setInterval(checkUsersConnect, 5000)
 
 
 function displayUser(){
