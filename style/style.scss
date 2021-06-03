@@ -339,19 +339,25 @@ header{
             }
         }
         #conv{
-            & > div {
-                display: flex; 
-                background-color: rgba(0, 0, 0, 0.096);
-                margin : 10px 0px ; 
-                div {
-                    width:  50% ;
-                    margin: auto; 
-                    img{
-                        width: 100% ; 
-                        padding: 30px;
+            & a{
+
+
+                & > div {
+                    display: flex; 
+                    background-color: rgba(0, 0, 0, 0.096);
+                    margin : 10px 0px ; 
+                    div {
+                        width:  50% ;
+                        margin: auto; 
+                        img{
+                            width: 100% ; 
+                            padding: 30px;
+                        }
                     }
                 }
+
             }
+   
         }
     }
 

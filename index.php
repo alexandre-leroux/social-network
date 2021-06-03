@@ -107,6 +107,7 @@ else
                     foreach($result as $key => $value)
                     {
                         ?>
+                        <a href="pages/chat.php?groupe=<?=$value['nom_du_groupe']?>">
                             <div class="liste_groupes">
                                 <div>
                                     <img src="img/group.svg" alt="#">
@@ -115,6 +116,7 @@ else
                                     <p><?=$value['nom_du_groupe']?></p>
                                 </div>
                             </div>
+                            </a>
                          <?php
                     }
                 

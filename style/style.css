@@ -420,7 +420,7 @@ header nav ul li a {
   text-decoration: none;
 }
 
-#section_centrale #div3 #conv > div {
+#section_centrale #div3 #conv a > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -428,12 +428,12 @@ header nav ul li a {
   margin: 10px 0px;
 }
 
-#section_centrale #div3 #conv > div div {
+#section_centrale #div3 #conv a > div div {
   width: 50%;
   margin: auto;
 }
 
-#section_centrale #div3 #conv > div div img {
+#section_centrale #div3 #conv a > div div img {
   width: 100%;
   padding: 30px;
 }

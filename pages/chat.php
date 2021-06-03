@@ -17,6 +17,7 @@ $session_id_php = $_SESSION['id'];
 $session_prenom_php = $_SESSION['prenom'];
 
 $pseudo_for_js = $_GET['pseudo'];
+$groupe_for_js = $_GET['groupe'];
 
 
 ?>
@@ -156,8 +157,10 @@ $pseudo_for_js = $_GET['pseudo'];
  var session_id_php = <?php echo json_encode($session_id_php); ?>;
  var session_prenom_php = <?php echo json_encode($session_prenom_php); ?>;
  var pseudo_get = <?php echo json_encode($pseudo_for_js); ?>;
+ var groupe_get = <?php echo json_encode($groupe_for_js); ?>;
 </script>
 <script src="../scripts/chat_prive.js"></script>
 <script src="../scripts/get_user_chat.js"></script>
+<script src="../scripts/get_groupe_chat.js"></script>
 
 </html>
