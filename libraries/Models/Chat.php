@@ -190,5 +190,14 @@ class Chat extends Model {
 
         }
 
+    public function autocompletion($motclef,$mon_id ) 
+    {
+        $motclef_secure = htmlspecialchars($motclef);
+        $req_search = $this->bdd->prepare("SELECT * FROM users WHERE prenom  LIKE ? AND id != ?");
+        $req_search->execute(array(  "%$motclef_secure%", $mon_id));
+        $res = $req_search->fetchAll();
+        echo json_encode($res);
+    }   
+
 
 }

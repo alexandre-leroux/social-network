@@ -73,7 +73,7 @@ function checkUsersConnect(){
             let i = 0;
             while ( i < count)
             {
-                console.log(utilisateurs[i].children[1].children[0])
+                // console.log(utilisateurs[i].children[1].children[0])
                 // console.log(dataType)
                 // utilisateurs[i].lastChild.classList.add("connecte");
                 if(dataType[i]["connecte"] == 1)

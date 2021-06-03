@@ -399,6 +399,8 @@ else
             <input type="search" name="barre_de_recherche" id="search_bar_users">
             <i class="fa fa-search"></i>
         </div>
+        <div id="resultat_autocompl">
+        </div>
         <div id="users_list">
             
         </div>
@@ -430,5 +432,6 @@ if(isset($_SESSION['mail']))
 ?>
 <script src="scripts/deconnecte_index.js"></script>
 <script src="scripts/users_connecte.js"></script>
+<script src="scripts/autocompletion.js"></script>
 <!-- <script src="scripts/fonction_chat_depuis_index.js"></script> -->
 </html>
