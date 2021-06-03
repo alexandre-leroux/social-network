@@ -158,6 +158,22 @@ class Chat extends Model {
             echo json_encode($resultat2);
 
         }
+
+    public function users_dans_groupe($nom_du_groupe)
+        {
+            
+            $req2 = $this->bdd->query(" SELECT *
+                                        FROM users 
+                                        INNER JOIN users_dans_groupe ON users.id = users_dans_groupe.id_user
+                                        INNER JOIN groupe ON users_dans_groupe.id_groupe = groupe.id 
+                                        WHERE nom_du_groupe = '".$nom_du_groupe."'
+            ");
+            $resultat2 = $req2->fetchall();
+
+            echo json_encode($resultat2);
+
+        }
+
     public function update_message_groupe_lu($id_moi, $nom_groupe)
         {
             $req = $this->bdd->prepare('SELECT id FROM groupe WHERE nom_du_groupe = ?');

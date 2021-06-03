@@ -679,8 +679,8 @@ function clickSurUnGroupe(){
             // console.log(first)
 
             groupes[i].addEventListener('click', function(e){
-                    console.log('groupe')
-                    console.log(groupes)
+                    // console.log('groupe')
+                    // console.log(groupes)
                
                 nom_du_groupe = first.innerHTML
                 console.log(nom_du_groupe)
@@ -746,6 +746,37 @@ function clickSurUnGroupe(){
        
                 })
 
+                $.ajax({
+                    url: "../scripts_ajax_php/users_dans_groupe.php",
+                    type: "POST",
+                    data: {  "nom_du_groupe":nom_du_groupe  },
+                    dataType: "json",
+                  
+                    success : function(dataType){
+            
+                             console.log(dataType)  
+                             console.log(dataType.length)  
+                             for (y=0; z<dataType.length; y++)
+                             {
+                                var img = document.createElement("IMG");
+                                img.setAttribute("src", "../img/"+dataType[y][5]+"");
+                                parent.appendChild(img);
+                             }
+                    
+                    },
+                
+                    error: function (request, status, error) {
+                     //    console.log(request)
+                     //    console.log(status)
+                     //    console.log(error)
+                    },
+                
+                    complete : function(resultat, statut){
+                     //    console.log('ok')
+                    }
+            
+            
+                     })
               })}}
 
 
