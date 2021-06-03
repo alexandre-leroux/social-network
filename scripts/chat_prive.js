@@ -679,8 +679,8 @@ function clickSurUnGroupe(){
             // console.log(first)
 
             groupes[i].addEventListener('click', function(e){
-    console.log('groupe')
-    console.log(groupes)
+                    console.log('groupe')
+                    console.log(groupes)
                
                 nom_du_groupe = first.innerHTML
                 console.log(nom_du_groupe)
@@ -696,7 +696,7 @@ function clickSurUnGroupe(){
              
                success : function(dataType){
        
-                        // console.log(dataType)  
+                        console.log(dataType)  
                         parent = document.getElementById('user_selection_chat')
                         var p = document.createElement("p");
                         p.setAttribute('name', 'groupe');

@@ -147,8 +147,11 @@ class Chat extends Model {
     public function messages_chat_groupe($nom_du_groupe)
         {
             
-            $req2 = $this->bdd->query("SELECT * FROM messages_chat_groupe  INNER JOIN groupe ON messages_chat_groupe.id_groupe =  groupe.id 
-            INNER JOIN users ON messages_chat_groupe.id_auteur = users.id WHERE nom_du_groupe = '".$nom_du_groupe."'
+            $req2 = $this->bdd->query(" SELECT DISTINCT *
+                                        FROM messages_chat_groupe 
+                                        INNER JOIN groupe ON messages_chat_groupe.id_groupe =  groupe.id 
+                                        INNER JOIN users ON messages_chat_groupe.id_auteur = users.id 
+                                        WHERE nom_du_groupe = '".$nom_du_groupe."'
             ");
             $resultat2 = $req2->fetchall();
 
