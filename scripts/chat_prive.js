@@ -291,7 +291,11 @@ function envoyerMessage(){
             success : function(dataType){
     
                 // console.log(dataType);
-        
+                document.getElementById('search_bar_users').value = ""
+                displayUser()
+                setTimeout(eventsurclick,50)
+                refresh_users = setInterval(displayUser, 10000)
+                refresh_click_user = setInterval(eventsurclick, 10050)
             
             },
         
@@ -321,6 +325,10 @@ function envoyerMessage(){
                 // console.log(dataType);
                 // $('#search_bar_users').removeAttr('value');
                 document.getElementById('search_bar_users').value = ""
+                displayUser()
+                setTimeout(eventsurclick,50)
+                refresh_users = setInterval(displayUser, 10000)
+                refresh_click_user = setInterval(eventsurclick, 10050)
             
             },
         
