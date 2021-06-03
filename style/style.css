@@ -7,7 +7,7 @@
   outline: none;
 }
 
-header nav .logo_text_header, header nav ul, #section_centrale #div1 .users, #section_centrale #div3 #pres_user_connect, #div_like_button_creer_groupe, #liste_user_pour_creer_groupe {
+header nav .logo_text_header, header nav ul, #section_centrale #div1 .users, #section_centrale #div3 #pres_user_connect, #user_selection_chat, #div_like_button_creer_groupe, #liste_user_pour_creer_groupe {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -471,8 +471,27 @@ header nav ul li a {
 }
 
 #user_selection_chat {
-  height: 50px;
-  background-color: aquamarine;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  height: 90px;
+  background-color: #e9e9e9;
+  border-radius: 40px;
+  margin-bottom: 20px;
+}
+
+#user_selection_chat img {
+  height: 80px;
+  width: 80px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  margin-left: 50px;
+}
+
+#user_selection_chat p {
+  margin-left: 20px;
+  font-size: 1.5rem;
 }
 
 #conteneur_des_messages {

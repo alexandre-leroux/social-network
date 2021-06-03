@@ -113,6 +113,7 @@ $pseudo_for_js = @$_GET['pseudo'];
 <!-- zone pour les messages -->
 <div id="div2">
     <div id="user_selection_chat">
+  
     </div>
 
     <div id="conteneur_des_messages">

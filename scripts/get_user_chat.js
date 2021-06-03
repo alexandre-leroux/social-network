@@ -1,7 +1,7 @@
 parent2 = document.getElementById('conteneur_des_messages')
 parent2.innerHTML = "" 
 
-console.log("get user chat")
+// console.log("get user chat")
 $.ajax({
     url: "../scripts_ajax_php/chat_prive.php",
     type: "POST",
@@ -12,8 +12,11 @@ $.ajax({
 
         parent = document.getElementById('user_selection_chat')
         var p = document.createElement("p");
+        var img = document.createElement("IMG");
+        img.setAttribute("src", "../img/"+dataType.data1[5]+"");
         p.innerHTML =  dataType.data1[1]
         parent.innerHTML = ""
+        parent.appendChild(img);
         parent.appendChild(p);
 
         var mess = document.createElement("p");

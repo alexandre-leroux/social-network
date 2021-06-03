@@ -462,8 +462,11 @@ function refreshAffichegaNewMessages(){
                 parent2 = document.getElementById('conteneur_des_messages').innerHTML = ""
                 parent = document.getElementById('user_selection_chat')
                 var p = document.createElement("p");
+                var img = document.createElement("IMG");
+                img.setAttribute("src", "../img/"+dataType.data1[5]+"");
                 p.innerHTML =  dataType.data1[1]
                 parent.innerHTML = ""
+                parent.appendChild(img);
                 parent.appendChild(p);
     
                 for (z=0; z<dataType.data2.length; z++)

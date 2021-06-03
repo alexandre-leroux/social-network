@@ -403,8 +403,24 @@ border: 1px solid red;
 // -----------------------------------page chat prive
 
 #user_selection_chat{
-    height: 50px;
-    background-color: aquamarine;
+    @extend %displayflex;
+    justify-content: flex-start;
+    height: 90px;
+    background-color: rgb(233, 233, 233);
+    border-radius: 40px;
+    margin-bottom: 20px;
+
+    & img{
+        height: 80px;
+        width: 80px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-left: 50px;
+    }
+    & p{
+        margin-left: 20px;
+        font-size: 1.5rem;
+    }
 }
 #conteneur_des_messages{
     height: 90%;

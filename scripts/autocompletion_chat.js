@@ -57,7 +57,7 @@ function displayUser(){
 function eventsurclick(){
 
     utilisateurs = document.getElementsByClassName("users");
-    console.log('ok')
+    // console.log('ok')
 
   
    for(i = 0; i<utilisateurs.length; i++)
@@ -79,10 +79,14 @@ function eventsurclick(){
              
                success : function(dataType){
        
+                console.log(dataType)
                    parent = document.getElementById('user_selection_chat')
                    var p = document.createElement("p");
+                   var img = document.createElement("IMG");
+                   img.setAttribute("src", "../img/"+dataType.data1[5]+"");
                    p.innerHTML =  dataType.data1[1]
                    parent.innerHTML = ""
+                   parent.appendChild(img);
                    parent.appendChild(p);
 
                    var mess = document.createElement("p");
@@ -157,8 +161,11 @@ refresh_click_user = setInterval(eventsurclick, 10050)
 
 // ------------------------------------------------fonction sur les touches, lance une recherche dans la bdd à chaque touche utilisée
 var input = document.getElementById("search_bar_users")
+
 input.addEventListener("keyup", function(e){
+
     donnees = document.getElementById("search_bar_users").value
+
     if(donnees.length<1)
     {
         console.log('dans if')
@@ -166,59 +173,7 @@ input.addEventListener("keyup", function(e){
         setTimeout(eventsurclick,50)
         refresh_users = setInterval(displayUser, 10000)
         refresh_click_user = setInterval(eventsurclick, 10050)
-        // $.ajax({
-        //     url: "../scripts_ajax_php/search_all_user.php",
-        //     type: "POST",
-           
-        //     dataType: "json",
-          
-        //     success : function(dataType){
-    
-        //         // console.log(dataType)
-        //         // data = JSON.parse(dataType);
-        //         var count = Object.keys(dataType).length;
-        //         // console.log(count)
-        //         // console.log(dataType)
-    
-    
-    
-        //         $('#users_list').empty();
-    
-   
 
-        //         let i = 0;
-        //         while ( i < count)
-        //         {
-    
-        //             if(dataType[i]["connecte"] == 0)
-        //             {
-        //                 // $('#users_list').append("<div id=\""+dataType[i][0]+"\" class=\"users\"><img src=\"../img/pp.jpg\"><p class='p_liste_user'>"+dataType[i][1]+"</p></div>")
-        //                 $('#users_list').append("<div id=\""+dataType[i][0]+"\" class=\"users\"><img class='img_avatar_chat' src=\"../img/"+dataType[i][5]+"\"><p class='p_liste_user'>"+dataType[i][1]+"</p></div>")
-    
-        //             }
-        //             else if(dataType[i]["connecte"] == 1)
-        //             {
-        //                 // $('#users_list').append("<div id=\""+dataType[i][0]+"\" class=\"users\"><img src=\"../img/pp.jpg\"><p class='p_liste_user connecte'>"+dataType[i][1]+"</p></div>")
-        //                 $('#users_list').append("<div id=\""+dataType[i][0]+"\" class=\"users\"><img class='img_avatar_chat' src=\"../img/"+dataType[i][5]+"\"><p class='p_liste_user connecte'>"+dataType[i][1]+"</p></div>")
-    
-        //             }
-    
-        //               i++
-        //         }
-            
-        //     },
-        
-        //     error: function (request, status, error) {
-        //         // console.log(request);
-        //         // console.log(status);
-        //         // console.log(error);
-        //     },
-        
-        //     complete : function(resultat, statut){
-     
-        //     }
-        
-        // })
     }
     else
     {
