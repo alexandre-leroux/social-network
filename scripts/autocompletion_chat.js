@@ -6,7 +6,7 @@ function displayUser(){
     $.ajax({
         url: "../scripts_ajax_php/search_all_user_with_chat.php",
         type: "POST",
-       
+        async: false,
         dataType: "json",
       
         success : function(dataType){
@@ -157,9 +157,9 @@ function eventsurclick(){
 }
 
 displayUser()
-setTimeout(eventsurclick,50)
+eventsurclick()
 refresh_users = setInterval(displayUser, 10000)
-refresh_click_user = setInterval(eventsurclick, 10010)
+refresh_click_user = setInterval(eventsurclick, 10000)
 
 
 // ------------------------------------------------fonction sur les touches, lance une recherche dans la bdd à chaque touche utilisée
