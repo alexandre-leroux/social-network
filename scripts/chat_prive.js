@@ -1,9 +1,9 @@
 displayUser()
 // checkUsersConnect()
-setInterval(displayUser, 4000)
-setInterval(eventsurclick, 4030)
-setTimeout(eventsurclick, 30)
-setTimeout(clickSurUnGroupe, 40)
+setInterval(displayUser, 10000)
+setTimeout(eventsurclick, 50)
+setInterval(eventsurclick, 10030)
+setTimeout(clickSurUnGroupe, 30)
 
 checkNewMessage()
 setInterval(checkNewMessage, 4010)
