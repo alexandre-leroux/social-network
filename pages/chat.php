@@ -155,6 +155,7 @@ $pseudo_for_js = @$_GET['pseudo'];
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+<script src="../scripts/autocompletion_chat.js"></script>
 
 <script src="../scripts/deconnecte.js"></script>
 <script>
