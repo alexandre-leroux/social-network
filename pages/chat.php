@@ -87,6 +87,7 @@ $groupe_for_js = $_GET['groupe'];
                     foreach($result as $key => $value)
                     {
                         ?>
+                        <a>
                             <div class="liste_groupes">
                                 <div>
                                     <img src="../img/group.svg" alt="#">
@@ -95,6 +96,7 @@ $groupe_for_js = $_GET['groupe'];
                                     <p><?=$value['nom_du_groupe']?></p>
                                 </div>
                             </div>
+                            </a>
                          <?php
                     }
                 
