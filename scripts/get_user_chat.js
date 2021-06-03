@@ -1,7 +1,7 @@
 parent2 = document.getElementById('conteneur_des_messages')
 parent2.innerHTML = "" 
 
-
+console.log("get user chat")
 $.ajax({
     url: "../scripts_ajax_php/chat_prive.php",
     type: "POST",

@@ -1,5 +1,9 @@
+console.log("get groupe")
+
+
 parent2 = document.getElementById('conteneur_des_messages')
 parent2.innerHTML = ""
+console.log(pseudo_get)
 console.log(groupe_get)
 $.ajax({
 url: "../scripts_ajax_php/messages_chat_groupe.php",

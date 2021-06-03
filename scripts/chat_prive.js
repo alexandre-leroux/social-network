@@ -526,6 +526,7 @@ function messageLuSiFenetreChatEstSurUser(){
 // ------------------------fonction sur faux boutton creer un groupe
 
 $("#div_like_button_creer_groupe").click(function(){
+    console.log('click')
     $("#liste_user_pour_creer_groupe").toggle();
     
     $.ajax({
@@ -569,7 +570,7 @@ $("#div_like_button_creer_groupe").click(function(){
   function toogleGroupe(){
     $("#liste_user_pour_creer_groupe").toggle();
   }
-  toogleGroupe()
+//   toogleGroupe()
 
 
 // --------------------------------------fonction sur click - selection des users pour créer groupe

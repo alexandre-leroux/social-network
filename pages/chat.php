@@ -16,8 +16,10 @@ $user->updateConnecte($mail);
 $session_id_php = $_SESSION['id'];
 $session_prenom_php = $_SESSION['prenom'];
 
-$pseudo_for_js = $_GET['pseudo'];
-$groupe_for_js = $_GET['groupe'];
+$pseudo_for_js = @$_GET['pseudo'];
+
+    $groupe_for_js = @$_GET['groupe'];
+
 
 
 ?>
@@ -58,7 +60,7 @@ $groupe_for_js = $_GET['groupe'];
 
             <div id="pres_user_connect">
                 <div class="img_user_connect">
-                    <img src="img/<?=$_SESSION['avatar']?>" alt="#">
+                    <img src="../img/<?=$_SESSION['avatar']?>" alt="#">
                 </div>
                 <div class="infos_user_connecte">
                     <p><?=$_SESSION['prenom'];?></p>
@@ -161,8 +163,24 @@ $groupe_for_js = $_GET['groupe'];
  var pseudo_get = <?php echo json_encode($pseudo_for_js); ?>;
  var groupe_get = <?php echo json_encode($groupe_for_js); ?>;
 </script>
-<script src="../scripts/chat_prive.js"></script>
+
+<?php
+if($pseudo_for_js)
+{
+?>
 <script src="../scripts/get_user_chat.js"></script>
+<?php
+}
+
+if($groupe_for_js)
+{
+?>
 <script src="../scripts/get_groupe_chat.js"></script>
+
+<?php
+}
+?>
+<script src="../scripts/chat_prive.js"></script>
+
 
 </html>

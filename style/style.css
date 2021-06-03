@@ -489,6 +489,7 @@ header nav ul li a {
 }
 
 #div_like_button_creer_groupe {
+  background-color: #e0d0f5;
   height: 30px;
   border-radius: 20px;
 }

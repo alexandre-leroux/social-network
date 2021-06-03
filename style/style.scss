@@ -418,6 +418,7 @@ border: 1px solid red;
 }
 #div_like_button_creer_groupe{
     @extend %displayflex;
+    background-color: rgb(224, 208, 245);
     height: 30px;
     border-radius: 20px;
     &:hover{
