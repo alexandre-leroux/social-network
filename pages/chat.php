@@ -134,7 +134,7 @@ $pseudo_for_js = @$_GET['pseudo'];
 
         <div id="bloc_search_bar">
             <input type="search" name="barre_de_recherche" id="search_bar_users">
-            <i class="fa fa-search"></i>
+        
         </div>
         <div id="users_list">
             

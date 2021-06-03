@@ -161,6 +161,15 @@ eventsurclick()
 refresh_users = setInterval(displayUser, 10000)
 refresh_click_user = setInterval(eventsurclick, 10000)
 
+// pour relancer lorsque l'on vide la searchbarre en cliquant sur la croix
+$('#search_bar_users').on('search', function () {
+    // search logic here
+    // this function will be executed on click of X (clear button)
+    displayUser()
+    eventsurclick()
+    refresh_users = setInterval(displayUser, 10000)
+    refresh_click_user = setInterval(eventsurclick, 10000)
+});
 
 // ------------------------------------------------fonction sur les touches, lance une recherche dans la bdd à chaque touche utilisée
 var input = document.getElementById("search_bar_users")
@@ -173,9 +182,9 @@ input.addEventListener("keyup", function(e){
     {
         console.log('dans if')
         displayUser()
-        setTimeout(eventsurclick,50)
+        eventsurclick()
         refresh_users = setInterval(displayUser, 10000)
-        refresh_click_user = setInterval(eventsurclick, 10050)
+        refresh_click_user = setInterval(eventsurclick, 10000)
 
     }
     else
