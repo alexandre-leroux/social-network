@@ -27,11 +27,29 @@
   background-color: #e9e9e9;
   border-radius: 40px;
   margin-bottom: 20px;
+  overflow: auto;
+}
+
+#user_selection_chat::-webkit-scrollbar {
+  height: 5px;
+}
+
+#user_selection_chat::-webkit-scrollbar-track-piece:end {
+  margin-right: 50px;
+}
+
+#user_selection_chat::-webkit-scrollbar-track-piece:start {
+  margin-left: 50px;
+}
+
+#user_selection_chat::-webkit-scrollbar-thumb {
+  background: #888;
 }
 
 #user_selection_chat img {
   height: 80px;
-  width: 80px;
+  width: 80px !important;
+  min-width: 80px !important;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 50%;
@@ -182,6 +200,9 @@
 
 #conv {
   height: 50%;
+  padding: 15px;
+  border: 1px solid #d1d1d1;
+  border-radius: 20px;
   overflow: auto;
 }
 

@@ -96,6 +96,9 @@ header{
             padding: 20px 0px ; 
 
             & #users_list{
+                padding: 15px;
+                border: 1px solid rgb(209, 209, 209);
+                border-radius: 20px;
                 height: 70vh;
                 overflow: scroll;
                 margin-top: 10px;
@@ -121,6 +124,9 @@ header{
                 padding: 10px;
                 object-fit: cover;
                 border-radius: 50%;
+            }
+            &:hover{
+                cursor: pointer;
             }
             // & img {
             //     display: block;

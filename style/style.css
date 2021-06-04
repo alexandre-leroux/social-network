@@ -110,6 +110,9 @@ header nav ul li a {
 }
 
 #section_centrale #div1 #contenu_div1 #users_list {
+  padding: 15px;
+  border: 1px solid #d1d1d1;
+  border-radius: 20px;
   height: 70vh;
   overflow: scroll;
   margin-top: 10px;
@@ -142,6 +145,10 @@ header nav ul li a {
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 50%;
+}
+
+#section_centrale #div1 .users:hover {
+  cursor: pointer;
 }
 
 #section_centrale #div1 .users p {
