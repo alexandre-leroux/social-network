@@ -84,7 +84,31 @@
 .creer_groupe_green{
     background-color: #4EEE8B;
 }
+.div_conteneur_message{
+    @extend %displayflex;
+    justify-content: flex-start;
+    & p{
+        // height: 30px;
+        max-width: 60%;
+        background-color: rgb(219, 219, 219);
+        border-radius: 20px;
+        padding: 10px;
+        margin-left: 5px;
+        margin-bottom: 5px;
+    }
+}
 .auteur_message_moi{
-    text-align: right;
-    background-color: rgb(224, 224, 224);
+    @extend %displayflex;
+    justify-content: flex-end;
+    // background-color: rgb(224, 224, 224);
+    & p{
+        // height: 30px;
+        max-width: 60%;
+        background-color: rgb(100, 149, 255);
+        color: white;
+        border-radius: 20px;
+        padding: 10px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
 }

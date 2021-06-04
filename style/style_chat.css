@@ -1,4 +1,4 @@
-#user_selection_chat, #div2, #intput_chat_et_button, #div_like_button_creer_groupe, #liste_user_pour_creer_groupe {
+#user_selection_chat, #div2, #intput_chat_et_button, #div_like_button_creer_groupe, #liste_user_pour_creer_groupe, .div_conteneur_message, .auteur_message_moi {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -103,8 +103,34 @@
   background-color: #4EEE8B;
 }
 
+.div_conteneur_message {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.div_conteneur_message p {
+  max-width: 60%;
+  background-color: #dbdbdb;
+  border-radius: 20px;
+  padding: 10px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
 .auteur_message_moi {
-  text-align: right;
-  background-color: #e0e0e0;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.auteur_message_moi p {
+  max-width: 60%;
+  background-color: #6495ff;
+  color: white;
+  border-radius: 20px;
+  padding: 10px;
+  margin-right: 5px;
+  margin-bottom: 5px;
 }
 /*# sourceMappingURL=style_chat.css.map */
