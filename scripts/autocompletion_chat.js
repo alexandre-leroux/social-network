@@ -100,20 +100,34 @@ function eventsurclick(){
                        {
                            // console.log(dataType.data2)
                            parent2 = document.getElementById('conteneur_des_messages')
+
+                           div_conteneur_message = document.createElement("div");
+                           div_conteneur_message.className  = "div_conteneur_message auteur_message_moi"
+   
                            var mess = document.createElement("p");
-                           mess.className  = "auteur_message_moi"
+                      
                             contenur_mess = dataType.data2[z][4]
                             mess.innerHTML = contenur_mess
-                            parent2.appendChild(mess);
+   
+                           //  div_conteneur_message.innerHTML = mess.innerHTML
+   
+                            div_conteneur_message.appendChild(mess);
+                            parent2.appendChild(div_conteneur_message);
                        }
                        else{
 
                            // console.log(dataType.data2)
                            parent2 = document.getElementById('conteneur_des_messages')
+
+                           div_conteneur_message = document.createElement("div");
+                           div_conteneur_message.className  = "div_conteneur_message"
+   
                            var mess = document.createElement("p");
                             contenur_mess = dataType.data2[z][4]
                             mess.innerHTML = contenur_mess
-                            parent2.appendChild(mess);
+   
+                            div_conteneur_message.appendChild(mess);
+                            parent2.appendChild(div_conteneur_message);
 
                        }
                    }

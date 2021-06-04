@@ -521,18 +521,29 @@ function clickSurUnGroupe(){
                             {
                                 // console.log('dans foir')
                                 parent2 = document.getElementById('conteneur_des_messages')
+
+                                div_conteneur_message = document.createElement("div");
+                                div_conteneur_message.className  = "div_conteneur_message auteur_message_moi"
+
                                 var mess = document.createElement("p");
-                                mess.className  = "auteur_message_moi"
-                                 mess.innerHTML =  dataType[z].message
-                                 parent2.appendChild(mess);
+                                mess.innerHTML =  dataType[z].message
+
+                                div_conteneur_message.appendChild(mess);
+                                parent2.appendChild(div_conteneur_message);
                             }
                             else{
 
                                 // console.log('dans foir')
                                 parent2 = document.getElementById('conteneur_des_messages')
+                                
+                                div_conteneur_message = document.createElement("div");
+                                div_conteneur_message.className  = "div_conteneur_message"
+
                                 var mess = document.createElement("p");
-                                 mess.innerHTML =  "<b> "+dataType[z][7]+"</b> - "+dataType[z].message+"   "
-                                 parent2.appendChild(mess);
+                                mess.innerHTML =  "<b> "+dataType[z][7]+"</b> - "+dataType[z].message+"   "
+
+                                div_conteneur_message.appendChild(mess);
+                                parent2.appendChild(div_conteneur_message);
                                 
                             }
                         }
