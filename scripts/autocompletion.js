@@ -107,3 +107,13 @@ input.addEventListener("keyup", function(e){
     }
 
 })
+
+// pour relancer lorsque l'on vide la searchbarre en cliquant sur la croix
+$('#search_bar_users').on('search', function () {
+    // search logic here
+    // this function will be executed on click of X (clear button)
+    displayUser()
+    eventsurclick()
+    refresh_users = setInterval(displayUser, 10000)
+    refresh_click_user = setInterval(eventsurclick, 10000)
+});
