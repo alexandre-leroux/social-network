@@ -1,3 +1,10 @@
+function scroolBottomSmooth(){
+    $("#conteneur_des_messages").stop().animate({ scrollTop: $("#conteneur_des_messages")[0].scrollHeight}, 1000);
+}
+function scroolBottom(){
+    $('#conteneur_des_messages').scrollTop($('#conteneur_des_messages')[0].scrollHeight);
+}
+
 
 function displayUser(){
 
@@ -115,7 +122,8 @@ function eventsurclick(){
    
                             div_conteneur_message.appendChild(mess);
                             parent2.appendChild(div_conteneur_message);
-                            $('#conteneur_des_messages').scrollTop($('#conteneur_des_messages')[0].scrollHeight);
+                            // $('#conteneur_des_messages').scrollTop($('#conteneur_des_messages')[0].scrollHeight);
+                            scroolBottom()
                        }
                        else{
 
@@ -131,7 +139,8 @@ function eventsurclick(){
    
                             div_conteneur_message.appendChild(mess);
                             parent2.appendChild(div_conteneur_message);
-                            $('#conteneur_des_messages').scrollTop($('#conteneur_des_messages')[0].scrollHeight);
+                            // $('#conteneur_des_messages').scrollTop($('#conteneur_des_messages')[0].scrollHeight);
+                            scroolBottom()
 
                        }
                    }
@@ -265,4 +274,3 @@ input.addEventListener("keyup", function(e){
 
 })
 
-$("#conteneur_des_messages").scrollTop($("#conteneur_des_messages")[0].scrollHeight);

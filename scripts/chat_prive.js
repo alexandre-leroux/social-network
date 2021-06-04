@@ -11,6 +11,7 @@ setInterval(messageLuSiFenetreChatEstSurGroupe, 1500)
 setInterval(checkNewMessageDansGroupe, 1250)
 
 
+
 function checkNewMessage(){
 
     $.ajax({
@@ -72,7 +73,7 @@ function envoyerMessage(){
     console.log(message)
     if(message == "")
     {
-        
+
     }
     else if(type_detinataire == 'groupe')
     {
@@ -88,11 +89,12 @@ function envoyerMessage(){
     
                 // console.log(dataType);
                 document.getElementById('search_bar_users').value = ""
-                displayUser()
-                setTimeout(eventsurclick,50)
-                refresh_users = setInterval(displayUser, 10000)
-                refresh_click_user = setInterval(eventsurclick, 10050)
-                
+                // displayUser()
+                // setTimeout(eventsurclick,50)
+                // refresh_users = setInterval(displayUser, 10000)
+                // refresh_click_user = setInterval(eventsurclick, 10050)
+                refreshAffichegaNewMessages()
+                setTimeout(scroolBottomSmooth, 30)
             
             },
         
@@ -122,12 +124,13 @@ function envoyerMessage(){
                 // console.log(dataType);
                 // $('#search_bar_users').removeAttr('value');
                 document.getElementById('search_bar_users').value = ""
-                displayUser()
-                setTimeout(eventsurclick,50)
-                refresh_users = setInterval(displayUser, 10000)
-                refresh_click_user = setInterval(eventsurclick, 10050)
+                // displayUser()
+                // setTimeout(eventsurclick,50)
+                // refresh_users = setInterval(displayUser, 10000)
+                // refresh_click_user = setInterval(eventsurclick, 10050)
                 refreshAffichegaNewMessages()
-                $('#conteneur_des_messages').scrollTop($('#conteneur_des_messages')[0].scrollHeight);
+                setTimeout(scroolBottomSmooth, 30)
+                // $('#conteneur_des_messages').scrollTop($('#conteneur_des_messages')[0].scrollHeight);
             },
         
             error: function (request, status, error) {
@@ -556,6 +559,7 @@ function clickSurUnGroupe(){
                                 
                             }
                         }
+                        scroolBottom()
                                
                
                },
@@ -604,6 +608,7 @@ function clickSurUnGroupe(){
             
             
                      })
+                   
               })}}
 
 
@@ -776,6 +781,3 @@ function messageLuSiFenetreChatEstSurGroupe(){
 }
 
 
-
-var objDiv = document.getElementById("conteneur_des_messages");
-objDiv.scrollTop = objDiv.scrollHeight;
