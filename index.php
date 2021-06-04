@@ -431,7 +431,7 @@ if(isset($_SESSION['mail']))
 }
 ?>
 <script src="scripts/deconnecte_index.js"></script>
-<script src="scripts/users_connecte.js"></script>
 <script src="scripts/autocompletion.js"></script>
+<script src="scripts/users_connecte.js"></script>
 <!-- <script src="scripts/fonction_chat_depuis_index.js"></script> -->
 </html>
