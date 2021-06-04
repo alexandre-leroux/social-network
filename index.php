@@ -7,19 +7,12 @@ if(@$_SESSION['mail'])
     $user = new \Models\User(NULL,NULL,NULL,$mail,NULL,NULL,NULL);
     $user->updateConnecte($mail);
 
-$mail = $_SESSION['mail'];
-$mon_id = $_SESSION['id'];
+    $mail = $_SESSION['mail'];
+    $mon_id = $_SESSION['id'];
 
-$groupe = new \Models\Chat();
-$result = $groupe->display_groupes($mon_id);
+    $groupe = new \Models\Chat();
+    $result = $groupe->display_groupes($mon_id);
 }
-
-// var_dump($_SESSION);
-// $mail = $_SESSION['mail'];
-// var_dump($mail);
-// var_dump($bdd);
-// $deco = $bdd->prepare('UPDATE users SET connecte = 1 WHERE mail = :mail');
-// $deco->execute(array('mail' => $mail));
 
 ?>
 
@@ -419,19 +412,11 @@ else
 
 
 </body>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="scripts/commentaires.js"></script>
 <script src="scripts/script_post.js"></script>
-
-<?php
-if(isset($_SESSION['mail']))
-{?>
-<!-- <script src="scripts/connecte.js"></script> -->
-<?php
-}
-?>
 <script src="scripts/deconnecte_index.js"></script>
 <script src="scripts/autocompletion.js"></script>
-<script src="scripts/users_connecte.js"></script>
-<!-- <script src="scripts/fonction_chat_depuis_index.js"></script> -->
+
 </html>
