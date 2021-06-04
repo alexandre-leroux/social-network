@@ -57,6 +57,7 @@ function displayUser(){
 
 }
 function eventsurclick(){
+    
     date = Date.now()
     console.log("event sur click",date  )
     utilisateurs = document.getElementsByClassName("users");
@@ -70,8 +71,9 @@ function eventsurclick(){
 
        utilisateurs[i].addEventListener('click', function(e){
            console.log('ok')
-
+    
            parent2 = document.getElementById('conteneur_des_messages')
+      
            parent2.innerHTML = "" 
 
            $.ajax({
@@ -113,6 +115,7 @@ function eventsurclick(){
    
                             div_conteneur_message.appendChild(mess);
                             parent2.appendChild(div_conteneur_message);
+                            $('#conteneur_des_messages').scrollTop($('#conteneur_des_messages')[0].scrollHeight);
                        }
                        else{
 
@@ -128,6 +131,7 @@ function eventsurclick(){
    
                             div_conteneur_message.appendChild(mess);
                             parent2.appendChild(div_conteneur_message);
+                            $('#conteneur_des_messages').scrollTop($('#conteneur_des_messages')[0].scrollHeight);
 
                        }
                    }
@@ -167,7 +171,6 @@ function eventsurclick(){
            })
        })
    }
-
 }
 
 displayUser()
@@ -261,3 +264,5 @@ input.addEventListener("keyup", function(e){
     }
 
 })
+
+$("#conteneur_des_messages").scrollTop($("#conteneur_des_messages")[0].scrollHeight);

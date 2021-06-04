@@ -69,8 +69,12 @@ function envoyerMessage(){
     destinataire_type = document.querySelector('#user_selection_chat p')
     type_detinataire = destinataire_type.getAttribute('name');
     // console.log(destinataire_type)
-
-    if(type_detinataire == 'groupe')
+    console.log(message)
+    if(message == "")
+    {
+        
+    }
+    else if(type_detinataire == 'groupe')
     {
         $.ajax({
             url: "../scripts_ajax_php/chat_groupe_add_new_message.php",
@@ -88,6 +92,7 @@ function envoyerMessage(){
                 setTimeout(eventsurclick,50)
                 refresh_users = setInterval(displayUser, 10000)
                 refresh_click_user = setInterval(eventsurclick, 10050)
+                
             
             },
         
@@ -121,7 +126,8 @@ function envoyerMessage(){
                 setTimeout(eventsurclick,50)
                 refresh_users = setInterval(displayUser, 10000)
                 refresh_click_user = setInterval(eventsurclick, 10050)
-            
+                refreshAffichegaNewMessages()
+                $('#conteneur_des_messages').scrollTop($('#conteneur_des_messages')[0].scrollHeight);
             },
         
             error: function (request, status, error) {
@@ -168,6 +174,7 @@ document.addEventListener('keyup', function(e){
 // ------------------------------------------------------fin de l'envoie des messages
 
 function refreshAffichegaNewMessages(){
+   
 
     type_de_chat = document.querySelector('#user_selection_chat p')
     chat_groupe = type_de_chat.getAttribute('name');
@@ -205,6 +212,8 @@ function refreshAffichegaNewMessages(){
 
                                 div_conteneur_message.appendChild(mess);
                                 parent2.appendChild(div_conteneur_message);
+                        
+
                             }
                             else{
 
@@ -765,3 +774,8 @@ function messageLuSiFenetreChatEstSurGroupe(){
     })
 
 }
+
+
+
+var objDiv = document.getElementById("conteneur_des_messages");
+objDiv.scrollTop = objDiv.scrollHeight;
