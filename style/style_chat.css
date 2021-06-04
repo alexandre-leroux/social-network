@@ -1,4 +1,4 @@
-#user_selection_chat, #div2, #intput_chat_et_button, #div_like_button_creer_groupe, #liste_user_pour_creer_groupe, .div_conteneur_message, .auteur_message_moi {
+#user_selection_chat, #div2, #intput_chat_et_button, #div_like_button_creer_groupe, #liste_user_pour_creer_groupe, .div_conteneur_message, .auteur_message_moi, #bloc_search_bar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -61,7 +61,15 @@
   padding-top: 30px;
   margin-bottom: 30px;
   background-color: white;
-  overflow-y: scroll;
+  overflow: auto;
+}
+
+#conteneur_des_messages::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 #intput_chat_et_button {
@@ -157,7 +165,15 @@
       -ms-flex-align: center;
           align-items: center;
   height: 200px;
-  overflow-y: scroll;
+  overflow: auto;
+}
+
+#liste_user_pour_creer_groupe::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 #liste_user_pour_creer_groupe p {
@@ -166,7 +182,15 @@
 
 #conv {
   height: 50%;
-  overflow-y: scroll;
+  overflow: auto;
+}
+
+#conv::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 .liste_groupes {
@@ -175,5 +199,16 @@
 
 .liste_groupes:hover {
   cursor: pointer;
+}
+
+#bloc_search_bar {
+  width: 100%;
+}
+
+#bloc_search_bar input {
+  width: 80%;
+  border-radius: 40px;
+  border: 1px solid grey;
+  padding: 4px;
 }
 /*# sourceMappingURL=style_chat.css.map */

@@ -116,6 +116,14 @@ header nav ul li a {
   overflow-x: hidden;
 }
 
+#section_centrale #div1 #contenu_div1 #users_list::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
 #section_centrale #div1 .users {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;

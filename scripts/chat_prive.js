@@ -1,5 +1,6 @@
 
 setTimeout(clickSurUnGroupe, 30)
+setTimeout(refreshAffichegaNewMessages, 30)
 
 checkNewMessage()
 setInterval(checkNewMessage, 4000)
@@ -9,6 +10,7 @@ setInterval(refreshAffichegaNewMessages, 1250)
 setInterval(messageLuSiFenetreChatEstSurUser, 1000)
 setInterval(messageLuSiFenetreChatEstSurGroupe, 1500)
 setInterval(checkNewMessageDansGroupe, 1250)
+setTimeout(scroolBottom, 100)
 
 
 
@@ -235,7 +237,6 @@ function refreshAffichegaNewMessages(){
                             }
                         }
                             
-            
             },
         
             error: function (request, status, error) {
@@ -247,7 +248,7 @@ function refreshAffichegaNewMessages(){
             complete : function(resultat, statut){
                 //    console.log('ok')
             }
-
+           
 
                 })
     }
@@ -311,7 +312,6 @@ function refreshAffichegaNewMessages(){
     
                     }
                 }
-            
             },
         
             error: function (request, status, error) {
@@ -733,7 +733,7 @@ function checkNewMessageDansGroupe(){
                     //     parent2 = document.getElementById('conteneur_des_messages')
                     //     parent2.innerHTML = ""
                 }
-        
+                // scroolBottom()
         },
     
         error: function (request, status, error) {

@@ -134,7 +134,7 @@ $pseudo_for_js = @$_GET['pseudo'];
     <article id="contenu_div1">
 
         <div id="bloc_search_bar">
-            <input type="search" name="barre_de_recherche" id="search_bar_users">
+            <input type="search" name="barre_de_recherche" id="search_bar_users" placeholder="chercher un utilisateur">
         
         </div>
         <div id="users_list">

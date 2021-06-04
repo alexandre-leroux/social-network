@@ -46,7 +46,12 @@
     padding-top: 30px;
     margin-bottom: 30px;
     background-color: rgb(255, 255, 255);
-    overflow-y: scroll
+    overflow: auto;
+    &::-webkit-scrollbar {
+        display: none;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
 }
 #intput_chat_et_button{
     @extend %displayflex;
@@ -133,19 +138,41 @@
     align-items: center;
 
     height: 200px;
-    overflow-y:scroll ;
+    overflow:auto ;
+    &::-webkit-scrollbar {
+        display: none;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
     & p{
   width: 100% !important;
     }
 }
 #conv{
     height: 50%;
-    overflow-y:scroll ;
+    overflow:auto ;
+    &::-webkit-scrollbar {
+        display: none;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
 }
 .liste_groupes{
     border-radius: 20px;
     &:hover{
         cursor: pointer;
+    }
+}
+
+#bloc_search_bar{
+    width: 100%;
+    @extend %displayflex;
+
+    & input{
+    width: 80%;
+    border-radius: 40px;
+        border: 1px solid grey;
+        padding: 4px;
     }
 }
 
