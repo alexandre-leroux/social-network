@@ -90,7 +90,7 @@ for(var i = 0 ; i < btn_add_comment.length ; i++)
                 var div = document.createElement("div"); 
                 div.classList.add("comment") ;
         
-                div.innerHTML = '<div id="description_comment"><p class="bold" id="user_commentaire">' + response.prenom + '</p><p id="text_commentaire">' + input +'</p></div><div id="img_comment"><img src="img/pp.jpg" alt="#"></div>';
+                div.innerHTML = '<div id="description_comment"><p class="bold" id="user_commentaire">' + response.prenom + '</p><p id="text_commentaire">' + input +'</p></div><div id="img_comment"><img src="img/' + response.avatar + '" alt="#"></div>';
         
                 var parent = e.target.parentElement.parentElement.parentElement.firstElementChild;
         

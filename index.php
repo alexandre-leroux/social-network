@@ -158,9 +158,9 @@ else
 
         <div class="like_post">
             <div>
-                <i class="fa fa-thumbs-up" ></i>
+                <i class="fa fa-thumbs-up btn_like" style="color: rgb(250, 95, 90);"></i>
             </div>
-            <p> 128 </p>
+            <p class="compteur_like"> 128 </p>
             <div>
                 <i class="fa fa-comments button_comment"></i>
             </div>
@@ -215,9 +215,9 @@ else
 
         <div class="like_post">
             <div>
-                <i class="fa fa-thumbs-up"></i>
+                <i class="fa fa-thumbs-up btn_like" style="color: rgb(250, 95, 90);"></i>
             </div>
-            <p> 128 </p>
+            <p class="compteur_like"> 128 </p>
             <div>
                 <i class="fa fa-comments button_comment"></i>
             </div>
@@ -276,9 +276,9 @@ else
 
         <div class="like_post">
             <div>
-                <i class="fa fa-thumbs-up"></i>
+                <i class="fa fa-thumbs-up btn_like" style="color: rgb(250, 95, 90);"></i>
             </div>
-            <p> 128 </p>
+            <p class="compteur_like"> 128 </p>
             <div>
                 <i class="fa fa-comments button_comment"></i>
             </div>
@@ -347,9 +347,9 @@ else
 
         <div class="like_post">
             <div>
-                <i class="fa fa-thumbs-up"></i>
+                <i class="fa fa-thumbs-up btn_like" style="color: rgb(250, 95, 90);"></i>
             </div>
-            <p> 128 </p>
+             <p class="compteur_like"> 128 </p>
             <div>
                 <i class="fa fa-comments button_comment"></i>
             </div>
@@ -416,6 +416,7 @@ else
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="scripts/commentaires.js"></script>
 <script src="scripts/script_post.js"></script>
+<script src="scripts/like.js"></script>
 
 <?php
 if(isset($_SESSION['mail']))
