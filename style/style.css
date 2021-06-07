@@ -19,6 +19,11 @@ header nav .logo_text_header, header nav ul, #section_centrale #div1 .users, #se
           justify-content: center;
 }
 
+a {
+  text-decoration: none;
+  color: #707070;
+}
+
 header {
   background-color: #f1efef;
   margin-bottom: 20px;
@@ -129,9 +134,9 @@ header nav ul li a {
 #section_centrale #div1 .users {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-align: center !important;
-      -ms-flex-align: center !important;
-          align-items: center !important;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -584,5 +589,9 @@ header nav ul li a {
   color: #fa5f5a;
   font-style: italic;
   font-size: 0.8rem;
+}
+
+.lien-groupes {
+  text-decoration: none !important;
 }
 /*# sourceMappingURL=style.css.map */
