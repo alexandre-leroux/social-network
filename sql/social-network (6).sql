@@ -2,10 +2,10 @@
 -- version 4.9.5
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Jun 04, 2021 at 02:53 PM
--- Server version: 5.7.24
--- PHP Version: 7.4.1
+-- Hôte : localhost:3306
+-- Généré le : lun. 07 juin 2021 à 10:06
+-- Version du serveur :  5.7.24
+-- Version de PHP : 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,27 +19,33 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `social-network`
+-- Base de données : `social-network`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `aime`
+-- Structure de la table `aime`
 --
 
 CREATE TABLE `aime` (
   `id` int(11) NOT NULL,
   `id_post` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `aime` tinyint(4) NOT NULL,
-  `pas_aime` tinyint(4) NOT NULL
+  `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `aime`
+--
+
+INSERT INTO `aime` (`id`, `id_post`, `id_user`) VALUES
+(1, 1, 1),
+(2, 2, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `chat_prive`
+-- Structure de la table `chat_prive`
 --
 
 CREATE TABLE `chat_prive` (
@@ -53,7 +59,7 @@ CREATE TABLE `chat_prive` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `chat_prive`
+-- Déchargement des données de la table `chat_prive`
 --
 
 INSERT INTO `chat_prive` (`id`, `fk_id_user_1`, `fk_id_user_2`, `fk_id_auteur_message`, `message`, `date`, `non_lu`) VALUES
@@ -156,12 +162,13 @@ INSERT INTO `chat_prive` (`id`, `fk_id_user_1`, `fk_id_user_2`, `fk_id_auteur_me
 (140, 1, 2, 1, 'hfgh', '2021-06-04 12:56:24', 1),
 (141, 1, 2, 1, 'fghfgh', '2021-06-04 12:56:26', 1),
 (142, 1, 2, 1, 'tgdgh', '2021-06-04 12:56:35', 1),
-(143, 1, 2, 1, 'bfdgfdg', '2021-06-04 13:56:28', 1);
+(143, 1, 2, 1, 'bfdgfdg', '2021-06-04 13:56:28', 1),
+(144, 1, 2, 1, 'pokoiujio', '2021-06-07 09:41:17', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comment`
+-- Structure de la table `comment`
 --
 
 CREATE TABLE `comment` (
@@ -175,7 +182,7 @@ CREATE TABLE `comment` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `groupe`
+-- Structure de la table `groupe`
 --
 
 CREATE TABLE `groupe` (
@@ -184,7 +191,7 @@ CREATE TABLE `groupe` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `groupe`
+-- Déchargement des données de la table `groupe`
 --
 
 INSERT INTO `groupe` (`id`, `nom_du_groupe`) VALUES
@@ -199,7 +206,7 @@ INSERT INTO `groupe` (`id`, `nom_du_groupe`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `messages_chat_groupe`
+-- Structure de la table `messages_chat_groupe`
 --
 
 CREATE TABLE `messages_chat_groupe` (
@@ -210,7 +217,7 @@ CREATE TABLE `messages_chat_groupe` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `messages_chat_groupe`
+-- Déchargement des données de la table `messages_chat_groupe`
 --
 
 INSERT INTO `messages_chat_groupe` (`id`, `id_auteur`, `id_groupe`, `message`) VALUES
@@ -234,12 +241,14 @@ INSERT INTO `messages_chat_groupe` (`id`, `id_auteur`, `id_groupe`, `message`) V
 (19, 1, 1, 'hfghfgh'),
 (20, 1, 1, 'fgh'),
 (21, 1, 1, 'fgbnfgnbbv'),
-(22, 1, 1, 'rfgerg');
+(22, 1, 1, 'rfgerg'),
+(23, 1, 1, 'ezfdze'),
+(24, 1, 7, 'àoloiàk,');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `post`
+-- Structure de la table `post`
 --
 
 CREATE TABLE `post` (
@@ -252,7 +261,7 @@ CREATE TABLE `post` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `post_image`
+-- Structure de la table `post_image`
 --
 
 CREATE TABLE `post_image` (
@@ -268,7 +277,7 @@ CREATE TABLE `post_image` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Structure de la table `users`
 --
 
 CREATE TABLE `users` (
@@ -283,7 +292,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `users`
+-- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id`, `prenom`, `mail`, `connecte`, `nom`, `avatar`, `hobbies`, `mdp`) VALUES
@@ -307,7 +316,7 @@ INSERT INTO `users` (`id`, `prenom`, `mail`, `connecte`, `nom`, `avatar`, `hobbi
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users_dans_groupe`
+-- Structure de la table `users_dans_groupe`
 --
 
 CREATE TABLE `users_dans_groupe` (
@@ -318,7 +327,7 @@ CREATE TABLE `users_dans_groupe` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `users_dans_groupe`
+-- Déchargement des données de la table `users_dans_groupe`
 --
 
 INSERT INTO `users_dans_groupe` (`id`, `id_groupe`, `id_user`, `new_message`) VALUES
@@ -342,128 +351,128 @@ INSERT INTO `users_dans_groupe` (`id`, `id_groupe`, `id_user`, `new_message`) VA
 (18, 6, 7, 0),
 (19, 6, 9, 0),
 (20, 6, 2, 0),
-(21, 7, 2, 0),
-(22, 7, 6, 0),
-(23, 7, 7, 0),
-(24, 7, 8, 0),
-(25, 7, 9, 0),
-(26, 7, 10, 0),
-(27, 7, 11, 0),
-(28, 7, 12, 0),
+(21, 7, 2, 1),
+(22, 7, 6, 1),
+(23, 7, 7, 1),
+(24, 7, 8, 1),
+(25, 7, 9, 1),
+(26, 7, 10, 1),
+(27, 7, 11, 1),
+(28, 7, 12, 1),
 (29, 7, 1, 0);
 
 --
--- Indexes for dumped tables
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `aime`
+-- Index pour la table `aime`
 --
 ALTER TABLE `aime`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `chat_prive`
+-- Index pour la table `chat_prive`
 --
 ALTER TABLE `chat_prive`
   ADD UNIQUE KEY `id` (`id`);
 
 --
--- Indexes for table `comment`
+-- Index pour la table `comment`
 --
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `groupe`
+-- Index pour la table `groupe`
 --
 ALTER TABLE `groupe`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `messages_chat_groupe`
+-- Index pour la table `messages_chat_groupe`
 --
 ALTER TABLE `messages_chat_groupe`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `post`
+-- Index pour la table `post`
 --
 ALTER TABLE `post`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `post_image`
+-- Index pour la table `post_image`
 --
 ALTER TABLE `post_image`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Index pour la table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users_dans_groupe`
+-- Index pour la table `users_dans_groupe`
 --
 ALTER TABLE `users_dans_groupe`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `aime`
+-- AUTO_INCREMENT pour la table `aime`
 --
 ALTER TABLE `aime`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `chat_prive`
+-- AUTO_INCREMENT pour la table `chat_prive`
 --
 ALTER TABLE `chat_prive`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
 
 --
--- AUTO_INCREMENT for table `comment`
+-- AUTO_INCREMENT pour la table `comment`
 --
 ALTER TABLE `comment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `groupe`
+-- AUTO_INCREMENT pour la table `groupe`
 --
 ALTER TABLE `groupe`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `messages_chat_groupe`
+-- AUTO_INCREMENT pour la table `messages_chat_groupe`
 --
 ALTER TABLE `messages_chat_groupe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT for table `post`
+-- AUTO_INCREMENT pour la table `post`
 --
 ALTER TABLE `post`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `post_image`
+-- AUTO_INCREMENT pour la table `post_image`
 --
 ALTER TABLE `post_image`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT for table `users_dans_groupe`
+-- AUTO_INCREMENT pour la table `users_dans_groupe`
 --
 ALTER TABLE `users_dans_groupe`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
