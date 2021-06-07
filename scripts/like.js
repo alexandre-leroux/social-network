@@ -54,6 +54,7 @@ for(var i = 0 ; i < btn_like.length ; i++)
                 success: function (response) {
 
                     console.log("ajout en bdd si tout vas bien") ;
+                    console.log(response)
                 }
             });
         }
