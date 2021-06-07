@@ -264,11 +264,13 @@
 }
 
 #users_list .users {
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -ms-flex-pack: distribute !important;
+      justify-content: space-around !important;
+  -ms-flex-wrap: nowrap !important;
+      flex-wrap: nowrap !important;
 }
 
-#users_list img {
+#users_list .users img {
   display: block;
   width: 100px;
   min-width: 100px;
@@ -277,6 +279,17 @@
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 50%;
+}
+
+#users_list .users .p_liste_user::before {
+  content: "";
+  background-color: #646665;
+  border-radius: 2em;
+  min-width: 13px;
+  min-height: 13px;
+  display: block;
+  -webkit-transform: translateX(-5px) translateY(0px) !important;
+          transform: translateX(-5px) translateY(0px) !important;
 }
 
 @media screen and (min-width: 901px) and (max-width: 1400px) {

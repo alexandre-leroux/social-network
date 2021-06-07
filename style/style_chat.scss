@@ -234,18 +234,33 @@
 
     & .users{
         @extend %displayflex;
-        flex-wrap: wrap;
+        justify-content: space-around !important;
+        flex-wrap: nowrap !important;
+        & img{
+            display: block;
+            width: 100px;
+            min-width: 100px;
+            height: 100px;
+            padding: 10px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .p_liste_user{
+  
+            &::before{
+                content: "";
+                background-color: rgb(100, 102, 101);
+                border-radius: 2em;
+                // color: green;
+                min-width: 13px;
+                min-height: 13px;
+                display: block;
+                transform: translateX(-5px) translateY(0px) !important;
+        
+            }
+        }
+    }
 
-    }
-    & img{
-        display: block;
-        width: 100px;
-        min-width: 100px;
-        height: 100px;
-        padding: 10px;
-        object-fit: cover;
-        border-radius: 50%;
-    }
 }
 
  @media screen and (min-width: 901px) and (max-width: 1400px) { 
