@@ -1,0 +1,271 @@
+%displayflex  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+// -----------------------------------page chat prive
+#div3{
+    height: 90vh;
+    & #contenu_div3{
+        height: 90vh;
+    }
+}
+#user_selection_chat{
+    @extend %displayflex;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100px;
+    background-color: rgb(233, 233, 233);
+    border-radius: 40px;
+    margin-bottom: 20px;
+    overflow: auto;
+    overflow-y: hidden;
+    &::-webkit-scrollbar {
+        height: 5px;
+        // width: 10px;
+        // padding-left: 50px;
+      }
+    //  &::-webkit-scrollbar-track {
+    //     background: #ffffff;
+    //   }
+     &::-webkit-scrollbar-track-piece:end {
+        margin-right: 50px;
+      }
+     &::-webkit-scrollbar-track-piece:start {
+        margin-left: 50px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: #888; 
+      }
+    // &::-webkit-scrollbar {
+    //     display: none;
+    //     -ms-overflow-style: none;  /* IE and Edge */
+    //     scrollbar-width: none;  /* Firefox */
+    //   }
+
+    & img{
+        height: 70px;
+        width: 70px !important;
+        min-width: 70px !important;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-left: 50px;
+    }
+    & p{
+        min-width: 150px;
+        text-align: center;
+        margin-left: 20px;
+        font-size: 1.5rem;
+    }
+}
+#div2{
+    @extend %displayflex;
+    flex-direction: column;
+    align-items: center;
+}
+#conteneur_des_messages{
+    width: 100%;
+    height: 85%;
+    border-radius: 30px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    margin-bottom: 30px;
+    background-color: rgb(255, 255, 255);
+    overflow: auto;
+    &::-webkit-scrollbar {
+        display: none;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
+}
+#intput_chat_et_button{
+    @extend %displayflex;
+
+    width: 100%;
+    & input{
+        width: 80%;
+        height: 30px;
+        margin: 5px;
+        border-radius: 10px;
+        border: 1px solid grey;
+    }
+}
+#div_like_button_creer_groupe{
+    @extend %displayflex;
+    background-color: rgb(100, 149, 255);
+
+    height: 30px;
+    border-radius: 20px;
+    & p{
+        color: white;
+        font-size: 80%;
+        text-align: center;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+}
+#liste_user_pour_creer_groupe{
+    
+    display: none ;
+    @extend %displayflex;
+    flex-direction: column;
+    padding: 8px;
+    & .liste_pseudo_groupe{
+        border: 1px solid grey;
+        border-radius: 15px;
+        margin: 5px;
+        padding: 5px;
+        width: 80%;
+        text-align: center;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+.creer_groupe_green{
+    background-color: #4EEE8B;
+}
+.div_conteneur_message{
+    @extend %displayflex;
+    justify-content: flex-start;
+    & p{
+        // height: 30px;
+        max-width: 60%;
+        background-color: rgb(219, 219, 219);
+        border-radius: 20px;
+        padding: 10px;
+        margin-left: 5px;
+        margin-bottom: 5px;
+    }
+}
+.auteur_message_moi{
+    @extend %displayflex;
+    justify-content: flex-end;
+    // background-color: rgb(224, 224, 224);
+    & p{
+        // height: 30px;
+        max-width: 60%;
+        background-color: rgb(100, 149, 255);
+        color: white;
+        border-radius: 20px;
+        padding: 10px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+}
+
+#pres_user_connect{
+
+    & img{
+        border-radius: 50%;
+        
+    }
+}
+#liste_user_pour_creer_groupe{
+    @extend %displayflex;
+    flex-direction: column;
+    align-items: center;
+
+    height: 200px;
+    overflow:auto ;
+    &::-webkit-scrollbar {
+        display: none;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
+    & p{
+  width: 100% !important;
+    }
+}
+#conv{
+    height: 50%;
+    padding: 15px;
+    border: 1px solid rgb(209, 209, 209);
+    border-radius: 20px;
+    overflow:auto ;
+    &::-webkit-scrollbar {
+        display: none;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
+}
+.liste_groupes{
+
+    @extend %displayflex;
+    flex-wrap: wrap !important;
+
+    & div{
+        @extend %displayflex;
+        width: 50%;
+        flex-wrap: wrap !important;
+    }
+
+    border-radius: 20px;
+
+    & img{
+
+        min-width: 110px;
+
+    }
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+
+#bloc_search_bar{
+    width: 100%;
+    @extend %displayflex;
+
+    & input{
+        width: 80%;
+        border-radius: 40px;
+        border: 1px solid grey;
+        padding: 4px;
+    }
+}
+
+#users_list{
+
+    & .users{
+        @extend %displayflex;
+        flex-wrap: wrap;
+
+    }
+    & img{
+        display: block;
+        width: 100px;
+        min-width: 100px;
+        height: 100px;
+        padding: 10px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+}
+
+
+@media (max-width: 900px) { 
+
+    .liste_groupes{
+
+ 
+        & img{
+    
+       width: 50px;
+    
+        }
+
+        & .nom_du_groupe{
+
+            height: 50px;
+            width: 100%;
+
+        }
+
+    }
+    
+    
+    }

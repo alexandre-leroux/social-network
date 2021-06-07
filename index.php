@@ -1,13 +1,21 @@
 <?php 
 session_start();
-// require_once('model/database.php');
+require_once("libraries/autoload_index.php");
 
-// var_dump($_SESSION);
-// $mail = $_SESSION['mail'];
-// var_dump($mail);
-// var_dump($bdd);
-// $deco = $bdd->prepare('UPDATE users SET connecte = 1 WHERE mail = :mail');
-// $deco->execute(array('mail' => $mail));
+if(@$_SESSION['mail'])
+{
+    $mail = $_SESSION['mail'];
+    $user = new \Models\User(NULL,NULL,NULL,$mail,NULL,NULL,NULL);
+    $user->updateConnecte($mail);
+
+    $mail = $_SESSION['mail'];
+    $mon_id = $_SESSION['id'];
+
+    $groupe = new \Models\Chat();
+    $result = $groupe->display_groupes($mon_id);
+}
+
+$vue = new \Vue\Header();
 
 ?>
 
@@ -25,43 +33,14 @@ session_start();
 <body>
 
 <?php
-if(!isset($_SESSION['mail']))
-{
-?>
-
-<header>
-    <nav>
-        <div class="logo_text_header">
-            <div class="logo_network">
-                <img src="img/logo.svg" alt="#">
-            </div>
-            <div class="nom_header">
-                <h1> la plateforme_ network </h1>
-            </div>
-        </div>
-        <ul>
-            <li><a href="pages/inscription.php">S'inscrire</a></li>
-            <li><a href="pages/connexion.php">Se connecter</a></li>
-        </ul>
-    </nav>
-</header>
-<?php
-}
-else
-{
-?>
-<header >
-    <nav>
-        <h1>BIENVENUE <?= $_SESSION['prenom']?></h1>
-        <a href="pages/deconnexion.php">déconnexion</a>
-        <a href="pages/chat.php">chat</a>
-    </nav>
-</header>
-
-
-
-<?php
-}
+    if(!isset($_SESSION['mail']))
+        {
+            $vue->header_non_connecte();
+        }
+    else
+        {
+            $vue->header_connecte();
+        }
 ?>
 
 
@@ -73,11 +52,11 @@ else
 
             <div id="pres_user_connect">
                 <div class="img_user_connect">
-                    <img src="img/pp.jpg" alt="#">
+                    <img src="img/<?=$_SESSION['avatar']?>" alt="#">
                 </div>
                 <div class="infos_user_connecte">
-                    <p> Baptiste </p>
-                    <p>@baptistegauthier</p>
+                <p><?=$_SESSION['prenom'];?></p>
+                    <p>@<?=$_SESSION['prenom']?><?=$_SESSION['nom']?></p>
                 </div>
             </div>
             
@@ -91,32 +70,24 @@ else
             <h2> Conversations </h2>
             
             <div id="conv">
-                <div>
-                    <div>
-                        <img src="img/group.svg" alt="#">
-                    </div>
-                    <div>
-                        <p> Groupe 1 </p>
-                    </div>
-                </div>
+            <?php
+                    foreach($result as $key => $value)
+                    {
+                        ?>
+                        <a href="pages/chat.php?groupe=<?=$value['nom_du_groupe']?>">
+                            <div class="liste_groupes">
+                                <div>
+                                    <img src="img/group.svg" alt="#">
+                                </div>
+                                <div class='nom_du_groupe'>
+                                    <p><?=$value['nom_du_groupe']?></p>
+                                </div>
+                            </div>
+                            </a>
+                         <?php
+                    }
                 
-                <div>
-                    <div>
-                        <img src="img/group.svg" alt="#">
-                    </div>
-                    <div>
-                        <p> Groupe 2 </p>
-                    </div>
-                </div>
-                
-                <div>
-                    <div>
-                        <img src="img/group.svg" alt="#">
-                    </div>
-                    <div>
-                        <p> Groupe 3 </p>
-                    </div>
-                </div>
+                ?>
                 
             </div>
             
@@ -393,7 +364,9 @@ else
 
         <div id="bloc_search_bar">
             <input type="search" name="barre_de_recherche" id="search_bar_users">
-            <i class="fa fa-search"></i>
+
+        </div>
+        <div id="resultat_autocompl">
         </div>
         <div id="users_list">
             
@@ -413,18 +386,12 @@ else
 
 
 </body>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="scripts/commentaires.js"></script>
 <script src="scripts/script_post.js"></script>
 <script src="scripts/like.js"></script>
+<script src="scripts/deconnecte_index.js"></script>
+<script src="scripts/autocompletion.js"></script>
 
-<?php
-if(isset($_SESSION['mail']))
-{?>
-<script src="scripts/connecte.js"></script>
-<?php
-}
-?>
-<!-- <script src="scripts/deconnecte.js"></script> -->
-<script src="scripts/users_connecte.js"></script>
 </html>

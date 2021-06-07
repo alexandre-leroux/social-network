@@ -1,214 +1,17 @@
-displayUser()
-checkUsersConnect()
-setInterval(checkUsersConnect, 10000)
-setTimeout(eventsurclick, 20)
-setTimeout(clickSurUnGroupe, 40)
+
+setTimeout(clickSurUnGroupe, 30)
+setTimeout(refreshAffichegaNewMessages, 30)
 
 checkNewMessage()
 setInterval(checkNewMessage, 4000)
 
-// setInterval(refreshMessagesGroupe, 500)
 setInterval(refreshAffichegaNewMessages, 1250)
 
 setInterval(messageLuSiFenetreChatEstSurUser, 1000)
 setInterval(messageLuSiFenetreChatEstSurGroupe, 1500)
 setInterval(checkNewMessageDansGroupe, 1250)
+setTimeout(scroolBottom, 100)
 
-// setTimeout(checkNewMessageDansGroupe, 100)        
-
-
-
-function displayUser(){
-
-    $.ajax({
-        url: "../scripts_ajax_php/search_all_user.php",
-        type: "POST",
-       
-        dataType: "json",
-      
-        success : function(dataType){
-
-            // console.log(dataType)
-            // data = JSON.parse(dataType);
-            var count = Object.keys(dataType).length;
-            // console.log(count)
-            // console.log(dataType)
-
-
-
-            $('#users_list').empty();
-
-            let i = 0;
-            while ( i < count)
-            {
-
-                if(dataType[i]["connecte"] == 0)
-                {
-                    $('#users_list').append("<div id=\""+dataType[i][0]+"\" class=\"users\"><img src=\"../img/pp.jpg\"><p class='p_liste_user'>"+dataType[i][1]+"</p></div>")
-                }
-                else if(dataType[i]["connecte"] == 1)
-                {
-                    $('#users_list').append("<div id=\""+dataType[i][0]+"\" class=\"users\"><img src=\"../img/pp.jpg\"><p class='p_liste_user connecte'>"+dataType[i][1]+"</p></div>")
-                }
-
-                  i++
-            }
-        
-        },
-    
-        error: function (request, status, error) {
-            // console.log(request);
-            // console.log(status);
-            // console.log(error);
-        },
-    
-        complete : function(resultat, statut){
- 
-        }
-    
-    })
-
-}
-
-
-
-function checkUsersConnect(){
-    
-    $.ajax({
-        url: "../scripts_ajax_php/search_all_user.php",
-        type: "POST",
-        dataType: "json",
-      
-        success : function(dataType){
-
-            var count = Object.keys(dataType).length;
-
-            utilisateurs = document.getElementsByClassName("users");
-
-            let i = 0;
-            while ( i < count)
-            {
-
-                if(dataType[i]["connecte"] == 1)
-                {
-                    utilisateurs[i].lastChild.classList.add("connecte");
-                }
-                else if(dataType[i]["connecte"] == 0 )
-                {
-                    utilisateurs[i].lastChild.classList.remove("connecte");
-                }
-
-                  i++
-            }
-        
-        },
-    
-        error: function (request, status, error) {
-
-        },
-    
-        complete : function(resultat, statut){
-
-        }
-    
-    })
-}
-
-
-
-function eventsurclick(){
-
-     utilisateurs = document.getElementsByClassName("users");
-
-   
-    for(i = 0; i<utilisateurs.length; i++)
-    {
-
-        let pseudo =  utilisateurs[i].lastChild.innerHTML
-
-        utilisateurs[i].addEventListener('click', function(e){
-            // console.log('ok')
-
-            parent2 = document.getElementById('conteneur_des_messages')
-            parent2.innerHTML = "" 
-
-            $.ajax({
-                url: "../scripts_ajax_php/chat_prive.php",
-                type: "POST",
-                data: {  "pseudo":pseudo,  },
-                dataType: "JSON",
-              
-                success : function(dataType){
-        
-                    parent = document.getElementById('user_selection_chat')
-                    var p = document.createElement("p");
-                    p.innerHTML =  dataType.data1[1]
-                    parent.innerHTML = ""
-                    parent.appendChild(p);
-
-                    var mess = document.createElement("p");
-
-                    for (z=0; z<dataType.data2.length; z++)
-                    {
-                        if(dataType.data2[z].fk_id_auteur_message == session_id_php)
-                        {
-                            // console.log(dataType.data2)
-                            parent2 = document.getElementById('conteneur_des_messages')
-                            var mess = document.createElement("p");
-                            mess.className  = "auteur_message_moi"
-                             contenur_mess = dataType.data2[z][4]
-                             mess.innerHTML = contenur_mess
-                             parent2.appendChild(mess);
-                        }
-                        else{
-
-                            // console.log(dataType.data2)
-                            parent2 = document.getElementById('conteneur_des_messages')
-                            var mess = document.createElement("p");
-                             contenur_mess = dataType.data2[z][4]
-                             mess.innerHTML = contenur_mess
-                             parent2.appendChild(mess);
-
-                        }
-                    }
-                
-                
-                },
-            
-                error: function (request, status, error) {
-                    // console.log(request)
-                    // console.log(status)
-                    // console.log(error)
-                },
-            
-                complete : function(resultat, statut){
-                    // console.log('ok')
-                }
-        
-        
-            })
-
-            $.ajax({
-                url: "../scripts_ajax_php/update_message_lu.php",
-                type: "POST",
-                data: {  "pseudo":pseudo,  },
-              
-                success : function(dataType){
-                 
-                },
-            
-                error: function (request, status, error) {
-                },
-            
-                complete : function(resultat, statut){
-                }
-        
-        
-            })
-        })
-    }
-
-}
 
 
 function checkNewMessage(){
@@ -269,8 +72,12 @@ function envoyerMessage(){
     destinataire_type = document.querySelector('#user_selection_chat p')
     type_detinataire = destinataire_type.getAttribute('name');
     // console.log(destinataire_type)
+    console.log(message)
+    if(message == "")
+    {
 
-    if(type_detinataire == 'groupe')
+    }
+    else if(type_detinataire == 'groupe')
     {
         $.ajax({
             url: "../scripts_ajax_php/chat_groupe_add_new_message.php",
@@ -283,6 +90,13 @@ function envoyerMessage(){
             success : function(dataType){
     
                 // console.log(dataType);
+                document.getElementById('search_bar_users').value = ""
+                // displayUser()
+                // setTimeout(eventsurclick,50)
+                // refresh_users = setInterval(displayUser, 10000)
+                // refresh_click_user = setInterval(eventsurclick, 10050)
+                refreshAffichegaNewMessages()
+                setTimeout(scroolBottomSmooth, 30)
             
             },
         
@@ -310,7 +124,15 @@ function envoyerMessage(){
             success : function(dataType){
     
                 // console.log(dataType);
-            
+                // $('#search_bar_users').removeAttr('value');
+                document.getElementById('search_bar_users').value = ""
+                // displayUser()
+                // setTimeout(eventsurclick,50)
+                // refresh_users = setInterval(displayUser, 10000)
+                // refresh_click_user = setInterval(eventsurclick, 10050)
+                refreshAffichegaNewMessages()
+                setTimeout(scroolBottomSmooth, 30)
+                // $('#conteneur_des_messages').scrollTop($('#conteneur_des_messages')[0].scrollHeight);
             },
         
             error: function (request, status, error) {
@@ -357,75 +179,78 @@ document.addEventListener('keyup', function(e){
 // ------------------------------------------------------fin de l'envoie des messages
 
 function refreshAffichegaNewMessages(){
+   
 
     type_de_chat = document.querySelector('#user_selection_chat p')
     chat_groupe = type_de_chat.getAttribute('name');
-    // console.log(chat_groupe)
+
     if(chat_groupe == 'groupe')
     {
         nom_du_groupe = document.querySelector('#user_selection_chat p').innerHTML
         // console.log(nom_du_groupe)
+        $.ajax({
+            url: "../scripts_ajax_php/messages_chat_groupe.php",
+            type: "POST",
+            data: {  "nom_du_groupe":nom_du_groupe,  },
+            dataType: "json",
+            
+            success : function(dataType){
 
-
-
-   $.ajax({
-       url: "../scripts_ajax_php/messages_chat_groupe.php",
-       type: "POST",
-       data: {  "nom_du_groupe":nom_du_groupe,  },
-       dataType: "json",
-     
-       success : function(dataType){
-
-                // console.log(dataType)  
-                // parent = document.getElementById('user_selection_chat')
-                // var p = document.createElement("p");
-                // p.setAttribute('name', 'groupe');
-                // p.innerHTML = nom_du_groupe
-                // parent.innerHTML = ""
-                // parent.appendChild(p);
-                parent2 = document.getElementById('conteneur_des_messages')
-                parent2.innerHTML = ""
-                var mess = document.createElement("p");
-
-                for (z=0; z<dataType.length; z++)
-                {
-
-
-                    if(dataType[z][7] == session_prenom_php)
-                    {
-                        // console.log('dans foir')
                         parent2 = document.getElementById('conteneur_des_messages')
+                        parent2.innerHTML = ""
                         var mess = document.createElement("p");
-                        mess.className  = "auteur_message_moi"
-                         mess.innerHTML =  dataType[z].message
-                         parent2.appendChild(mess);
-                    }
-                    else{
 
-                        // console.log('dans foir')
-                        parent2 = document.getElementById('conteneur_des_messages')
-                        var mess = document.createElement("p");
-                         mess.innerHTML =  "<b> "+dataType[z][7]+"</b> - "+dataType[z].message+"   "
-                         parent2.appendChild(mess);
+                        for (z=0; z<dataType.length; z++)
+                        {
+
+
+                            if(dataType[z][7] == session_prenom_php)
+                            {
+                                // console.log('dans foir')
+                                parent2 = document.getElementById('conteneur_des_messages')
+
+                                div_conteneur_message = document.createElement("div");
+                                div_conteneur_message.className  = "div_conteneur_message auteur_message_moi"
+
+                                var mess = document.createElement("p");
+                                mess.innerHTML =  dataType[z].message
+
+                                div_conteneur_message.appendChild(mess);
+                                parent2.appendChild(div_conteneur_message);
                         
-                    }
-                }
-                       
-       
-       },
-   
-       error: function (request, status, error) {
-        //    console.log(request)
-        //    console.log(status)
-        //    console.log(error)
-       },
-   
-       complete : function(resultat, statut){
-        //    console.log('ok')
-       }
 
+                            }
+                            else{
 
-        })
+                                // console.log('dans foir')
+                                parent2 = document.getElementById('conteneur_des_messages')
+                                
+                                div_conteneur_message = document.createElement("div");
+                                div_conteneur_message.className  = "div_conteneur_message"
+
+                                var mess = document.createElement("p");
+                                mess.innerHTML =  "<b> "+dataType[z][7]+"</b> - "+dataType[z].message+"   "
+                                
+                                div_conteneur_message.appendChild(mess);
+                                parent2.appendChild(div_conteneur_message);
+                                
+                            }
+                        }
+                            
+            },
+        
+            error: function (request, status, error) {
+                //    console.log(request)
+                //    console.log(status)
+                //    console.log(error)
+            },
+        
+            complete : function(resultat, statut){
+                //    console.log('ok')
+            }
+           
+
+                })
     }
     else
     {
@@ -443,8 +268,11 @@ function refreshAffichegaNewMessages(){
                 parent2 = document.getElementById('conteneur_des_messages').innerHTML = ""
                 parent = document.getElementById('user_selection_chat')
                 var p = document.createElement("p");
+                var img = document.createElement("IMG");
+                img.setAttribute("src", "../img/"+dataType.data1[5]+"");
                 p.innerHTML =  dataType.data1[1]
                 parent.innerHTML = ""
+                parent.appendChild(img);
                 parent.appendChild(p);
     
                 for (z=0; z<dataType.data2.length; z++)
@@ -453,24 +281,37 @@ function refreshAffichegaNewMessages(){
                     {
                         // console.log(dataType.data2)
                         parent2 = document.getElementById('conteneur_des_messages')
+
+                        div_conteneur_message = document.createElement("div");
+                        div_conteneur_message.className  = "div_conteneur_message auteur_message_moi"
+
                         var mess = document.createElement("p");
-                        mess.className  = "auteur_message_moi"
+                   
                          contenur_mess = dataType.data2[z][4]
                          mess.innerHTML = contenur_mess
-                         parent2.appendChild(mess);
+
+                        //  div_conteneur_message.innerHTML = mess.innerHTML
+
+                         div_conteneur_message.appendChild(mess);
+                         parent2.appendChild(div_conteneur_message);
                     }
                     else{
     
                         // console.log(dataType.data2)
                         parent2 = document.getElementById('conteneur_des_messages')
+
+                        div_conteneur_message = document.createElement("div");
+                        div_conteneur_message.className  = "div_conteneur_message"
+
                         var mess = document.createElement("p");
                          contenur_mess = dataType.data2[z][4]
                          mess.innerHTML = contenur_mess
-                         parent2.appendChild(mess);
+
+                         div_conteneur_message.appendChild(mess);
+                         parent2.appendChild(div_conteneur_message);
     
                     }
                 }
-            
             },
         
             error: function (request, status, error) {
@@ -518,6 +359,7 @@ function messageLuSiFenetreChatEstSurUser(){
 // ------------------------fonction sur faux boutton creer un groupe
 
 $("#div_like_button_creer_groupe").click(function(){
+    console.log('click')
     $("#liste_user_pour_creer_groupe").toggle();
     
     $.ajax({
@@ -561,7 +403,7 @@ $("#div_like_button_creer_groupe").click(function(){
   function toogleGroupe(){
     $("#liste_user_pour_creer_groupe").toggle();
   }
-  toogleGroupe()
+//   toogleGroupe()
 
 
 // --------------------------------------fonction sur click - selection des users pour créer groupe
@@ -656,8 +498,8 @@ function clickSurUnGroupe(){
             // console.log(first)
 
             groupes[i].addEventListener('click', function(e){
-    console.log('groupe')
-    console.log(groupes)
+                    // console.log('groupe')
+                    // console.log(groupes)
                
                 nom_du_groupe = first.innerHTML
                 console.log(nom_du_groupe)
@@ -673,7 +515,7 @@ function clickSurUnGroupe(){
              
                success : function(dataType){
        
-                        // console.log(dataType)  
+                        console.log(dataType)  
                         parent = document.getElementById('user_selection_chat')
                         var p = document.createElement("p");
                         p.setAttribute('name', 'groupe');
@@ -691,21 +533,33 @@ function clickSurUnGroupe(){
                             {
                                 // console.log('dans foir')
                                 parent2 = document.getElementById('conteneur_des_messages')
+
+                                div_conteneur_message = document.createElement("div");
+                                div_conteneur_message.className  = "div_conteneur_message auteur_message_moi"
+
                                 var mess = document.createElement("p");
-                                mess.className  = "auteur_message_moi"
-                                 mess.innerHTML =  dataType[z].message
-                                 parent2.appendChild(mess);
+                                mess.innerHTML =  dataType[z].message
+
+                                div_conteneur_message.appendChild(mess);
+                                parent2.appendChild(div_conteneur_message);
                             }
                             else{
 
                                 // console.log('dans foir')
                                 parent2 = document.getElementById('conteneur_des_messages')
+                                
+                                div_conteneur_message = document.createElement("div");
+                                div_conteneur_message.className  = "div_conteneur_message"
+
                                 var mess = document.createElement("p");
-                                 mess.innerHTML =  "<b> "+dataType[z][7]+"</b> - "+dataType[z].message+"   "
-                                 parent2.appendChild(mess);
+                                mess.innerHTML =  "<b> "+dataType[z][7]+"</b> - "+dataType[z].message+"   "
+
+                                div_conteneur_message.appendChild(mess);
+                                parent2.appendChild(div_conteneur_message);
                                 
                             }
                         }
+                        scroolBottom()
                                
                
                },
@@ -723,6 +577,38 @@ function clickSurUnGroupe(){
        
                 })
 
+                $.ajax({
+                    url: "../scripts_ajax_php/users_dans_groupe.php",
+                    type: "POST",
+                    data: {  "nom_du_groupe":nom_du_groupe  },
+                    dataType: "json",
+                  
+                    success : function(dataType){
+            
+                             console.log(dataType)  
+                             console.log(dataType.length)  
+                             for (y=0; z<dataType.length; y++)
+                             {
+                                var img = document.createElement("IMG");
+                                img.setAttribute("src", "../img/"+dataType[y][5]+"");
+                                parent.appendChild(img);
+                             }
+                    
+                    },
+                
+                    error: function (request, status, error) {
+                     //    console.log(request)
+                     //    console.log(status)
+                     //    console.log(error)
+                    },
+                
+                    complete : function(resultat, statut){
+                     //    console.log('ok')
+                    }
+            
+            
+                     })
+                   
               })}}
 
 
@@ -847,7 +733,7 @@ function checkNewMessageDansGroupe(){
                     //     parent2 = document.getElementById('conteneur_des_messages')
                     //     parent2.innerHTML = ""
                 }
-        
+                // scroolBottom()
         },
     
         error: function (request, status, error) {
@@ -893,3 +779,5 @@ function messageLuSiFenetreChatEstSurGroupe(){
     })
 
 }
+
+

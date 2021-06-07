@@ -86,28 +86,65 @@ header{
         position: sticky;
         top: 0;
         width: 20%; 
+        height: 90vh;
+  
         & #contenu_div1{
+ 
+
             position: sticky; 
             top: 0 ; 
             padding: 20px 0px ; 
+
+            & #users_list{
+                padding: 15px;
+                border: 1px solid rgb(209, 209, 209);
+                border-radius: 20px;
+                height: 70vh;
+                overflow: scroll;
+                margin-top: 10px;
+                overflow-x: hidden;
+                &::-webkit-scrollbar {
+                    display: none;
+                    -ms-overflow-style: none;  /* IE and Edge */
+                    scrollbar-width: none;  /* Firefox */
+                  }
+            }
         }
         & .users {
             @extend %displayflex; 
+            justify-content: space-between;
             width: 100%;
             background-color: rgb(236, 232, 232);
             margin: 10px 0px;
             border-radius: 1em;
-            & img {
+            & .img_avatar_chat{
                 display: block;
-                width: 50%;
-                padding: 30px;
+                width: 100px;
+                height: 100px;
+                padding: 10px;
                 object-fit: cover;
-               
+                border-radius: 50%;
             }
+            &:hover{
+                cursor: pointer;
+            }
+            // & img {
+            //     display: block;
+            //     width: 80px;
+            //     padding: 30px;
+            //     object-fit: cover;
+               
+            // }
             & p {
                 width: 70%;
                 display: flex;
                 align-items: center;
+            }
+            & .img_mail_user{
+                display: block;
+                padding-right: 20px;
+                width: 60px !important;
+                min-width: 60px !important;
             }
         }
     }
@@ -134,6 +171,7 @@ header{
                         font-weight: 800;
                     }
                 }
+      
             }
             .description_post{
                 padding: 20px;
@@ -311,19 +349,25 @@ header{
             }
         }
         #conv{
-            & > div {
-                display: flex; 
-                background-color: rgba(0, 0, 0, 0.096);
-                margin : 10px 0px ; 
-                div {
-                    width:  50% ;
-                    margin: auto; 
-                    img{
-                        width: 100% ; 
-                        padding: 30px;
+            & a{
+
+
+                & > div {
+                    display: flex; 
+                    background-color: rgba(0, 0, 0, 0.096);
+                    margin : 10px 0px ; 
+                    div {
+                        width:  50% ;
+                        margin: auto; 
+                        img{
+                            width: 100% ; 
+                            padding: 30px;
+                        }
                     }
                 }
+
             }
+   
         }
     }
 
@@ -335,15 +379,17 @@ header{
     text-transform: capitalize;
     padding: 5px;
     font-weight: 700;
+    width: 100px !important;
+    text-align: left;
     &::before{
         content: "";
         background-color: rgb(100, 102, 101);
         border-radius: 2em;
         // color: green;
-        width: 13px;
-        height: 13px;
+        min-width: 13px;
+        min-height: 13px;
         display: block;
-        transform: translateX(-43px) translateY(20px);
+        transform: translateX(-40px) translateY(20px);
 
     }
 }
@@ -363,56 +409,6 @@ header{
 border: 1px solid red;
 }
 
-
-// -----------------------------------page chat prive
-
-#user_selection_chat{
-    height: 50px;
-    background-color: aquamarine;
-}
-#conteneur_des_messages{
-    height: 90%;
-    background-color: bisque;
-}
-#intput_chat_et_button{
-    width: 100%;
-    & input{
-        width: 80%;
-    }
-}
-#div_like_button_creer_groupe{
-    @extend %displayflex;
-    height: 30px;
-    border-radius: 20px;
-    &:hover{
-        cursor: pointer;
-    }
-}
-#liste_user_pour_creer_groupe{
-    
-    display: none ;
-    @extend %displayflex;
-    flex-direction: column;
-    padding: 8px;
-    & .liste_pseudo_groupe{
-        border: 1px solid grey;
-        border-radius: 15px;
-        margin: 5px;
-        padding: 5px;
-        width: 80%;
-        text-align: center;
-        &:hover{
-            cursor: pointer;
-        }
-    }
-}
-.creer_groupe_green{
-    background-color: #4EEE8B;
-}
-.auteur_message_moi{
-    text-align: right;
-    background-color: rgb(224, 224, 224);
-}
 
 // style barre post 
 
