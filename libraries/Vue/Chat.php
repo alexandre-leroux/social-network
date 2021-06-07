@@ -34,7 +34,7 @@ class Chat{
                 <h2> Conversations </h2>
                 
                 <div id="conv">
-                    <div id="div_like_button_creer_groupe">CREER UN GROUPE</div>
+                    <div id="div_like_button_creer_groupe"><p>CREER UN GROUPE</p></div>
 
                     <div id="liste_user_pour_creer_groupe">
                         <p class='liste_pseudo_groupe'>pseudo</p>
@@ -45,15 +45,15 @@ class Chat{
                         foreach($result as $key => $value)
                         {
                             ?>
-                            <a>
-                                <div class="liste_groupes">
-                                    <div>
-                                        <img src="../img/group.svg" alt="#">
+                                <a>
+                                    <div class="liste_groupes">
+                                        <div>
+                                            <img src="../img/group.svg" alt="#">
+                                        </div>
+                                        <div class='nom_du_groupe'>
+                                            <p><?=$value['nom_du_groupe']?></p>
+                                        </div>
                                     </div>
-                                    <div class='nom_du_groupe'>
-                                        <p><?=$value['nom_du_groupe']?></p>
-                                    </div>
-                                </div>
                                 </a>
                             <?php
                         }
