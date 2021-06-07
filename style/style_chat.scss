@@ -246,6 +246,26 @@
     }
 }
 
+ @media screen and (min-width: 901px) and (max-width: 1400px) { 
+
+    
+        
+        .img_avatar_chat{
+            padding: 0;
+        }
+
+        .p_liste_user{
+            &::before{
+        
+                    transform: translateX(100px) translateY(-20px) !important;
+            }
+        }
+        .users{
+            padding-left: 20px !important;
+        }
+    
+    
+}
 
 @media (max-width: 900px) { 
 
@@ -268,4 +288,4 @@
     }
     
     
-    }
+}

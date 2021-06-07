@@ -279,6 +279,19 @@
   border-radius: 50%;
 }
 
+@media screen and (min-width: 901px) and (max-width: 1400px) {
+  .img_avatar_chat {
+    padding: 0;
+  }
+  .p_liste_user::before {
+    -webkit-transform: translateX(100px) translateY(-20px) !important;
+            transform: translateX(100px) translateY(-20px) !important;
+  }
+  .users {
+    padding-left: 20px !important;
+  }
+}
+
 @media (max-width: 900px) {
   .liste_groupes img {
     width: 50px;
