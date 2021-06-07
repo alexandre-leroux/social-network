@@ -12,6 +12,7 @@ $groupe = new \Models\Chat();
 $result = $groupe->display_groupes($mon_id);
 
 $vue_chat = new \Vue\Chat();
+$vue = new \Vue\Header();
 
 $user = new \Models\User(NULL,NULL,NULL,$mail,NULL,NULL,NULL);
 $user->updateConnecte($mail);
@@ -46,12 +47,9 @@ $pseudo_for_js = @$_GET['pseudo'];
 <body>
 
 
-<header >
-    <nav>
-        <h1>BIENVENUE <?= $_SESSION['prenom']?></h1>
-        <a href="deconnexion.php">déconnexion</a>
-    </nav>
-</header>
+<?php
+    $vue->header_connecte_chat();
+?>
 
 
 

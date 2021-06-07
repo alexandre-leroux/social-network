@@ -1,9 +1,10 @@
 <?php 
 session_start();
+require_once("libraries/autoload_index.php");
+
 if(@$_SESSION['mail'])
 {
     $mail = $_SESSION['mail'];
-    require_once("libraries/autoload_index.php");
     $user = new \Models\User(NULL,NULL,NULL,$mail,NULL,NULL,NULL);
     $user->updateConnecte($mail);
 
@@ -13,6 +14,8 @@ if(@$_SESSION['mail'])
     $groupe = new \Models\Chat();
     $result = $groupe->display_groupes($mon_id);
 }
+
+$vue = new \Vue\Header();
 
 ?>
 
@@ -30,43 +33,14 @@ if(@$_SESSION['mail'])
 <body>
 
 <?php
-if(!isset($_SESSION['mail']))
-{
-?>
-
-<header>
-    <nav>
-        <div class="logo_text_header">
-            <div class="logo_network">
-                <img src="img/logo.svg" alt="#">
-            </div>
-            <div class="nom_header">
-                <h1> la plateforme_ network </h1>
-            </div>
-        </div>
-        <ul>
-            <li><a href="pages/inscription.php">S'inscrire</a></li>
-            <li><a href="pages/connexion.php">Se connecter</a></li>
-        </ul>
-    </nav>
-</header>
-<?php
-}
-else
-{
-?>
-<header >
-    <nav>
-        <h1>BIENVENUE <?= $_SESSION['prenom']?></h1>
-        <a href="pages/deconnexion.php">déconnexion</a>
-        <a href="pages/chat.php">chat</a>
-    </nav>
-</header>
-
-
-
-<?php
-}
+    if(!isset($_SESSION['mail']))
+        {
+            $vue->header_non_connecte();
+        }
+    else
+        {
+            $vue->header_connecte();
+        }
 ?>
 
 
