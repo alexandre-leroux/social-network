@@ -1,14 +1,17 @@
 <?php 
 session_start();
-if(!isset($_SESSION['mail'])){
-    header('Location: ../index.php');
-}
+if
+    (!isset($_SESSION['mail'])){
+        header('Location: ../index.php');
+    }
 require_once("../libraries/autoload.php");
 $mail = $_SESSION['mail'];
 $mon_id = $_SESSION['id'];
 
 $groupe = new \Models\Chat();
 $result = $groupe->display_groupes($mon_id);
+
+$vue_chat = new \Vue\Chat();
 
 $user = new \Models\User(NULL,NULL,NULL,$mail,NULL,NULL,NULL);
 $user->updateConnecte($mail);
@@ -56,97 +59,15 @@ $pseudo_for_js = @$_GET['pseudo'];
 
 <section id="section_centrale">
 
-    <div id="div3">
-        <article id="contenu_div3">
+   <?php
+        $vue_chat->section_gauche($result);
 
-            <div id="pres_user_connect">
-                <div class="img_user_connect">
-                    <img src="../img/<?=$_SESSION['avatar']?>" alt="#">
-                </div>
-                <div class="infos_user_connecte">
-                    <p><?=$_SESSION['prenom'];?></p>
-                    <p>@<?=$_SESSION['prenom']?><?=$_SESSION['nom']?></p>
-                </div>
-            </div>
-            
-            <nav id="menu">
-                <ul>
-                    <li><a href="../index.php"><i class="fa fa-home"></i> Accueil </a></li>
-                    <li><a href="profil.php"><i class="fa fa-user-circle"></i> Profil </a></li>
-                </ul>
-            </nav>
-            
-            <h2> Conversations </h2>
-            
-            <div id="conv">
-                <div id="div_like_button_creer_groupe">CREER UN GROUPE</div>
+        // <!-- zone pour les messages -->
+        $vue_chat->section_centrale();
 
-                <div id="liste_user_pour_creer_groupe">
-                    <p class='liste_pseudo_groupe'>pseudo</p>
-                    <button>créer</button>
-                </div>
+        $vue_chat->section_droite();
 
-                <?php
-                    foreach($result as $key => $value)
-                    {
-                        ?>
-                        <a>
-                            <div class="liste_groupes">
-                                <div>
-                                    <img src="../img/group.svg" alt="#">
-                                </div>
-                                <div class='nom_du_groupe'>
-                                    <p><?=$value['nom_du_groupe']?></p>
-                                </div>
-                            </div>
-                            </a>
-                         <?php
-                    }
-                
-                ?>
-                               
-            </div>
-            
-        </article>
-
-    </div>
-    
-<!-- zone pour les messages -->
-<div id="div2">
-    <div id="user_selection_chat">
-  
-    </div>
-
-    <div id="conteneur_des_messages">
-    </div>
-
-    <div id="intput_chat_et_button">
-        <input id="input_messages" type="text">
-        <button id="button_envoyer_message">ENVOYER</button>
-    </div>
-
-
-</div>
-
-
-
-<div id="div1">
-    <article id="contenu_div1">
-
-        <div id="bloc_search_bar">
-            <input type="search" name="barre_de_recherche" id="search_bar_users" placeholder="chercher un utilisateur">
-        
-        </div>
-        <div id="users_list">
-            
-        </div>
-    </article>
-</div>
-
-
-
-
-
+    ?>
 
 </section>
 
