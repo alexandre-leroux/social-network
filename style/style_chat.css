@@ -242,6 +242,12 @@
   min-width: 110px;
 }
 
+.liste_groupes p {
+  max-width: 80%;
+  overflow-wrap: break-word;
+  text-align: center;
+}
+
 .liste_groupes:hover {
   cursor: pointer;
 }

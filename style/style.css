@@ -127,6 +127,11 @@ header nav ul li a {
 }
 
 #section_centrale #div1 .users {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -139,6 +144,7 @@ header nav ul li a {
 #section_centrale #div1 .users .img_avatar_chat {
   display: block;
   width: 100px;
+  min-width: 100px;
   height: 100px;
   padding: 10px;
   -o-object-fit: cover;
@@ -253,7 +259,6 @@ header nav ul li a {
   -webkit-transition: .2s;
   transition: .2s;
   display: inline-block;
-  color: #fa5f5a;
 }
 
 #section_centrale #div2 .post .like_post i:hover {
@@ -434,7 +439,24 @@ header nav ul li a {
   text-decoration: none;
 }
 
+#section_centrale #div3 #conv {
+  height: 50%;
+  padding: 15px;
+  border: 1px solid #d1d1d1;
+  border-radius: 20px;
+  overflow: auto;
+}
+
+#section_centrale #div3 #conv::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
 #section_centrale #div3 #conv a > div {
+  border-radius: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

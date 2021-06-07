@@ -24,12 +24,8 @@
     overflow-y: hidden;
     &::-webkit-scrollbar {
         height: 5px;
-        // width: 10px;
-        // padding-left: 50px;
       }
-    //  &::-webkit-scrollbar-track {
-    //     background: #ffffff;
-    //   }
+
      &::-webkit-scrollbar-track-piece:end {
         margin-right: 50px;
       }
@@ -39,11 +35,7 @@
       &::-webkit-scrollbar-thumb {
         background: #888; 
       }
-    // &::-webkit-scrollbar {
-    //     display: none;
-    //     -ms-overflow-style: none;  /* IE and Edge */
-    //     scrollbar-width: none;  /* Firefox */
-    //   }
+
 
     & img{
         height: 70px;
@@ -212,6 +204,11 @@
 
         min-width: 110px;
 
+    }
+    & p {
+        max-width: 80%;
+        overflow-wrap: break-word;
+        text-align: center;
     }
     &:hover{
         cursor: pointer;
