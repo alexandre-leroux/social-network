@@ -157,17 +157,6 @@ header nav ul li a {
   border-radius: 50%;
 }
 
-#section_centrale #div1 .users .img_avatar_chat::after {
-  content: "";
-  background-color: #ff5e00;
-  border-radius: 2em;
-  min-width: 50px;
-  min-height: 50px;
-  display: block;
-  -webkit-transform: translateX(-300px) translateY(50px);
-          transform: translateX(-300px) translateY(50px);
-}
-
 #section_centrale #div1 .users:hover {
   cursor: pointer;
 }
