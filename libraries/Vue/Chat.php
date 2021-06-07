@@ -73,7 +73,7 @@ class Chat{
     public function section_centrale()
         {
             ?>
-                <div id="div2">
+                <div id="div2" class="section_centrale_du_chat">
                     <div id="user_selection_chat">
                 
                     </div>
