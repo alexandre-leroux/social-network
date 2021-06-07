@@ -1,4 +1,4 @@
-#user_selection_chat, #div2, #intput_chat_et_button, #div_like_button_creer_groupe, #liste_user_pour_creer_groupe, .div_conteneur_message, .auteur_message_moi, #bloc_search_bar {
+#user_selection_chat, #div2, #intput_chat_et_button, #div_like_button_creer_groupe, #liste_user_pour_creer_groupe, .div_conteneur_message, .auteur_message_moi, #bloc_search_bar, #users_list .users {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -231,5 +231,21 @@
   border-radius: 40px;
   border: 1px solid grey;
   padding: 4px;
+}
+
+#users_list .users {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#users_list img {
+  display: block;
+  width: 100px;
+  min-width: 100px;
+  height: 100px;
+  padding: 10px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
 }
 /*# sourceMappingURL=style_chat.css.map */

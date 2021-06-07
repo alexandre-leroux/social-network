@@ -154,6 +154,7 @@
 
     & img{
         border-radius: 50%;
+        
     }
 }
 #liste_user_pour_creer_groupe{
@@ -196,10 +197,28 @@
     @extend %displayflex;
 
     & input{
-    width: 80%;
-    border-radius: 40px;
+        width: 80%;
+        border-radius: 40px;
         border: 1px solid grey;
         padding: 4px;
+    }
+}
+
+#users_list{
+
+    & .users{
+        @extend %displayflex;
+        flex-wrap: wrap;
+
+    }
+    & img{
+        display: block;
+        width: 100px;
+        min-width: 100px;
+        height: 100px;
+        padding: 10px;
+        object-fit: cover;
+        border-radius: 50%;
     }
 }
 
