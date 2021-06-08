@@ -10,7 +10,6 @@ class Comment {
         foreach($array as $key => $value)
         {
 
-        
         ?>
 
             <div class="comment">
@@ -20,6 +19,9 @@ class Comment {
                 <div id="description_comment">
                     <p class="bold"> <?= $value['prenom'] ; ?> </p>
                     <p> <?= $value['comment'] ; ?></p>
+                </div>
+                <div id="date_comment">
+                    <p><?= $value['date_comment'] ; ?></p>
                 </div>
             </div>   
 

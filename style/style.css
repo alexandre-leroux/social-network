@@ -292,6 +292,12 @@ header nav ul li a {
   background-color: #e6e6e6;
 }
 
+#section_centrale #div2 .post .comment_post .comment #date_comment {
+  background-color: #e6e6e6;
+  padding: 15px;
+  margin: 0px 10px;
+}
+
 #section_centrale #div2 .post #link_autres_comment {
   text-align: center;
   color: #fa5f5a;

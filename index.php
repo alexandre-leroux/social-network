@@ -393,5 +393,6 @@ $vue = new \Vue\Header();
 <script src="scripts/like.js"></script>
 <script src="scripts/deconnecte_index.js"></script>
 <script src="scripts/autocompletion.js"></script>
+<script src="scripts/scroll_post.js"></script>
 
 </html>
