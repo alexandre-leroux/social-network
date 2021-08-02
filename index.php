@@ -1,5 +1,6 @@
 <?php 
 session_start();
+ 
 require_once("libraries/autoload_index.php");
 
 if(@$_SESSION['mail'])
@@ -14,6 +15,10 @@ if(@$_SESSION['mail'])
     $post = new \Models\Post(); 
     $groupe = new \Models\Chat();
     $result = $groupe->display_groupes($mon_id);
+    $infos_post = $post->getPost(); 
+    var_dump($post->getPost()); 
+
+    $vue_post = new \Vue\Post();
 }
 
 $vue = new \Vue\Header();
@@ -52,6 +57,42 @@ date_default_timezone_set("Europe/Paris");
             if(!empty($_POST['input_text'])){
 
                 $post->addPost($_SESSION['id'],$_POST['input_text'], date("Y-m-d H:i:s"));
+                $result_id = $post->getLastPostId(); 
+                $post_id = $result_id['id'] ; 
+                if(isset($_FILES['choix_image']) && $_FILES['choix_image']['name'][0] != "")
+                {
+                    for($i = 0 ; isset($_FILES['choix_image']['name'][$i]); $i++)
+                    {
+                        $tailleMax = 2097152; 
+                        $extensionsValides = array('jpg', 'jpeg', 'gif', 'png');
+                        if($_FILES['choix_image']['size'][$i] <= $tailleMax)
+                        {
+                            $extensionUpload = strtolower(substr(strrchr($_FILES['choix_image']['name'][$i], '.'),1));
+                            if(in_array($extensionUpload, $extensionsValides))
+                            {
+                                $chemin = "img/img_post/".$post_id."-".$i.".".$extensionUpload;
+                                $mouvement = move_uploaded_file($_FILES['choix_image']['tmp_name'][$i], $chemin );
+                                $img_post =  $post_id."-".$i.".".$extensionUpload ; 
+                                if($mouvement)
+                                {
+                                    $post->addImgPost($post_id, $_SESSION['id'],$img_post) ;
+            
+                                    echo 'ok' ;
+                                }
+                                else{
+                                    echo '<p class="msg_inscription error">Erreur durant l\'importation du fichier</p>'; 
+                                }
+                            }
+                            else{
+                                echo '<p class="msg_inscription error">Votre image doit etre au format jpg, jpeg, gif ou png</p>' ;
+                            }
+                        }
+                        else{
+                            echo '<p class="msg_inscription error">L\'image ne dois pas dépasser 2mo</p>' ; 
+                        }
+
+                    }
+                }
             }
             else{
                 echo ' Veuillez remplir un champs de texte'; 
@@ -119,6 +160,9 @@ date_default_timezone_set("Europe/Paris");
     
     
     <div id="div2">
+
+    <?php 
+    $vue_post->displayPost($infos_post,$post); ?>
 
     <article id="new_post">
         <div class="contenu_new_post">
