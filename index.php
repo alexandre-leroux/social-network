@@ -11,11 +11,14 @@ if(@$_SESSION['mail'])
     $mail = $_SESSION['mail'];
     $mon_id = $_SESSION['id'];
 
+    $post = new \Models\Post(); 
     $groupe = new \Models\Chat();
     $result = $groupe->display_groupes($mon_id);
 }
 
 $vue = new \Vue\Header();
+
+date_default_timezone_set("Europe/Paris"); 
 
 ?>
 
@@ -34,13 +37,32 @@ $vue = new \Vue\Header();
 
 <?php
     if(!isset($_SESSION['mail']))
-        {
-            $vue->header_non_connecte();
-        }
+    {
+        $vue->header_non_connecte();
+    }
     else
+    {
+        $vue->header_connecte();
+    }
+
+    if(isset($_POST['bouton-post']))
+    {
+        if(isset($_POST['input_text']))
         {
-            $vue->header_connecte();
+            if(!empty($_POST['input_text'])){
+
+                $post->addPost($_SESSION['id'],$_POST['input_text'], date("Y-m-d H:i:s"));
+            }
+            else{
+                echo ' Veuillez remplir un champs de texte'; 
+            }
         }
+        else {
+            echo ' Veuillez remplir un champs de texte'; 
+        }
+    }
+
+
 ?>
 
 
@@ -100,15 +122,18 @@ $vue = new \Vue\Header();
 
     <article id="new_post">
         <div class="contenu_new_post">
-            <div class="search_bar_post">
-                <input type="text" name="input_text" id="input_text" placeholder="Quoi de neuf ?">
-                <button> Poster </button>
-            </div>            
-            <div class="choix_image" style="display: none;">
-                <i class="fa fa-image fa-lg" id="pictures_post"></i>
-                <input type="file" name="choix_image" id="choix_image" multiple>
-                <p> Tous les utilisateurs peuvent voir votre post </p>
-            </div>   
+            <form method="POST" id="form_add_comment" enctype="multipart/form-data">
+                <div class="search_bar_post">
+                    <input type="text" name="input_text" id="input_text" placeholder="Quoi de neuf ?">
+                    <input type="submit" id="btn-post" form="form_add_comment" name="bouton-post"> 
+                </div>            
+                <div class="choix_image" style="display: none;">
+                    <i class="fa fa-image fa-lg" id="pictures_post"></i>
+                    
+                    <input type="file" name="choix_image[]" id="choix_image" multiple>
+                    <p> Tous les utilisateurs peuvent voir votre post </p>
+                </div>   
+            </form>
         </div>
     </article>
 
@@ -393,5 +418,6 @@ $vue = new \Vue\Header();
 <script src="scripts/like.js"></script>
 <script src="scripts/deconnecte_index.js"></script>
 <script src="scripts/autocompletion.js"></script>
+<script src="scripts/add_post.js"></script>
 
 </html>
