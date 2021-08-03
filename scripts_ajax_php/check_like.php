@@ -8,7 +8,7 @@ $like = new \Models\Like() ;
 
 $post_id = $_POST['post_id']  ;
 
-$resultat = $like->checkLike($post_id) ;
+$resultat = $like->checkLike($post_id,$_SESSION['id']) ;
 
 $message = array() ; 
 

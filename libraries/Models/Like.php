@@ -33,14 +33,16 @@ class Like extends Model {
 
     }
 
-    public function checkLike($post_id){
+    public function checkLike($post_id,$id_user){
 
         $requete = $this->bdd->prepare("SELECT COUNT(id_post) 
                                             FROM aime
                                                 WHERE id_post = :id_post
+                                                    AND id_user = :id_user
         ");
 
         $requete->bindParam(':id_post', $post_id) ; 
+        $requete->bindParam(':id_user', $id_user) ; 
         $requete->execute() ; 
 
         $result = $requete->fetch() ; 
