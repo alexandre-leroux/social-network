@@ -17,7 +17,12 @@ class Post {
         foreach($model_post as $key => $value)
         {
             $result_img = $model->getImgPost($value['id']) ; 
+            $nb_like = $model->getNbLike($value['id']) ; 
+            $nb_comment = $model->getNbComment($value['id']); 
+
             var_dump($result_img);
+            var_dump(count($result_img));
+           
 
             ?>
                 
@@ -37,7 +42,7 @@ class Post {
                 </div>
 
                 <?php 
-                    if(!empty($result_img))
+                    if(count($result_img) === 3)
                     {
                         ?>
                     <div class="image_post">
@@ -46,26 +51,48 @@ class Post {
                         </div>
                         <div class="galerie">
                             <div>
-                                <img src="img/img_post/<?= $result_img[0][0] ; ?>" alt="img_2">
+                                <img src="img/img_post/<?= $result_img[1][0] ; ?>" alt="img_2">
                             </div>
                             <div>
-                                <img src="img/img_post/<?= $result_img[0][0] ; ?>" alt="img_3">
+                                <img src="img/img_post/<?= $result_img[2][0] ; ?>" alt="img_3">
                             </div> 
                         </div>
                     </div>
                     <?php
                     }
+                    elseif(count($result_img) === 2)
+                    {
+                        ?>
+                        <div class="galerie">
+                        <div>
+                            <img src="img/img_post/<?= $result_img[0][0] ; ?>" alt="">
+                        </div>
+                        <div>
+                            <img src="img/img_post/<?= $result_img[1][0] ; ?>" alt="">
+                        </div> 
+                    </div> 
+                    <?php
+                    }
+                    elseif(count($result_img) === 1)
+                    {
+                        ?>
+                        <div class="image_post">
+                            <img src="img/img_post/<?= $result_img[0][0] ; ?>" alt="#">
+                        </div>
+                        <?php
+                    }
+                    
                     ?>
 
                 <div class="like_post">
                     <div>
                         <i class="fa fa-thumbs-up btn_like" style="color: rgb(250, 95, 90);"></i>
                     </div>
-                    <p class="compteur_like"> 128 </p>
+                    <p class="compteur_like"> <?= $nb_like ; ?> </p>
                     <div>
                         <i class="fa fa-comments button_comment"></i>
                     </div>
-                    <p> 40 </p>
+                    <p> <?= $nb_comment ; ?></p>
                     
                 </div>
 

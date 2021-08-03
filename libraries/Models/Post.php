@@ -86,4 +86,24 @@ class Post extends Model {
         return $requete->fetchAll(); 
 
     }
+
+    public function getNbLike($post_id)
+    {
+        $requete = $this->bdd->prepare("SELECT id FROM aime WHERE id_post = :post_id"); 
+        $requete->bindParam(':post_id' , $post_id); 
+
+        $requete->execute(); 
+
+        return $requete->rowCount(); 
+    }
+
+    public function getNbComment($post_id)
+    {
+        $requete = $this->bdd->prepare("SELECT id FROM comment WHERE post_id = :post_id"); 
+        $requete->bindParam(':post_id' , $post_id); 
+
+        $requete->execute(); 
+        
+        return $requete->rowCount(); 
+    }
 }

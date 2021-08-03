@@ -161,27 +161,28 @@ date_default_timezone_set("Europe/Paris");
     
     <div id="div2">
 
-    <?php 
-    $vue_post->displayPost($infos_post,$post); ?>
+    
 
-    <article id="new_post">
-        <div class="contenu_new_post">
-            <form method="POST" id="form_add_comment" enctype="multipart/form-data">
-                <div class="search_bar_post">
-                    <input type="text" name="input_text" id="input_text" placeholder="Quoi de neuf ?">
-                    <input type="submit" id="btn-post" form="form_add_comment" name="bouton-post"> 
-                </div>            
-                <div class="choix_image" style="display: none;">
-                    <i class="fa fa-image fa-lg" id="pictures_post"></i>
-                    
-                    <input type="file" name="choix_image[]" id="choix_image" multiple>
-                    <p> Tous les utilisateurs peuvent voir votre post </p>
-                </div>   
-            </form>
-        </div>
-    </article>
+<article id="new_post">
+    <div class="contenu_new_post">
+        <form method="POST" id="form_add_comment" enctype="multipart/form-data">
+        <div class="search_bar_post">
+            <input type="text" name="input_text" id="input_text" placeholder="Quoi de neuf ?">
+            <input type="submit" id="btn-post" form="form_add_comment" name="bouton-post"> 
+        </div>            
+        <div class="choix_image" style="display: none;">
+            <i class="fa fa-image fa-lg" id="pictures_post"></i>
+            
+            <input type="file" name="choix_image[]" id="choix_image" multiple>
+            <p> Tous les utilisateurs peuvent voir votre post </p>
+        </div>   
+    </form>
+</div>
+</article>
+<?php 
+$vue_post->displayPost($infos_post,$post); ?>
 
-    <article class="post" data-id="1">
+<article class="post" data-id="1">
         <div class="post_image">
             <div class="photo_profil">
                 <img src="img/pp.jpg" alt="#">
@@ -426,6 +427,8 @@ date_default_timezone_set("Europe/Paris");
                 
         </div>
     </article>
+
+    <button id="voir_plus"> Voir plus </button>
 </div>
 
 <div id="div1">
@@ -463,5 +466,6 @@ date_default_timezone_set("Europe/Paris");
 <script src="scripts/deconnecte_index.js"></script>
 <script src="scripts/autocompletion.js"></script>
 <script src="scripts/add_post.js"></script>
+<script src="scripts/scroll.js"></script>
 
 </html>
